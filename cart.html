@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haoren - Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid mt-5">
+        <div class="row flex-column align-items-center">
+            <div class="col-12 text-center" style="padding: 20px;">
+                <h1 class="display-4 fw-bold" style="color: #000;">Your Cart</h1>
+                <p style="color: #666;">Review your selected items</p>
+            </div>
+            <div class="col-12" style="max-width: 900px; padding: 20px;">
+                <div id="cartItems" style="margin-bottom: 20px;"></div>
+                <div id="cartTotal" style="text-align: right; padding: 20px; border-top: 1px solid #ddd;">
+                    <h4 style="color: #000;">Total: <span id="totalAmount">€0.00</span></h4>
+                    <a href="checkout.html">
+                          <button style="background-color: #000; color: #fff; padding: 10px 20px; border-radius: 5px; border: none;">Proceed to Checkout</button>
+
+                    </a>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadCart() {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            const cart = cartData.items;
+            const cartItemsDiv = document.getElementById('cartItems');
+            const totalAmountSpan = document.getElementById('totalAmount');
+
+            cartItemsDiv.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.style.cssText = 'position: relative; display: flex; align-items: center; padding: 15px; border: 1px solid #ddd; border-radius: 15px; margin-bottom: 10px;';
+
+                itemDiv.innerHTML = `
+                    <!-- Remove Button -->
+                    <button onclick="removeItem(${index})" 
+                            style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 18px; color: #888; cursor: pointer;">
+                        &times;
+                    </button>
+
+                    <img src="${item.image}" alt="${item.name}" style="width: 100px; height: auto; border-radius: 10px; margin-right: 15px;">
+                    <div style="flex-grow: 1;">
+                        <h5 style="color: #000; margin: 0;">${item.name}</h5>
+                        <p style="color: #666; margin: 5px 0;">Type: ${item.type}</p>
+                        <p style="color: #666; margin: 5px 0;">
+                            Quantity: 
+                            <input type="number" min="1" value="${item.quantity}" 
+                                   style="width: 60px; padding: 2px 5px; border-radius: 5px; border: 1px solid #ccc;" 
+                                   oninput="updateQuantity(${index}, this.value)">
+                        </p>
+                        <p style="color: #666; margin: 5px 0;">${item.description}</p>
+                        <p style="color: #000; margin: 5px 0;">Subtotal: Ksh${item.subtotal.toFixed(2)}</p>
+                    </div>
+                `;
+                cartItemsDiv.appendChild(itemDiv);
+            });
+
+            totalAmountSpan.textContent = `Ksh${cartData.total.toFixed(2)}`;
+        }
+
+        function updateQuantity(index, newQuantity) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            let cart = cartData.items;
+
+            newQuantity = parseInt(newQuantity);
+            if (isNaN(newQuantity) || newQuantity < 1) newQuantity = 1;
+
+            const price = parseFloat(cart[index].price.replace('€', ''));
+            cart[index].quantity = newQuantity;
+            cart[index].subtotal = price * newQuantity;
+
+            cartData.total = cart.reduce((sum, item) => sum + item.subtotal, 0);
+
+            localStorage.setItem('cartData', JSON.stringify(cartData));
+            loadCart();
+        }
+
+        function removeItem(index) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            cartData.items.splice(index, 1); // remove item
+            cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+            localStorage.setItem('cartData', JSON.stringify(cartData));
+            loadCart();
+        }
+
+        // Load cart on page load
+        window.onload = loadCart;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
