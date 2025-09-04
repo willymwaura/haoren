@@ -33,13 +33,28 @@
 
 <body>
 
-  <div class="position-fixed top-0 start-0 w-100 z-3">
+<div class="position-fixed top-0 start-0 w-100 z-3">
 
-    <div style="width: 100%; height: 40px; background-color: #988558; display: flex; align-items: center; justify-content: center;">
-      <p style="color: white; margin: 0; font-size: 12px;">
-        Highway Heights, Kilimani, Nairobi | ☎ (+254) 0114 012345
-      </p>
+     <div style="width: 100%; min-height: 40px; background-color: #988558; display: flex; align-items: center; justify-content: center; padding: 0 10px;">
+        <p style="color: white; margin: 0; font-size: 12px; text-align: center; white-space: normal;">
+            Highway Heights, Kilimani, Nairobi • ☎ (+254) 0114 012345
+        </p>
     </div>
+       <style>
+        @media (max-width: 575.98px) {
+            .top-bar p {
+                font-size: 14px;
+                line-height: 1.4;
+                padding: 8px 15px;
+            }
+        }
+        @media (min-width: 576px) {
+            .top-bar p {
+                font-size: 12px;
+                line-height: 40px;
+            }
+        }
+    </style>
     <!-- svg icon -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="arrow-left" viewBox="0 0 256 256">
@@ -165,7 +180,7 @@
     </div>
 
     <!-- header section start  -->
-    <header id="header" style="width: 100;">
+  <header id="header" style="width: 100%;">
         <div class="container-fluid" style="background-color: white;">
             <div class="row">
                 <nav class="navbar navbar-expand-lg">
@@ -177,7 +192,7 @@
                         </svg>
                     </button>
                     <a href="index.html" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
-                        <img style="width: 120px;height: 80px;" src="images/logo.avif">
+                        <img style="width: 120px; height: 80px;" src="images/logo.avif">
                     </a>
                     <div class="offcanvas offcanvas-end bg-white" tabindex="-1" id="bdNavbar"
                         aria-labelledby="bdNavbarOffcanvasLabel">
@@ -186,24 +201,23 @@
                                 <button type="button" class="btn-close shadow-none"
                                     data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
                             </div>
-                            <div class="col-md-2 d-flex">
+                            <div class="col-12 col-lg-2 d-flex">
                                 <a href="index.html" class="navbar-brand order-2 order-lg-2 d-none d-lg-flex">
-                                    <img style="width: 120px;height: 80px;" src="images/logo.avif">
+                                    <img style="width: 120px; height: 80px;" src="images/logo.avif">
                                 </a>
                             </div>
-                            <div class="col-md-5 offset-lg-2">
-                                <div class="navbar-collapse order-1 order-lg-1 ms-3 ms-lg-0" id="navbarMenu">
-                                    <ul class="navbar-nav d-flex justify-content-center">
-                                        <li class="nav-item me-5">
+                            <div class="col-12 col-lg-5">
+                                <div class="navbar-collapse order-1 order-lg-1" id="navbarMenu">
+                                    <ul class="navbar-nav d-flex flex-column flex-lg-row justify-content-center align-items-center align-items-lg-start">
+                                        <li class="nav-item me-2 me-lg-3">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="index.html">Home</a>
                                         </li>
-                                        <li class="nav-item me-5">
+                                        <li class="nav-item me-2 me-lg-3">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="about-us.html">About</a>
                                         </li>
-                                        <!-- Dropdown for Shop -->
-                                        <li class="nav-item me-5 dropdown">
+                                        <li class="nav-item me-2 me-lg-3 dropdown">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0 dropdown-toggle"
                                                 href="#" id="navbarDropdownShop" role="button" data-bs-toggle="dropdown"
                                                 aria-expanded="false">
@@ -214,14 +228,13 @@
                                                 <li><a class="dropdown-item text-black" href="products.html">Retail</a></li>
                                             </ul>
                                         </li>
-                                        <!-- Dropdown for Blog -->
-                                        <li class="nav-item me-5">
+                                        <li class="nav-item me-2 me-lg-3">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="blog.html">
                                                 Blog
                                             </a>
                                         </li>
-                                        <li class="nav-item me-5 dropdown">
+                                        <li class="nav-item me-2 me-lg-3 dropdown">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0 dropdown-toggle"
                                                 href="#" id="navbarDropdownPages" role="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -235,26 +248,25 @@
                                                 <li><a href="terms-conditions.html" class="dropdown-item text-black">Terms and Conditions</a></li>
                                             </ul>
                                         </li>
-                                        <!-- Dropdown for Pages -->
-                                        <li class="nav-item me-5">
+                                        <li class="nav-item me-2 me-lg-3">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="gallery.html">
                                                 Gallery
                                             </a>
                                         </li>
-                                        <li class="nav-item me-5">
+                                        <li class="nav-item me-2 me-lg-3">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="contact.html">
                                                 Contact
                                             </a>
                                         </li>
-                                        <li class="nav-item mt-4 mt-lg-0">
+                                        <li class="nav-item mt-2 mt-lg-0 me-2 me-lg-3">
                                             <a class="nav-link text-black pb-1 pe-0">Affiliate</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-12 col-lg-3">
                                 <ul
                                     class="user-items list-unstyled d-none d-lg-flex justify-content-end align-items-center order-3 flex-grow-1 gap-4 m-0" style="padding-right: 20px;">
                                     <li class="position-relative">
@@ -262,7 +274,6 @@
                                             <svg class="text-black cart" width="20" height="20">
                                                 <use xlink:href="#cart"></use>
                                             </svg>
-                                            <!-- Badge for product count -->
                                             <span id="cartCount"
                                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                                 0
@@ -276,6 +287,48 @@
                 </nav>
             </div>
         </div>
+        <style>
+            @media (max-width: 991.98px) {
+                .navbar-nav {
+                    width: 100%;
+                    text-align: center;
+                    padding: 1rem 0;
+                }
+                .nav-item {
+                    width: 100%;
+                    margin-bottom: 0.5rem;
+                }
+                .nav-link {
+                    font-size: 1.1rem;
+                    padding: 0.5rem 1rem !important;
+                }
+                .dropdown-menu {
+                    text-align: center;
+                    border: none;
+                    background-color: #f8f9fa;
+                    width: 100%;
+                }
+                .dropdown-item {
+                    font-size: 1rem;
+                    padding: 0.5rem 1rem;
+                }
+                .offcanvas-body {
+                    padding: 1rem;
+                }
+                .navbar-brand img {
+                    margin: 0 auto;
+                }
+                .nav-link-ltr {
+                    width: 100%;
+                    display: block;
+                }
+            }
+            @media (min-width: 992px) {
+                .navbar-nav {
+                    flex-direction: row !important;
+                }
+            }
+        </style>
     </header>
 </div>
 
@@ -775,20 +828,20 @@
             <div class="haoren-card">
                 <img src="images/mulima-1-YD0lxlN2DwuZMvZP.avif" class="img-fluid" alt="Wild Valley">
                 <div class="overlay">
-                    <h2 style="color: white;">Explore Our Exquisite Fragrances</h2>
-                 
+                    <h2>Explore Our Exquisite Fragrances</h2>
+                    <p>HAOREN MULIA BARIDI</p>
                 </div>
-             
+                <p class="caption">100 ml Eau de Toilette</p>
             </div>
         </div>
         <div class="col-12 col-md-6">
             <div class="haoren-card">
                 <img src="images/whatsapp-image-2025-05-21-at-09.26.07_ccd9048a-YBg7a7wn9ZCRqPJO.avif" class="img-fluid" alt="Luxury Perfumes">
                 <div class="overlay">
-                    <h2 style="color: white;">Luxury HAOREN Perfumes Await You</h2>
-                  
+                    <h2>Luxury HAOREN Perfumes Await You</h2>
+                    <p>Pwani La</p>
                 </div>
-               
+                <p class="caption">Pour Homme 103.3 fl.oz</p>
             </div>
         </div>
     </div>
