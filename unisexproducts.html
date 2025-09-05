@@ -4,23 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haoren Products</title>
-    <!--Bootstrap ================================================== -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <!--Link Swiper's CSS ================================================== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-
-    <!-- Style Sheet ================================================== -->
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- Google Fonts ================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         .section-wrapper {
             padding-left: 0;
@@ -86,6 +75,17 @@
         }
         .overlay {
             display: none;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .quantity-controls button {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            line-height: 1;
         }
     </style>
 </head>
@@ -315,6 +315,7 @@
                                             <h5 style="color: #000; margin-top: 10px;">Ghāyat Al-Lubān</h5>
                                             <p style="color: #666; font-size: 12px;">Ksh 1500</p>
                                             <button class="btn btn-dark add-to-cart" 
+                                                    data-id="prod1"
                                                     data-image="images/p1.avif" 
                                                     data-name="Ghāyat Al-Lubān" 
                                                     data-type="Eau De Parfum Vaporisateur Spray" 
@@ -333,6 +334,7 @@
                                         <h5 style="color: #000; margin-top: 10px;">Al-Diamond</h5>
                                         <p style="color: #666; font-size: 12px;">Ksh 800</p>
                                         <button class="btn btn-dark add-to-cart" 
+                                                data-id="prod2"
                                                 data-image="images/p2.avif" 
                                                 data-name="Al-Diamond" 
                                                 data-type="Eau De Parfum" 
@@ -350,6 +352,7 @@
                                         <h5 style="color: #000; margin-top: 10px;">Jannat Al-Nakhil</h5>
                                         <p style="color: #666; font-size: 12px;">Ksh 900</p>
                                         <button class="btn btn-dark add-to-cart" 
+                                                data-id="prod3"
                                                 data-image="images/p3.avif" 
                                                 data-name="Jannat Al-Nakhil" 
                                                 data-type="Eau De Parfum" 
@@ -368,6 +371,7 @@
                                             <h5 style="color: #000; margin-top: 10px;">Ghāyat Al-Lubān</h5>
                                             <p style="color: #666; font-size: 12px;">Ksh 1500</p>
                                             <button class="btn btn-dark add-to-cart" 
+                                                    data-id="prod4"
                                                     data-image="images/p1.avif" 
                                                     data-name="Ghāyat Al-Lubān" 
                                                     data-type="Eau De Parfum Vaporisateur Spray" 
@@ -386,6 +390,7 @@
                                         <h5 style="color: #000; margin-top: 10px;">Al-Diamond</h5>
                                         <p style="color: #666; font-size: 12px;">Ksh 800</p>
                                         <button class="btn btn-dark add-to-cart" 
+                                                data-id="prod5"
                                                 data-image="images/p2.avif" 
                                                 data-name="Al-Diamond" 
                                                 data-type="Eau De Parfum" 
@@ -403,6 +408,7 @@
                                         <h5 style="color: #000; margin-top: 10px;">Jannat Al-Nakhil</h5>
                                         <p style="color: #666; font-size: 12px;">Ksh 900</p>
                                         <button class="btn btn-dark add-to-cart" 
+                                                data-id="prod6"
                                                 data-image="images/p3.avif" 
                                                 data-name="Jannat Al-Nakhil" 
                                                 data-type="Eau De Parfum" 
@@ -462,6 +468,7 @@
         function addToCart(button) {
             const price = parseFloat(button.getAttribute('data-price').replace('Ksh ', ''));
             const product = {
+                id: button.getAttribute('data-id'),
                 image: button.getAttribute('data-image'),
                 name: button.getAttribute('data-name'),
                 type: button.getAttribute('data-type'),
@@ -473,11 +480,42 @@
             };
 
             let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-            cartData.items.push(product);
+            const existingItem = cartData.items.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+                existingItem.subtotal = parseFloat(existingItem.price.replace('Ksh ', '')) * existingItem.quantity;
+            } else {
+                cartData.items.push(product);
+            }
+            
             cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
             localStorage.setItem('cartData', JSON.stringify(cartData));
 
             showPopup();
+            updateCartCount();
+        }
+
+        function updateQuantity(productId, change) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            const item = cartData.items.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity = Math.max(1, item.quantity + change);
+                item.subtotal = parseFloat(item.price.replace('Ksh ', '')) * item.quantity;
+                cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+                localStorage.setItem('cartData', JSON.stringify(cartData));
+                loadMiniCart();
+                updateCartCount();
+            }
+        }
+
+        function removeFromCart(productId) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            cartData.items = cartData.items.filter(item => item.id !== productId);
+            cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+            localStorage.setItem('cartData', JSON.stringify(cartData));
+            loadMiniCart();
             updateCartCount();
         }
 
@@ -515,11 +553,16 @@
                     miniDiv.style.cssText = 'padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;';
                     miniDiv.innerHTML = `
                         <img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto; margin-right: 10px;">
-                        <div>
+                        <div style="flex-grow: 1;">
                             <p style="margin:0;font-weight:bold;">${item.name}</p>
-                            <p style="margin:0;">Qty: ${item.quantity}</p>
+                            <div class="quantity-controls">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
+                                <span>Qty: ${item.quantity}</span>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
+                            </div>
                             <p style="margin:0;">Subtotal: Ksh ${item.subtotal.toFixed(2)}</p>
                         </div>
+                        <button class="btn btn-danger btn-sm" onclick="removeFromCart('${item.id}')">×</button>
                     `;
                     miniCartItemsDiv.appendChild(miniDiv);
 
@@ -530,7 +573,10 @@
                             <h6 class="my-0">${item.name}</h6>
                             <small class="text-body-secondary">Qty: ${item.quantity}</small>
                         </div>
-                        <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
+                        <div>
+                            <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
+                            <button class="btn btn-danger btn-sm ms-2" onclick="removeFromCart('${item.id}')">×</button>
+                        </div>
                     `;
                     offcanvasCartItems.appendChild(offcanvasDiv);
                 });

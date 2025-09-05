@@ -23,6 +23,18 @@
         .form-control {
             background-color: white;
         }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .quantity-controls button {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            line-height: 1;
+        }
+
     </style>
 </head>
 <body>
@@ -71,29 +83,6 @@
                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17h18M3 12h18M3 7h18" />
             </symbol>
         </svg>
-
-        <div class="search-popup">
-            <div class="search-popup-container">
-                <form role="search" method="get" class="form-group" action="">
-                    <input type="search" id="search-form" class="form-control border-0 border-bottom" placeholder="Type and press enter" value="" name="s" />
-                    <button type="submit" class="search-submit border-0 position-absolute bg-white" style="top: 15px; right: 15px;">
-                        <svg class="search" width="24" height="24">
-                            <use xlink:href="#search"></use>
-                        </svg>
-                    </button>
-                </form>
-                <h5 class="cat-list-title">Browse Categories</h5>
-                <ul class="cat-list">
-                    <li class="cat-list-item mb-3"><a href="#" title="Product-1">Product-1</a></li>
-                    <li class="cat-list-item mb-3"><a href="#" title="Product-2">Product-2</a></li>
-                    <li class="cat-list-item mb-3"><a href="#" title="Product-3">Product-3</a></li>
-                    <li class="cat-list-item mb-3"><a href="#" title="Product-4">Product-4</a></li>
-                    <li class="cat-list-item mb-3"><a href="#" title="Product-5">Product-5</a></li>
-                    <li class="cat-list-item mb-3"><a href="#" title="Product-6">Product-6</a></li>
-                    <li class="cat-list-item mb-3"><a href="#" title="Product-7">Product-7</a></li>
-                </ul>
-            </div>
-        </div>
 
         <!-- Mini Cart Sidebar (slides in from right) -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="miniCart">
@@ -257,10 +246,12 @@
                 <div class="col-12 col-md-3 mb-4 mb-md-0">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="wholesale.html" class="text-white text-decoration-none">Shop</a></li>
+                        <li><a href="blog.html" class="text-white text-decoration-none">Blog</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="privacy-policy.html" class="text-white text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html" class="text-white text-decoration-none">Terms and Conditions</a></li>
                         <p class="mb-0">&copy; 2025 Haoren. All rights reserved.</p>
                     </ul>
                 </div>
@@ -271,7 +262,7 @@
                     <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
                     <h5>Contact Us</h5>
-                    <p class="mb-1">Email: info@haorenaf.com</p>
+                    <p class="mb-1">Email: <a href="mailto:info@haorenaf.com" class="text-white text-decoration-none">info@haorenaf.com</a></p>
                     <p class="mb-1">Phone: (+254) 0114012345</p>
                     <p>Address: Highway Heights, Kilimani, Nairobi</p>
                 </div>
@@ -281,24 +272,47 @@
         </div>
     </footer>
 
-    <script src="js/jquery-1.11.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="js/plugins.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
     <script>
+        function updateQuantity(productId, change) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            const item = cartData.items.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity = Math.max(1, item.quantity + change);
+                item.subtotal = parseFloat(item.price.replace('Ksh ', '')) * item.quantity;
+                cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+                localStorage.setItem('cartData', JSON.stringify(cartData));
+                loadMiniCart();
+                updateCartCount();
+            }
+        }
+
+        function removeFromCart(productId) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            cartData.items = cartData.items.filter(item => item.id !== productId);
+            cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+            localStorage.setItem('cartData', JSON.stringify(cartData));
+            loadMiniCart();
+            updateCartCount();
+        }
+
         function updateCartCount() {
             const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [] };
             const count = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cartCount').textContent = count;
-            document.getElementById('offcanvasCartCount').textContent = count;
+            const cartCountElement = document.getElementById('cartCount');
+            const offcanvasCartCountElement = document.getElementById('offcanvasCartCount');
+            if (cartCountElement) cartCountElement.textContent = count;
+            if (offcanvasCartCountElement) offcanvasCartCountElement.textContent = count;
         }
 
         function loadMiniCart() {
             const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
             const miniCartItemsDiv = document.getElementById('miniCartItems');
-            const miniCartTotal = document.getElementById('miniCartTotal');
             const offcanvasCartItems = document.getElementById('offcanvasCartItems');
+
+            if (!miniCartItemsDiv || !offcanvasCartItems) return;
 
             miniCartItemsDiv.innerHTML = '';
             offcanvasCartItems.innerHTML = '';
@@ -312,11 +326,16 @@
                     miniDiv.style.cssText = 'padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;';
                     miniDiv.innerHTML = `
                         <img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto; margin-right: 10px;">
-                        <div>
+                        <div style="flex-grow: 1;">
                             <p style="margin:0;font-weight:bold;">${item.name}</p>
-                            <p style="margin:0;">Qty: ${item.quantity}</p>
+                            <div class="quantity-controls">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
+                                <span>Qty: ${item.quantity}</span>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
+                            </div>
                             <p style="margin:0;">Subtotal: Ksh ${item.subtotal.toFixed(2)}</p>
                         </div>
+                        <button class="btn btn-danger btn-sm remove-item" onclick="removeFromCart('${item.id}')">×</button>
                     `;
                     miniCartItemsDiv.appendChild(miniDiv);
 
@@ -325,15 +344,23 @@
                     offcanvasDiv.innerHTML = `
                         <div>
                             <h6 class="my-0">${item.name}</h6>
-                            <small class="text-body-secondary">Qty: ${item.quantity}</small>
+                            <div class="quantity-controls my-1">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
+                                <span class="px-2">Qty: ${item.quantity}</span>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
+                            </div>
+                            <small class="text-body-secondary">Subtotal: Ksh ${item.subtotal.toFixed(2)}</small>
                         </div>
-                        <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
+                        <button class="btn btn-danger btn-sm remove-item" onclick="removeFromCart('${item.id}')">×</button>
                     `;
                     offcanvasCartItems.appendChild(offcanvasDiv);
                 });
             }
 
-            miniCartTotal.textContent = `Ksh ${cartData.total.toFixed(2)}`;
+            const miniCartTotal = document.getElementById('miniCartTotal');
+            if (miniCartTotal) {
+                miniCartTotal.textContent = `Ksh ${cartData.total.toFixed(2)}`;
+            }
             updateCartCount();
         }
 

@@ -29,6 +29,26 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+           <style>
+        .form-bg {
+            background-color: #f0f0f0;
+        }
+        .form-control {
+            background-color: white;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .quantity-controls button {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            line-height: 1;
+        }
+  
+    </style>
 </head>
 
 <body>
@@ -480,63 +500,102 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script type="text/javascript" src="js/plugins.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-<script>
-    function updateCartCount() {
-        const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [] };
-        const count = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
-        document.getElementById('cartCount').textContent = count;
-        document.getElementById('offcanvasCartCount').textContent = count;
-    }
-
-    function loadMiniCart() {
-        const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-        const miniCartItemsDiv = document.getElementById('miniCartItems');
-        const miniCartTotal = document.getElementById('miniCartTotal');
-        const offcanvasCartItems = document.getElementById('offcanvasCartItems');
-
-        miniCartItemsDiv.innerHTML = '';
-        offcanvasCartItems.innerHTML = '';
-        if (cartData.items.length === 0) {
-            miniCartItemsDiv.innerHTML = '<p class="text-muted">Your cart is empty.</p>';
-            offcanvasCartItems.innerHTML = '<li class="list-group-item text-muted">Your cart is empty.</li>';
-        } else {
-            cartData.items.forEach(item => {
-                const miniDiv = document.createElement('div');
-                miniDiv.className = 'cart-item';
-                miniDiv.style.cssText = 'padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;';
-                miniDiv.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto; margin-right: 10px;">
-                    <div>
-                        <p style="margin:0;font-weight:bold;">${item.name}</p>
-                        <p style="margin:0;">Qty: ${item.quantity}</p>
-                        <p style="margin:0;">Subtotal: Ksh ${item.subtotal.toFixed(2)}</p>
-                    </div>
-                `;
-                miniCartItemsDiv.appendChild(miniDiv);
-
-                const offcanvasDiv = document.createElement('li');
-                offcanvasDiv.className = 'list-group-item d-flex justify-content-between lh-sm';
-                offcanvasDiv.innerHTML = `
-                    <div>
-                        <h6 class="my-0">${item.name}</h6>
-                        <small class="text-body-secondary">Qty: ${item.quantity}</small>
-                    </div>
-                    <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
-                `;
-                offcanvasCartItems.appendChild(offcanvasDiv);
-            });
+ <script>
+        function updateQuantity(productId, change) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            const item = cartData.items.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity = Math.max(1, item.quantity + change);
+                item.subtotal = parseFloat(item.price.replace('Ksh ', '')) * item.quantity;
+                cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+                localStorage.setItem('cartData', JSON.stringify(cartData));
+                loadMiniCart();
+                updateCartCount();
+            }
         }
 
-        miniCartTotal.textContent = `Ksh ${cartData.total.toFixed(2)}`;
-        updateCartCount();
-    }
+        function removeFromCart(productId) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            cartData.items = cartData.items.filter(item => item.id !== productId);
+            cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+            localStorage.setItem('cartData', JSON.stringify(cartData));
+            loadMiniCart();
+            updateCartCount();
+        }
 
-    document.getElementById('miniCart').addEventListener('show.bs.offcanvas', loadMiniCart);
-    document.getElementById('offcanvasCart').addEventListener('show.bs.offcanvas', loadMiniCart);
-    window.addEventListener('DOMContentLoaded', () => {
-        updateCartCount();
-    });
-</script>
+        function updateCartCount() {
+            const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [] };
+            const count = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCountElement = document.getElementById('cartCount');
+            const offcanvasCartCountElement = document.getElementById('offcanvasCartCount');
+            if (cartCountElement) cartCountElement.textContent = count;
+            if (offcanvasCartCountElement) offcanvasCartCountElement.textContent = count;
+        }
+
+        function loadMiniCart() {
+            const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            const miniCartItemsDiv = document.getElementById('miniCartItems');
+            const offcanvasCartItems = document.getElementById('offcanvasCartItems');
+
+            if (!miniCartItemsDiv || !offcanvasCartItems) return;
+
+            miniCartItemsDiv.innerHTML = '';
+            offcanvasCartItems.innerHTML = '';
+            if (cartData.items.length === 0) {
+                miniCartItemsDiv.innerHTML = '<p class="text-muted">Your cart is empty.</p>';
+                offcanvasCartItems.innerHTML = '<li class="list-group-item text-muted">Your cart is empty.</li>';
+            } else {
+                cartData.items.forEach(item => {
+                    const miniDiv = document.createElement('div');
+                    miniDiv.className = 'cart-item';
+                    miniDiv.style.cssText = 'padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;';
+                    miniDiv.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto; margin-right: 10px;">
+                        <div style="flex-grow: 1;">
+                            <p style="margin:0;font-weight:bold;">${item.name}</p>
+                            <div class="quantity-controls">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
+                                <span>Qty: ${item.quantity}</span>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
+                            </div>
+                            <p style="margin:0;">Subtotal: Ksh ${item.subtotal.toFixed(2)}</p>
+                        </div>
+                        <button class="btn btn-danger btn-sm remove-item" onclick="removeFromCart('${item.id}')">×</button>
+                    `;
+                    miniCartItemsDiv.appendChild(miniDiv);
+
+                    const offcanvasDiv = document.createElement('li');
+                    offcanvasDiv.className = 'list-group-item d-flex justify-content-between lh-sm';
+                    offcanvasDiv.innerHTML = `
+                        <div>
+                            <h6 class="my-0">${item.name}</h6>
+                            <div class="quantity-controls my-1">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
+                                <span class="px-2">Qty: ${item.quantity}</span>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
+                            </div>
+                            <small class="text-body-secondary">Subtotal: Ksh ${item.subtotal.toFixed(2)}</small>
+                        </div>
+                        <button class="btn btn-danger btn-sm remove-item" onclick="removeFromCart('${item.id}')">×</button>
+                    `;
+                    offcanvasCartItems.appendChild(offcanvasDiv);
+                });
+            }
+
+            const miniCartTotal = document.getElementById('miniCartTotal');
+            if (miniCartTotal) {
+                miniCartTotal.textContent = `Ksh ${cartData.total.toFixed(2)}`;
+            }
+            updateCartCount();
+        }
+
+        document.getElementById('miniCart').addEventListener('show.bs.offcanvas', loadMiniCart);
+        document.getElementById('offcanvasCart').addEventListener('show.bs.offcanvas', loadMiniCart);
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCartCount();
+        });
+    </script>
 
 </body>
 

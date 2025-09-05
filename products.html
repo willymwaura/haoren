@@ -76,6 +76,17 @@
         .overlay {
             display: none;
         }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .quantity-controls button {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            line-height: 1;
+        }
     </style>
 </head>
 <body>
@@ -304,6 +315,7 @@
                                             <h5 style="color: #000; margin-top: 10px;">Ghāyat Al-Lubān</h5>
                                             <p style="color: #666; font-size: 12px;">Ksh 1500</p>
                                             <button class="btn btn-dark add-to-cart" 
+                                                    data-id="prod1"
                                                     data-image="images/p1.avif" 
                                                     data-name="Ghāyat Al-Lubān" 
                                                     data-type="Eau De Parfum Vaporisateur Spray" 
@@ -322,6 +334,7 @@
                                         <h5 style="color: #000; margin-top: 10px;">Al-Diamond</h5>
                                         <p style="color: #666; font-size: 12px;">Ksh 800</p>
                                         <button class="btn btn-dark add-to-cart" 
+                                                data-id="prod2"
                                                 data-image="images/p2.avif" 
                                                 data-name="Al-Diamond" 
                                                 data-type="Eau De Parfum" 
@@ -339,6 +352,7 @@
                                         <h5 style="color: #000; margin-top: 10px;">Jannat Al-Nakhil</h5>
                                         <p style="color: #666; font-size: 12px;">Ksh 900</p>
                                         <button class="btn btn-dark add-to-cart" 
+                                                data-id="prod3"
                                                 data-image="images/p3.avif" 
                                                 data-name="Jannat Al-Nakhil" 
                                                 data-type="Eau De Parfum" 
@@ -357,6 +371,7 @@
                                             <h5 style="color: #000; margin-top: 10px;">Ghāyat Al-Lubān</h5>
                                             <p style="color: #666; font-size: 12px;">Ksh 1500</p>
                                             <button class="btn btn-dark add-to-cart" 
+                                                    data-id="prod4"
                                                     data-image="images/p1.avif" 
                                                     data-name="Ghāyat Al-Lubān" 
                                                     data-type="Eau De Parfum Vaporisateur Spray" 
@@ -375,6 +390,7 @@
                                         <h5 style="color: #000; margin-top: 10px;">Al-Diamond</h5>
                                         <p style="color: #666; font-size: 12px;">Ksh 800</p>
                                         <button class="btn btn-dark add-to-cart" 
+                                                data-id="prod5"
                                                 data-image="images/p2.avif" 
                                                 data-name="Al-Diamond" 
                                                 data-type="Eau De Parfum" 
@@ -392,6 +408,7 @@
                                         <h5 style="color: #000; margin-top: 10px;">Jannat Al-Nakhil</h5>
                                         <p style="color: #666; font-size: 12px;">Ksh 900</p>
                                         <button class="btn btn-dark add-to-cart" 
+                                                data-id="prod6"
                                                 data-image="images/p3.avif" 
                                                 data-name="Jannat Al-Nakhil" 
                                                 data-type="Eau De Parfum" 
@@ -451,6 +468,7 @@
         function addToCart(button) {
             const price = parseFloat(button.getAttribute('data-price').replace('Ksh ', ''));
             const product = {
+                id: button.getAttribute('data-id'),
                 image: button.getAttribute('data-image'),
                 name: button.getAttribute('data-name'),
                 type: button.getAttribute('data-type'),
@@ -462,11 +480,42 @@
             };
 
             let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-            cartData.items.push(product);
+            const existingItem = cartData.items.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+                existingItem.subtotal = parseFloat(existingItem.price.replace('Ksh ', '')) * existingItem.quantity;
+            } else {
+                cartData.items.push(product);
+            }
+            
             cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
             localStorage.setItem('cartData', JSON.stringify(cartData));
 
             showPopup();
+            updateCartCount();
+        }
+
+        function updateQuantity(productId, change) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            const item = cartData.items.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity = Math.max(1, item.quantity + change);
+                item.subtotal = parseFloat(item.price.replace('Ksh ', '')) * item.quantity;
+                cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+                localStorage.setItem('cartData', JSON.stringify(cartData));
+                loadMiniCart();
+                updateCartCount();
+            }
+        }
+
+        function removeFromCart(productId) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            cartData.items = cartData.items.filter(item => item.id !== productId);
+            cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+            localStorage.setItem('cartData', JSON.stringify(cartData));
+            loadMiniCart();
             updateCartCount();
         }
 
@@ -504,11 +553,16 @@
                     miniDiv.style.cssText = 'padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;';
                     miniDiv.innerHTML = `
                         <img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto; margin-right: 10px;">
-                        <div>
+                        <div style="flex-grow: 1;">
                             <p style="margin:0;font-weight:bold;">${item.name}</p>
-                            <p style="margin:0;">Qty: ${item.quantity}</p>
+                            <div class="quantity-controls">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
+                                <span>Qty: ${item.quantity}</span>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
+                            </div>
                             <p style="margin:0;">Subtotal: Ksh ${item.subtotal.toFixed(2)}</p>
                         </div>
+                        <button class="btn btn-danger btn-sm" onclick="removeFromCart('${item.id}')">×</button>
                     `;
                     miniCartItemsDiv.appendChild(miniDiv);
 
@@ -519,7 +573,10 @@
                             <h6 class="my-0">${item.name}</h6>
                             <small class="text-body-secondary">Qty: ${item.quantity}</small>
                         </div>
-                        <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
+                        <div>
+                            <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
+                            <button class="btn btn-danger btn-sm ms-2" onclick="removeFromCart('${item.id}')">×</button>
+                        </div>
                     `;
                     offcanvasCartItems.appendChild(offcanvasDiv);
                 });
