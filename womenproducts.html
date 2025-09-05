@@ -178,15 +178,24 @@
                             <img style="width: 120px; height: 80px;" src="images/logo.avif">
                         </a>
                         <div class="offcanvas offcanvas-end bg-white" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+
+                                                        <a href="index.html" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
+                            <img style="width: 80px; height: 60px;" src="images/logo.avif">
+                        </a>
+                          <!-- Cart Icon (shows on all screens, moves with order classes) -->
+  <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 20px;">
+    <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" class="position-relative">
+      <svg class="text-black cart" width="22" height="22">
+        <use xlink:href="#cart"></use>
+      </svg>
+      <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+    </a>
+  </div>
                             <div class="offcanvas-body align-items-center">
                                 <div class="offcanvas-header p-0 py-4 ms-2">
                                     <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
                                 </div>
-                                <div class="col-md-2 d-flex">
-                                    <a href="index.html" class="navbar-brand order-2 order-lg-2 d-none d-lg-flex">
-                                        <img style="width: 120px; height: 80px;" src="images/logo.avif">
-                                    </a>
-                                </div>
+                           
                                 <div class="col-md-5 offset-lg-2">
                                     <div class="navbar-collapse order-1 order-lg-1 ms-3 ms-lg-0" id="navbarMenu">
                                         <ul class="navbar-nav d-flex justify-content-center">
@@ -228,18 +237,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-md-3" style="padding-right: 20px;">
-                                    <ul class="user-items list-unstyled d-none d-lg-flex justify-content-end align-items-center order-3 flex-grow-1 gap-4 m-0">
-                                        <li class="position-relative">
-                                            <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart">
-                                                <svg class="text-black cart" width="20" height="20">
-                                                    <use xlink:href="#cart"></use>
-                                                </svg>
-                                                <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                             
                             </div>
                         </div>
                     </nav>
