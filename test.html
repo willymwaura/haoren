@@ -3,930 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scentfied Replica</title>
-   <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>WhatsApp Checkout Modal</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f9fbfd;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 20px 20px;
-   
-    }
-
-    .card {
-      background-color: white;
-      border: none;
-      border-radius: 0;
       margin: 0;
+      padding: 0;
     }
 
-    .hero {
-      padding: 40px 20px;
-      position: relative;
-      overflow: hidden;
-      height: 400px;
-    }
-
-    .hero-content {
-      padding-top: 100px;
-      max-width: 50%;
-      z-index: 1;
-      overflow: hidden;
-      padding-left: 50px;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      color: #333;
-      margin: 0;
-    }
-
-    .hero p {
-      font-size: 24px;
-      color: #666;
-      margin: 10px 0;
-    }
-
-    .hero button {
-      background-color: #ff3366;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-
-    .hero-image {
-      max-width: 50%;
-      height: auto;
-      position: absolute;
-      right: 0;
+    /* Dark overlay */
+    .overlay {
+      display: none;
+      position: fixed;
       top: 0;
-      bottom: 0;
-      margin: auto;
-    }
-
-    .categories {
-      padding: 20px;
-      background-color: white;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-
-    .category {
-      text-align: center;
-      margin: 10px;
-    }
-
-    .category img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .category p {
-      color: #ff3366;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    /* Mobile hero */
-    @media (max-width: 768px) {
-      .hero {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: auto;
-      }
-
-      .hero-content {
-        max-width: 100% !important;
-        padding-left: 0;
-        padding-top: 20px;
-        z-index: 2;
-      }
-
-      .hero-image {
-        position: relative;
-        max-width: 100%;
-        height: auto;
-        margin-top: 20px;
-        z-index: 1;
-      }
-
-      .hero-content h1,
-      .hero-content p,
-      .hero-content button {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    /* Products section */
-    .section-title {
-      text-align: center;
-      font-size: 24px;
-      color: black;
-      margin-bottom: 20px;
-      font-weight: normal;
-    }
-      .section-title1 {
-      text-align: center;
-      font-size: 24px;
-      color: #d3a07a;
-      margin-bottom: 20px;
-      font-weight: normal;
-      font-style: italic;
-      font-family: cursive;
-    }
-
-    /* ✅ Grid layout for products */
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .card-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-   .product-card {
-  position: relative;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-    .product-card img {
-      max-width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
-
-   .category-label {
-  position: absolute;
-  top: 10px;
-  padding: 3px 8px;
-  font-size: 12px;
-  background-color: #f8c471;
-  color: #5a381e;  /* brown text */
-  border-radius: 8px;
-  font-weight: bold;
-  z-index: 2;
-  white-space: nowrap;
-}
-.product-card .category-label:first-of-type {
-  right: 10px;
-  width: 30%;
-}
-.product-card .category-label:last-of-type {
-  left: 10px;
-  width: 30%;
-}
-
-    .product-name {
-      font-size: 14px;
-      color: #333;
-      margin: 5px 0;
-    }
-
-    .size-options {
-      display: flex;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
       justify-content: center;
-      gap: 5px;
-      margin: 5px 0;
-      color: #6c757d;
-    }
-
-    .size-options span {
-      padding: 2px 6px;
-      background: #e9ecef;
-      border-radius: 10px;
-    }
-
-    .scent-notes {
-      font-size: 12px;
-      color: #6c757d;
-      margin: 5px 0;
-    }
-
-    .price {
-      font-size: 14px;
-      color: #333;
-      margin: 5px 0;
-    }
-
-    .price del {
-      color: #6c757d;
-      margin-left: 5px;
-    }
-
-    /* ✅ Add to cart + icons in one row */
-    .product-actions {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-top: 10px;
+      z-index: 999;
     }
 
-    .btn-add {
-      background: #fff;
-      border: 1px solid #dee2e6;
-      padding: 5px 10px;
+    /* Modal box */
+    .modal {
+      background: #f9fcff;
+      border-radius: 8px;
+      padding: 20px;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      font-size: 1.5em;
+      color: #333;
+    }
+
+    .modal .section {
+      margin: 15px 0;
+    }
+
+    .modal input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    .modal .actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 12px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      font-size: 1em;
     }
 
-    .btn-add img {
-      width: 12px;
-      height: 12px;
+    .btn-cancel {
+      background: #eee;
     }
 
-    .icons {
-      display: flex;
-      gap: 10px;
-      align-items: center;
+    .btn-whatsapp {
+      background: #25d366;
+      color: white;
     }
 
-    .icons img {
-      width: 20px;
-      height: 20px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-    
-<div class="position-fixed top-0 start-0 w-100 z-3">
-    <div style="width: 100%; height: 40px; background-color: #988558; display: flex; align-items: center; justify-content: center;">
-        <p style="color: white; margin: 0; font-size: 12px;">
-            Highway Heights, Kilimani, Nairobi | ☎ (+254) 0114 012345
-        </p>
+
+  <!-- WhatsApp icon (trigger) -->
+  <button id="whatsappIcon">📲 WhatsApp Checkout</button>
+
+  <!-- Overlay & Modal -->
+<!-- Overlay & Modal -->
+<div class="overlay" id="modalOverlay">
+  <div class="modal">
+    <h2 id="modalProductName">Product Name</h2>
+    <p>Quick checkout via WhatsApp</p>
+
+    <div class="section">
+      <label><b>Brand:</b> <span id="modalBrand"></span></label><br>
+      <label><b>Category:</b> <span id="modalCategory"></span></label>
     </div>
 
-    <!-- svg icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="arrow-left" viewBox="0 0 256 256">
-            <path fill="currentColor"
-                d="M220 128a4 4 0 0 1-4 4H49.66l65.17 65.17a4 4 0 0 1-5.66 5.66l-72-72a4 4 0 0 1 0-5.66l72-72a4 4 0 0 1 5.66 5.66L49.66 124H216a4 4 0 0 1 4 4" />
-        </symbol>
-        <symbol id="arrow-right" viewBox="0 0 256 256">
-            <path fill="currentColor"
-                d="m218.83 130.83l-72 72a4 4 0 0 1-5.66-5.66L206.34 132H40a4 4 0 0 1 0-8h166.34l-65.17-65.17a4 4 0 0 1 5.66-5.66l72 72a4 4 0 0 1 0 5.66" />
-        </symbol>
-        <symbol id="man" viewBox="0 0 512 512">
-            <path fill="currentColor"
-                d="M332.64 64.58C313.18 43.57 286 32 256 32c-30.16 0-57.43 11.5-76.8 32.38c-19.58 21.11-29.12 49.8-26.88 80.78C156.76 206.28 203.27 256 256 256s99.16-49.71 103.67-110.82c2.27-30.7-7.33-59.33-27.03-80.6M432 480H80a31 31 0 0 1-24.2-11.13c-6.5-7.77-9.12-18.38-7.18-29.11C57.06 392.94 83.4 353.61 124.8 326c36.78-24.51 83.37-38 131.2-38s94.42 13.5 131.2 38c41.4 27.6 67.74 66.93 76.18 113.75c1.94 10.73-.68 21.34-7.18 29.11A31 31 0 0 1 432 480" />
-        </symbol>
-        <symbol id="search" viewBox="0 0 512 512">
-            <path fill="currentColor"
-                d="M456.69 421.39L362.6 327.3a173.8 173.8 0 0 0 34.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.8 173.8 0 0 0 327.3 362.6l94.09 94.09a25 25 0 0 0 35.3-35.3M97.92 222.72a124.8 124.8 0 1 1 124.8 124.8a124.95 124.95 0 0 1-124.8-124.8" />
-        </symbol>
-        <symbol id="expand" viewBox="0 0 32 32">
-            <path fill="currentColor"
-                d="m25.545 23.328l-7.627-7.705l7.616-7.616l1.857 1.857l2.26-8.428l-8.428 2.258l1.836 1.836l-7.603 7.604l-7.513-7.59L9.81 3.695L1.392 1.394l2.215 8.44l1.848-1.83l7.524 7.604l-7.515 7.515l-1.856-1.855l-2.26 8.427l8.43-2.257L7.94 25.6l7.503-7.502l7.614 7.693l-1.867 1.848l8.416 2.3l-2.213-8.438z" />
-        </symbol>
-        <symbol id="wishlist" viewBox="0 0 512 512">
-            <path fill="currentColor"
-                d="M256 448a32 32 0 0 1-18-5.57c-78.59-53.35-112.62-89.93-131.39-112.8c-40-48.75-59.15-98.8-58.61-153C48.63 114.52 98.46 64 159.08 64c44.08 0 74.61 24.83 92.39 45.51a6 6 0 0 0 9.06 0C278.31 88.81 308.84 64 352.92 64c60.62 0 110.45 50.52 111.08 112.64c.54 54.21-18.63 104.26-58.61 153c-18.77 22.87-52.8 59.45-131.39 112.8a32 32 0 0 1-18 5.56" />
-        </symbol>
-        <symbol id="cart" viewBox="0 0 512 512">
-            <circle cx="176" cy="416" r="32" fill="currentColor" />
-            <circle cx="400" cy="416" r="32" fill="currentColor" />
-            <path fill="currentColor"
-                d="M456.8 120.78a23.92 23.92 0 0 0-18.56-8.78H133.89l-6.13-34.78A16 16 0 0 0 112 64H48a16 16 0 0 0 0 32h50.58l45.66 258.78A16 16 0 0 0 160 368h256a16 16 0 0 0 0-32H173.42l-5.64-32h241.66A24.07 24.07 0 0 0 433 284.71l28.8-144a24 24 0 0 0-5-19.93" />
-        </symbol>
-        <symbol id="play" viewBox="0 0 512 512">
-            <path fill="currentColor" d="m96 448l320-192L96 64z" />
-        </symbol>
-        <symbol id="down" viewBox="0 0 24 24">
-            <g fill="none" fill-rule="evenodd">
-                <path
-                    d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
-                <path fill="currentColor"
-                    d="M13.06 16.06a1.5 1.5 0 0 1-2.12 0l-5.658-5.656a1.5 1.5 0 1 1 2.122-2.121L12 12.879l4.596-4.596a1.5 1.5 0 0 1 2.122 2.12l-5.657 5.658Z" />
-            </g>
-        </symbol>
-        <symbol id="navbar-icon" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 17h18M3 12h18M3 7h18" />
-        </symbol>
-    </svg>
-
-
-
-    <!-- Mini Cart Sidebar (slides in from right) -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="miniCart">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Your Cart</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div id="miniCartItems"></div>
-            <div style="border-top: 1px solid #ddd; padding-top: 10px; text-align: right;">
-                <h6>Total: <span id="miniCartTotal">Ksh 0.00</span></h6>
-                <div class="d-grid gap-2 mt-3">
-                    <a href="cart.html" class="btn btn-outline-dark">View Full Cart</a>
-                    <a href="checkout.html" class="btn btn-dark">Checkout</a>
-                </div>
-            </div>
-        </div>
+    <div class="section">
+      <span id="modalSize"></span> — 
+      <span id="modalPrice"></span>
     </div>
 
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
-        <div class="offcanvas-header justify-content-center">
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="order-md-last">
-                <h4 class="d-flex justify-content-between align-items-center mb-4">
-                    <span class="text-primary">Your cart</span>
-                    <span id="offcanvasCartCount" class="badge bg-primary rounded-circle pt-2">0</span>
-                </h4>
-                <ul class="list-group mb-4" id="offcanvasCartItems"></ul>
-                <button class="w-100 btn btn-dark" type="submit">Continue to checkout</button>
-            </div>
-        </div>
+    <div class="section">
+      <input type="text" id="modalFullName" placeholder="Full Name">
+      <input type="text" id="modalLocation" placeholder="Delivery Location">
     </div>
 
-    <!-- header section start -->
-    <header id="header" style="width: 100;">
-        <div class="container-fluid" style="background-color: #f5f5f5;">
-            <div class="row">
-                <nav class="navbar navbar-expand-lg">
-                                                <a href="index.html" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
-                            <img style="width: 80px; height: 60px;" src="images/logo.avif">
-                        </a>
-                          <!-- Cart Icon (shows on all screens, moves with order classes) -->
-  <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 20px;">
-    <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" class="position-relative">
-      <svg class="text-black cart" width="22" height="22">
-        <use xlink:href="#cart"></use>
-      </svg>
-      <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-    </a>
+    <div class="actions">
+      <button class="btn btn-cancel" id="cancelBtn">Cancel</button>
+      <button class="btn btn-whatsapp" id="placeOrderBtn">
+        Place WhatsApp Order
+      </button>
+    </div>
   </div>
-                    <button class="navbar-toggler d-flex d-lg-none order-3 p-0 border-0 shadow-none" type="button"
-                        data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <svg class="navbar-icon text-black" width="30" height="30">
-                            <use xlink:href="#navbar-icon"></use>
-                        </svg>
-                    </button>
-                 
-                    <div class="offcanvas offcanvas-end bg-white" tabindex="-1" id="bdNavbar"
-                        aria-labelledby="bdNavbarOffcanvasLabel">
-                        <div class="offcanvas-body align-items-center">
-                            <div class="offcanvas-header p-0 py-4 ms-2">
-                                <button type="button" class="btn-close shadow-none"
-                                    data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
-                            </div>
-                            <div class="col-md-2 d-flex">
-                                <a href="index.html" class="navbar-brand order-2 order-lg-2 d-none d-lg-flex">
-                                    <img style="width: 120px;height: 80px;" src="images/logo.avif">
-                                </a>
-                            </div>
-                            <div class="col-md-5 offset-lg-2">
-                                <div class="navbar-collapse order-1 order-lg-1 ms-3 ms-lg-0" id="navbarMenu">
-                                    <ul class="navbar-nav d-flex justify-content-center">
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="index.html">Home</a>
-                                        </li>
-                                        <!--
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="about-us.html">About</a>
-                                        </li>
-                                     
-                                        <li class="nav-item me-5 dropdown">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0 dropdown-toggle"
-                                                href="#" id="navbarDropdownShop" role="button" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                Shop
-                                            </a>
-                                            <ul class="dropdown-menu bg-white">
-                                                <li><a class="dropdown-item text-black" href="wholesale.html">Wholesale</a></li>
-                                                <li><a class="dropdown-item text-black" href="products.html">Retail</a></li>
-                                            </ul>
-                                        </li>
-                            
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="blog.html">
-                                                Blog
-                                            </a>
-                                        </li>
-                                        <li class="nav-item me-5 dropdown">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0 dropdown-toggle"
-                                                href="#" id="navbarDropdownPages" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                Pages
-                                            </a>
-                                            <ul class="dropdown-menu bg-white">
-                                                <li><a href="cart.html" class="dropdown-item text-black">Cart</a></li>
-                                                <li><a href="checkout.html" class="dropdown-item text-black">Checkout</a></li>
-                                                <li><a href="contact.html" class="dropdown-item text-black">Contact</a></li>
-                                                <li><a href="privacy-policy.html" class="dropdown-item text-black">Privacy Policy</a></li>
-                                                <li><a href="terms-conditions.html" class="dropdown-item text-black">Terms and Conditions</a></li>
-                                            </ul>
-                                        </li>
-                                   
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="gallery.html">
-                                                Gallery
-                                            </a>
-                                        </li>
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="contact.html">
-                                                Contact
-                                            </a>
-                                        </li>
-                                        <li class="nav-item mt-4 mt-lg-0">
-                                            <a class="nav-link text-black pb-1 pe-0">Affiliate</a>
-                                        </li> -->
-                                         <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="menperfumes.html">
-                                                Men-Perfumes
-                                            </a>
-                                        </li>
-                                         <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="womenperfumes.html">
-                                                Women-Perfumes
-                                            </a>
-                                        </li>
-                                         <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="unisexperfumes.html">
-                                                Unisex-Perfumes
-                                            </a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                       
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
 </div>
 
+<script>
+    function showPopup(icon) {
+  // find the parent product card
+  const productCard = icon.closest(".product-card");
 
-  <div class="container" style="padding-top: 160px;">
-    <div class="card">
-      <div class="hero">
-        <div class="hero-content">
-          <h1>Haoren</h1>
-          <p>Scents crafted for YOU.</p>
-          <button>Products</button>
-        </div>
-        <img class="hero-image" src="https://images.unsplash.com/photo-1610113774510-8d3a284b7315?w=500&auto=format&fit=crop&q=60" alt="Hand holding perfume bottle">
-      </div>
-    </div>
+  // get product data from dataset
+  const name = productCard.dataset.name;
+  const price = productCard.dataset.price;
+  const size = productCard.dataset.size;
+  const type = productCard.dataset.type;  // category/type
+  const image = productCard.dataset.image;
 
-    <div class="card" style="margin-top: 20px;">
-      <div class="categories">
-        <div class="category">
-          <img src="images/p1.avif" alt="Women Perfume">
-          <p>Women Perfume</p>
-        </div>
-        <div class="category">
-          <img src="images/p2.avif" alt="Men Perfume">
-          <p>Men Perfume</p>
-        </div>
-        <div class="category">
-          <img src="images/p3.avif" alt="Unisex Perfume">
-          <p>Unisex Perfume</p>
-        </div>
-        <div class="category">
-          <img src="images/p4.avif" alt="Kids Perfume">
-          <p>Kids Perfume</p>
-        </div>
-        <div class="category">
-          <img src="images/p5.avif" alt="Diffusers">
-          <p>Diffusers</p>
-        </div>
-        <div class="category">
-          <img src="images/p6.avif" alt="Scented Candles">
-          <p>Scented Candles</p>
-        </div>
-      </div>
-    </div>
+  // inject into modal
+  document.getElementById("modalProductName").textContent = name;
+  document.getElementById("modalPrice").textContent = "KES " + price;
+  document.getElementById("modalSize").textContent = size;
+  document.getElementById("modalBrand").textContent = name.split(" ")[0]; // crude brand extraction
+  document.getElementById("modalCategory").textContent = type;
 
-    <h2 class="section-title1">Popular, Loved & Timeless</h2>
+  // show modal
+  document.getElementById("modalOverlay").style.display = "flex";
+
+  // attach WhatsApp order link
+  document.getElementById("placeOrderBtn").onclick = () => {
+    const fullName = document.getElementById("modalFullName").value;
+    const location = document.getElementById("modalLocation").value;
+
+    const message = `Hello, I want to order:\n\n${name}\nSize: ${size}\nPrice: KES ${price}\n\nCustomer: ${fullName}\nLocation: ${location}`;
     
-    <h2 class="section-title">Popular, Loved & Timeless</h2>
-    <div class="card-container">
+    const url = "https://wa.me/254700000000?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
+  };
+}
 
-      <!-- Product 1 -->
-      <div class="product-card">
-        <span class="category-label">Popular</span>
-        <img src="images/p1.avif" alt="Tom Ford Oud Wood">
-        <div class="product-name">Tom Ford Oud Wood - EDP</div>
-        <div class="size-options">
-          <span>30 ml</span>
-       
-        </div>
-        <div class="scent-notes">Woody, Oud + 3 more</div>
-        <div class="price">KES 34,821 <del>KES 50,720</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
+// close modal
+document.getElementById("cancelBtn").addEventListener("click", () => {
+  document.getElementById("modalOverlay").style.display = "none";
+});
 
-      <!-- Product 2 -->
-      <div class="product-card">
-         <span class="category-label">Men</span>
-  <span class="category-label">Iconic</span>
-        <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-        <div class="product-name">Sauvage Dior Elixir</div>
-        <div class="size-options">
-          <span>60 ml</span>
-        </div>
-        <div class="scent-notes">Woody, Aromatic + 8 more</div>
-        <div class="price">KES 32,000 <del>KES 41,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
+document.getElementById("modalOverlay").addEventListener("click", (e) => {
+  if (e.target === document.getElementById("modalOverlay")) {
+    document.getElementById("modalOverlay").style.display = "none";
+  }
+});
 
-      <!-- Product 3 -->
-      <div class="product-card">
-    <span class="category-label">Women</span>
-  <span class="category-label">Iconic</span>
-        <img src="images/p3.avif" alt="My Way EDP">
-        <div class="product-name">My Way EDP - Giorgio Armani</div>
-        <div class="size-options">
-          <span>90 ml</span>
-        </div>
-        <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-        <div class="price">KES 22,990 <del>KES 25,750</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product-card">
-        <span class="category-label">Women</span>
-        <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-        <div class="product-name">Kayali Vanilla 28 EDP</div>
-        <div class="size-options">
-          <span>100 ml</span>
-        </div>
-        <div class="scent-notes">Amber, Vanilla</div>
-        <div class="price">KES 29,997 <del>KES 33,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-    </div>
-    
-    <h2 class="section-title1">Unisex Best Seller</h2>
-
-      <h2 class="section-title">Unisex Best Seller</h2>
-    <div class="card-container">
-
-      <!-- Product 1 -->
-      <div class="product-card">
-        <span class="category-label">Popular</span>
-        <img src="images/p1.avif" alt="Tom Ford Oud Wood">
-        <div class="product-name">Tom Ford Oud Wood - EDP</div>
-        <div class="size-options">
-          <span>30 ml</span>
-   
-        </div>
-        <div class="scent-notes">Woody, Oud + 3 more</div>
-        <div class="price">KES 34,821 <del>KES 50,720</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product-card">
-        <span class="category-label">Men <span style="color: #f8c471;">Iconic</span></span>
-        <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-        <div class="product-name">Sauvage Dior Elixir</div>
-        <div class="size-options">
-          <span>60 ml</span>
-        </div>
-        <div class="scent-notes">Woody, Aromatic + 8 more</div>
-        <div class="price">KES 32,000 <del>KES 41,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <span class="category-label">Women <span style="color: #f8c471;">Iconic</span></span>
-        <img src="images/p3.avif" alt="My Way EDP">
-        <div class="product-name">My Way EDP - Giorgio Armani</div>
-        <div class="size-options">
-          <span>90 ml</span>
-        </div>
-        <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-        <div class="price">KES 22,990 <del>KES 25,750</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product-card">
-        <span class="category-label">Women</span>
-        <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-        <div class="product-name">Kayali Vanilla 28 EDP</div>
-        <div class="size-options">
-          <span>100 ml</span>
-        </div>
-        <div class="scent-notes">Amber, Vanilla</div>
-        <div class="price">KES 29,997 <del>KES 33,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-    </div>
-      <h2 class="section-title1">Men Best Seller</h2>
-    
-      <h2 class="section-title">Men Best Seller</h2>
-    <div class="card-container">
-
-      <!-- Product 1 -->
-      <div class="product-card">
-        <span class="category-label">Popular</span>
-        <img src="images/p1.avif" alt="Tom Ford Oud Wood">
-        <div class="product-name">Tom Ford Oud Wood - EDP</div>
-        <div class="size-options">
-          <span>30 ml</span>
-     
-        </div>
-        <div class="scent-notes">Woody, Oud + 3 more</div>
-        <div class="price">KES 34,821 <del>KES 50,720</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product-card">
-        <span class="category-label">Men <span style="color: #f8c471;">Iconic</span></span>
-        <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-        <div class="product-name">Sauvage Dior Elixir</div>
-        <div class="size-options">
-          <span>60 ml</span>
-        </div>
-        <div class="scent-notes">Woody, Aromatic + 8 more</div>
-        <div class="price">KES 32,000 <del>KES 41,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <span class="category-label">Women <span style="color: #f8c471;">Iconic</span></span>
-        <img src="images/p3.avif" alt="My Way EDP">
-        <div class="product-name">My Way EDP - Giorgio Armani</div>
-        <div class="size-options">
-          <span>90 ml</span>
-        </div>
-        <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-        <div class="price">KES 22,990 <del>KES 25,750</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product-card">
-        <span class="category-label">Women</span>
-        <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-        <div class="product-name">Kayali Vanilla 28 EDP</div>
-        <div class="size-options">
-          <span>100 ml</span>
-        </div>
-        <div class="scent-notes">Amber, Vanilla</div>
-        <div class="price">KES 29,997 <del>KES 33,000</del></div>
-       <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-    </div>
-     <h2 class="section-title1">Women Best Seller</h2>
-      <h2 class="section-title">Women Best Seller</h2>
-    <div class="card-container">
-
-      <!-- Product 1 -->
-      <div class="product-card">
-        <span class="category-label">Popular</span>
-        <img src="images/p1.avif" alt="Tom Ford Oud Wood">
-        <div class="product-name">Tom Ford Oud Wood - EDP</div>
-        <div class="size-options">
-          <span>30 ml</span>
-         
-        </div>
-        <div class="scent-notes">Woody, Oud + 3 more</div>
-        <div class="price">KES 34,821 <del>KES 50,720</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product-card">
-        <span class="category-label">Men <span style="color: #f8c471;">Iconic</span></span>
-        <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-        <div class="product-name">Sauvage Dior Elixir</div>
-        <div class="size-options">
-          <span>60 ml</span>
-        </div>
-        <div class="scent-notes">Woody, Aromatic + 8 more</div>
-        <div class="price">KES 32,000 <del>KES 41,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <span class="category-label">Women <span style="color: #f8c471;">Iconic</span></span>
-        <img src="images/p3.avif" alt="My Way EDP">
-        <div class="product-name">My Way EDP - Giorgio Armani</div>
-        <div class="size-options">
-          <span>90 ml</span>
-        </div>
-        <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-        <div class="price">KES 22,990 <del>KES 25,750</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product-card">
-        <span class="category-label">Women</span>
-        <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-        <div class="product-name">Kayali Vanilla 28 EDP</div>
-        <div class="size-options">
-          <span>100 ml</span>
-        </div>
-        <div class="scent-notes">Amber, Vanilla</div>
-        <div class="price">KES 29,997 <del>KES 33,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <!-- Footer -->
-    <footer style="background-color: #988558; padding-top: 20px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-3 mb-4">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801634920605!2d36.78817777582776!3d-1.2934915356358103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e50d566add%3A0x2d4a4d5689faf57!2sHighway%20Heights!5e0!3m2!1sen!2ske!4v1756724788688!5m2!1sen!2ske" class="img-fluid" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="col-12 col-md-3 mb-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-                        <li><p class="mb-0 text-white">&copy; 2025 Haoren. All rights reserved.</p></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-3 mb-4">
-                    <h5>Follow Us</h5>
-                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-                    <h5>Contact Us</h5>
-                    <p class="mb-1 text-white">Email: info@haorenaf.com</p>
-                    <p class="mb-1 text-white">Phone: (+254) 0114012345</p>
-                    <p class="text-white">Address: Highway Heights, Kilimani, Nairobi</p>
-                </div>
-                <div class="col-12 col-md-3"></div>
-            </div>
-            <hr class="bg-white my-4">
-        </div>
-    </footer>
-
+</script>
 </body>
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </html>
+

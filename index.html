@@ -194,6 +194,12 @@
       .card-container {
         grid-template-columns: repeat(2, 1fr);
       }
+          .product-card img {
+      max-width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
     }
 
    .product-card {
@@ -210,7 +216,7 @@
     .product-card img {
       max-width: 100%;
       height: 300px;
-      object-fit: cover;
+      object-fit: contain;
     }
 
    .category-label {
@@ -834,7 +840,7 @@
           <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
           <div class="icons">
             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
+            <img src="images/whatsapp.png"  alt="WhatsApp">
           </div>
         </div>
       </div>
@@ -858,21 +864,21 @@
     <span class="category-label">Popular</span>
     <img src="images/p1.avif" alt="Tom Ford Oud Wood">
     <div class="product-name">Tom Ford Oud Wood - EDP</div>
-    <div class="size-options">
-        <span>30 ml</span>
-    </div>
+    <div class="size-options"><span>30 ml</span></div>
     <div class="scent-notes">Woody, Oud + 3 more</div>
     <div class="price">KES 34,821 <del>KES 50,720</del></div>
+
     <div class="product-actions">
-        <button class="btn  btn-add" onclick="addToCart(this)">
+        <button class="btn btn-add" onclick="addToCart(this)">
             <img src="images/grocery-store.png" alt="Cart"> Add to Cart
         </button>
         <div class="icons">
             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
+            <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
         </div>
     </div>
 </div>
+
 
 
 
@@ -942,6 +948,44 @@
         <button style="background-color: #000; color: #fff; padding: 10px 20px; border-radius: 5px; border: none; margin-top: 10px;" onclick="closePopup()">OK</button>
     </div>
 
+<!-- WhatsApp Modal -->
+<div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 10000;">
+  <div style="background: #fff; border-radius: 12px; padding: 24px; width: 90%; max-width: 500px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-height: 80vh; overflow-y: auto; position: relative; animation: modalSlideIn 0.3s ease-out; display: block;">
+    <h2 id="modalProductName" style="margin: 0 0 12px 0; color: #333; font-size: 24px; text-align: center;">Product Name</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 16px;">Quick checkout via WhatsApp</p>
+    <div style="margin-bottom: 8px; color: #555; font-size: 14px;"><b style="color: #333;">Brand:</b> <span id="modalBrand"></span></div>
+    <div style="margin-bottom: 8px; color: #555; font-size: 14px;"><b style="color: #333;">Category:</b> <span id="modalCategory"></span></div>
+    <div style="margin-bottom: 8px; color: #555; font-size: 14px;"><span id="modalSize"></span> — <span id="modalPrice"></span></div>
+    <input id="modalFullName" placeholder="Full Name" style="width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box; transition: border-color 0.2s ease;" onfocus="this.style.borderColor='#25d366'; this.style.boxShadow='0 0 0 2px rgba(37,211,102,0.2)'" onblur="this.style.borderColor='#ddd'; this.style.boxShadow='none'">
+    <input id="modalLocation" placeholder="Delivery Location" style="width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box; transition: border-color 0.2s ease;" onfocus="this.style.borderColor='#25d366'; this.style.boxShadow='0 0 0 2px rgba(37,211,102,0.2)'" onblur="this.style.borderColor='#ddd'; this.style.boxShadow='none'">
+    <div style="display: flex; align-items: center; gap: 8px; margin: 12px 0;">
+      <label for="modalQuantity" style="color: #333; font-size: 14px; font-weight: bold;">Quantity:</label>
+      <button id="minusBtn" style="width: 40px; height: 40px; border: 1px solid #ddd; border-radius: 6px; background: #f5f5f5; color: #333; font-size: 18px; cursor: pointer; transition: background 0.2s ease;" onmouseover="this.style.background='#e0e0e0'" onmouseout="this.style.background='#f5f5f5'">−</button>
+      <input id="modalQuantity" type="number" value="1" min="1" style="width: 60px; text-align: center; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box;" readonly>
+      <button id="plusBtn" style="width: 40px; height: 40px; border: 1px solid #ddd; border-radius: 6px; background: #f5f5f5; color: #333; font-size: 18px; cursor: pointer; transition: background 0.2s ease;" onmouseover="this.style.background='#e0e0e0'" onmouseout="this.style.background='#f5f5f5'">+</button>
+    </div>
+    <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
+      <button id="cancelBtn" style="padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 500; min-width: 120px; background: #95a5a6; color: white;" onmouseover="this.style.background='#7f8c8d'" onmouseout="this.style.background='#95a5a6'">Cancel</button>
+      <button id="placeOrderBtn" style="padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 500; min-width: 120px; background: #25d366; color: white;" onmouseover="this.style.background='#128c7e'" onmouseout="this.style.background='#25d366'">Place WhatsApp Order</button>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(-50px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (max-width: 768px) {
+    #modalOverlay > div { width: 95%; padding: 20px; margin: 20px; }
+    #modalOverlay > div > div:last-child { flex-direction: column; }
+    #modalOverlay > div > div:last-child > button { width: 100%; }
+}
+</style>
+
+
+
+
 
   <!-- Footer -->
     <footer style="background-color: #988558; padding-top: 20px;">
@@ -978,9 +1022,197 @@
     </footer>
 
 </body>
+<script>
+function showPopups(icon) {
+    console.log("=== showPopups START ===");
+    console.log("Icon clicked:", icon);
 
+    const productCard = icon.closest(".product-card");
+    console.log("Product card:", productCard);
+    if (!productCard) {
+        console.error("ERROR: Product card not found!");
+        return;
+    }
+
+    const name = productCard.dataset.name;
+    const price = productCard.dataset.price;
+    const size = productCard.dataset.size;
+    const type = productCard.dataset.type;
+    console.log("Data extracted - Name:", name, "Price:", price);
+
+    const modalProductName = document.getElementById("modalProductName");
+    const modalPrice = document.getElementById("modalPrice");
+    const modalSize = document.getElementById("modalSize");
+    const modalBrand = document.getElementById("modalBrand");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalQuantity = document.getElementById("modalQuantity");
+    console.log("Modal elements:", {modalProductName, modalPrice, modalSize, modalBrand, modalCategory, modalQuantity});
+
+    if (!modalProductName || !modalPrice || !modalSize || !modalBrand || !modalCategory || !modalQuantity) {
+        console.error("ERROR: Modal elements not found!");
+        return;
+    }
+
+    modalProductName.textContent = name;
+    modalPrice.textContent = "KES " + price;
+    modalSize.textContent = size;
+    modalBrand.textContent = name.split(" ")[0];
+    modalCategory.textContent = type;
+    modalQuantity.value = 1; // Initialize quantity
+    console.log("Modal filled with data");
+
+    const modalOverlay = document.getElementById("modalOverlay");
+    console.log("Modal overlay:", modalOverlay);
+    if (!modalOverlay) {
+        console.error("ERROR: Modal overlay not found!");
+        return;
+    }
+
+    modalOverlay.style.display = "flex";
+    console.log("Display set to flex. Current style:", modalOverlay.style.display);
+
+    const orderBtn = document.getElementById("placeOrderBtn");
+    const plusBtn = document.getElementById("plusBtn");
+    const minusBtn = document.getElementById("minusBtn");
+    if (orderBtn && plusBtn && minusBtn) {
+        orderBtn.textContent = "Place WhatsApp Order • KES " + price;
+        orderBtn.onclick = function() {
+            const fullName = document.getElementById("modalFullName").value || "Not provided";
+            const location = document.getElementById("modalLocation").value || "Not provided";
+            const quantity = document.getElementById("modalQuantity").value;
+            const totalPrice = parseInt(price) * parseInt(quantity);
+            const message = `Hello, I want to order:\n\n${name}\nSize: ${size}\nQuantity: ${quantity}\nPrice: KES ${price} x ${quantity} = KES ${totalPrice}\n\nCustomer: ${fullName}\nLocation: ${location}`;
+            const phoneNumber = "254112100378"; // Replace with real number
+            const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+            window.open(url, "_blank");
+        };
+
+        plusBtn.onclick = function() {
+            modalQuantity.value = parseInt(modalQuantity.value) + 1;
+            orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
+            console.log("Quantity increased:", modalQuantity.value);
+        };
+
+        minusBtn.onclick = function() {
+            if (parseInt(modalQuantity.value) > 1) {
+                modalQuantity.value = parseInt(modalQuantity.value) - 1;
+                orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
+                console.log("Quantity decreased:", modalQuantity.value);
+            }
+        };
+        console.log("Buttons set up");
+    }
+
+    console.log("=== showPopups END ===");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM loaded - Setting up listeners");
+    const cancelBtn = document.getElementById("cancelBtn");
+    const modalOverlay = document.getElementById("modalOverlay");
+    
+    if (cancelBtn && modalOverlay) {
+        cancelBtn.addEventListener("click", function() {
+            console.log("Cancel clicked");
+            modalOverlay.style.display = "none";
+            document.getElementById("modalFullName").value = "";
+            document.getElementById("modalLocation").value = "";
+            document.getElementById("modalQuantity").value = 1;
+        });
+        
+        modalOverlay.addEventListener("click", function(e) {
+            if (e.target === modalOverlay) {
+                console.log("Overlay clicked - closing");
+                modalOverlay.style.display = "none";
+                document.getElementById("modalFullName").value = "";
+                document.getElementById("modalLocation").value = "";
+                document.getElementById("modalQuantity").value = 1;
+            }
+        });
+    } else {
+        console.error("ERROR: Setup failed - elements missing");
+    }
+});
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        const modalOverlay = document.getElementById("modalOverlay");
+        if (modalOverlay && modalOverlay.style.display === "flex") {
+            modalOverlay.style.display = "none";
+            document.getElementById("modalFullName").value = "";
+            document.getElementById("modalLocation").value = "";
+            document.getElementById("modalQuantity").value = 1;
+        }
+    }
+});
+</script>
 
     <!-- Scripts -->
+     <script>
+        function showPopup(element) {
+            const card = element.closest('.product-card');
+            const name = card.getAttribute('data-name');
+            const overlay = document.getElementById('overlay');
+            const popup = document.getElementById('popup');
+            const popupName = popup.querySelector('h3');
+            const totalPrice = document.getElementById('total-price');
+
+            popupName.textContent = name;
+            totalPrice.textContent = card.getAttribute('data-price');
+            overlay.style.display = 'block';
+            popup.style.display = 'block';
+        }
+
+        function hidePopup() {
+            const overlay = document.getElementById('overlay');
+            const popup = document.getElementById('popup');
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+        }
+
+        function decreaseQuantity() {
+            const quantity = document.getElementById('quantity');
+            let val = parseInt(quantity.value);
+            if (val > 1) {
+                quantity.value = val - 1;
+                updateTotal();
+            }
+        }
+
+        function increaseQuantity() {
+            const quantity = document.getElementById('quantity');
+            quantity.value = parseInt(quantity.value) + 1;
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const quantity = document.getElementById('quantity').value;
+            const size = document.getElementById('popup-size').value;
+            const price = size === '60' ? 32000 : 41000;
+            const totalPrice = document.getElementById('total-price');
+            totalPrice.textContent = (price * quantity).toString();
+        }
+
+        document.getElementById('popup-size').addEventListener('change', updateTotal);
+
+        function placeOrder() {
+            const name = document.getElementById('full-name').value;
+            const location = document.getElementById('delivery-location').value;
+            const quantity = document.getElementById('quantity').value;
+            const size = document.getElementById('popup-size').value;
+            const price = size === '60' ? 32000 : 41000;
+            const total = price * quantity;
+
+            if (name && location) {
+                const message = `Order Details:\nProduct: Sauvage Dior Elixir\nSize: ${size} ml\nQuantity: ${quantity}\nTotal: KES ${total}\nName: ${name}\nDelivery Location: ${location}`;
+                const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+                hidePopup();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
         <script>
 function addToCart(button) {
     const card = button.closest('.product-card');
