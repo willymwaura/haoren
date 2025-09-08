@@ -359,6 +359,26 @@
             font-size: 1.5em;
             color: #888;
         }
+        @media (max-width: 768px) {
+  .dropdowns {
+    flex-direction: column;   /* stack vertically */
+    gap: 12px;                /* smaller gap */
+    align-items: stretch;     /* make selects full width */
+  }
+
+  .dropdowns select {
+    width: 100%;              /* take full width */
+    font-size: 1rem;          /* readable on mobile */
+  }
+
+  .content-card {
+    padding: 15px;            /* reduce padding on small screens */
+  }
+
+  h1 {
+    font-size: 2em;           /* scale down heading */
+  }
+}
   </style>
 </head>
 <body>
