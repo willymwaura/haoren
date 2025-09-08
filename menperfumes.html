@@ -209,7 +209,7 @@
     .product-card img {
       max-width: 100%;
       height: 300px;
-      object-fit: cover;
+      object-fit: contain;
     }
 
    .category-label {
@@ -360,6 +360,28 @@
             font-size: 1.5em;
             color: #888;
         }
+        /* Mobile responsiveness */
+@media (max-width: 768px) {
+  .dropdowns {
+    flex-direction: column;   /* stack vertically */
+    gap: 12px;                /* smaller gap */
+    align-items: stretch;     /* make selects full width */
+  }
+
+  .dropdowns select {
+    width: 100%;              /* take full width */
+    font-size: 1rem;          /* readable on mobile */
+  }
+
+  .content-card {
+    padding: 15px;            /* reduce padding on small screens */
+  }
+
+  h1 {
+    font-size: 2em;           /* scale down heading */
+  }
+}
+
   </style>
 </head>
 <body>

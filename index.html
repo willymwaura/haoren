@@ -707,7 +707,9 @@
 
       <!-- Product 2 -->
       <div class="product-card">
-        <span class="category-label">Men <span style="color: #f8c471;">Iconic</span></span>
+  
+         <span class="category-label">Men</span>
+          <span class="category-label">Iconic</span>
         <img src="images/p2.avif" alt="Sauvage Dior Elixir">
         <div class="product-name">Sauvage Dior Elixir</div>
         <div class="size-options">
@@ -726,7 +728,9 @@
 
       <!-- Product 3 -->
       <div class="product-card">
-        <span class="category-label">Women <span style="color: #f8c471;">Iconic</span></span>
+ 
+         <span class="category-label">Women</span>
+          <span class="category-label">Iconic</span>
         <img src="images/p3.avif" alt="My Way EDP">
         <div class="product-name">My Way EDP - Giorgio Armani</div>
         <div class="size-options">
@@ -790,7 +794,9 @@
 
       <!-- Product 2 -->
       <div class="product-card">
-        <span class="category-label">Men <span style="color: #f8c471;">Iconic</span></span>
+     
+         <span class="category-label">Men</span>
+          <span class="category-label">Popular</span>
         <img src="images/p2.avif" alt="Sauvage Dior Elixir">
         <div class="product-name">Sauvage Dior Elixir</div>
         <div class="size-options">
@@ -809,7 +815,8 @@
 
       <!-- Product 3 -->
       <div class="product-card">
-        <span class="category-label">Women <span style="color: #f8c471;">Iconic</span></span>
+ <span class="category-label">Men</span>
+          <span class="category-label">Popular</span>
         <img src="images/p3.avif" alt="My Way EDP">
         <div class="product-name">My Way EDP - Giorgio Armani</div>
         <div class="size-options">
@@ -886,7 +893,8 @@
 
       <!-- Product 2 -->
       <div class="product-card">
-        <span class="category-label">Men <span style="color: #f8c471;">Iconic</span></span>
+     <span class="category-label">Men</span>
+          <span class="category-label">Popular</span>
         <img src="images/p2.avif" alt="Sauvage Dior Elixir">
         <div class="product-name">Sauvage Dior Elixir</div>
         <div class="size-options">
@@ -905,7 +913,8 @@
 
       <!-- Product 3 -->
       <div class="product-card">
-        <span class="category-label">Women <span style="color: #f8c471;">Iconic</span></span>
+    <span class="category-label">Woman</span>
+          <span class="category-label">Popular</span>
         <img src="images/p3.avif" alt="My Way EDP">
         <div class="product-name">My Way EDP - Giorgio Armani</div>
         <div class="size-options">
@@ -943,10 +952,46 @@
 
     </div>
   </div>
-    <div class="popup" id="popup">
-        <p style="color: #000; font-size: 18px;">Added to Cart!</p>
-        <button style="background-color: #000; color: #fff; padding: 10px 20px; border-radius: 5px; border: none; margin-top: 10px;" onclick="closePopup()">OK</button>
-    </div>
+<div class="popup" id="popup" style="
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  z-index: 10000;
+  min-width: 280px;
+">
+  <p style="
+    color: #222;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+  ">
+    ✅ Added to Cart
+  </p>
+  <button style="
+    background: #111;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  " 
+  onmouseover="this.style.background='#333'"
+  onmouseout="this.style.background='#111'"
+  onclick="closePopup()">
+    OK
+  </button>
+</div>
+
 
 <!-- WhatsApp Modal -->
 <div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 10000;">
