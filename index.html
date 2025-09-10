@@ -319,6 +319,67 @@
       padding: 0px 20px;
 }
   </style>
+
+    
+<style>
+        .dropdowns {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        select {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+            width: 90%;
+        }
+    .fixed-sidebar {
+        position: fixed;
+        top: 30px;
+        z-index: 1000;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        width: 90%; /* Fixed width for larger screens */
+    }
+
+    /* For smaller screens (below 768px) */
+    @media (max-width: 768px) {
+        .fixed-sidebar {
+            position: static; /* Remove fixed positioning */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center horizontally */
+            width: 100%; /* Full width for responsiveness */
+            margin: 0 auto; /* Center the container */
+            padding: 10px;
+            margin-top: 0px !important;
+        }
+
+        .fixed-sidebar input,
+        .fixed-sidebar .dropdowns {
+            width: 100%; /* Full width for input and dropdown */
+            max-width: 100%; /* Ensure it doesn't exceed container */
+        }
+    }
+
+    /* Ensure input and select elements are styled consistently */
+    #searchInput, #productSelect {
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    /* Optional: Adjust padding for smaller screens */
+    @media (max-width: 576px) {
+        .fixed-sidebar {
+            padding: 5px;
+        }
+    }
+</style>
 </head>
 <body>
     
@@ -591,99 +652,30 @@
       </div>
     </div>
 
+  </div>
+
+      <div class="col-12 col-md-3 fixed-sidebar" style="margin-top: 160px;">
+    <div style="margin-bottom: 15px;">
+        <input type="text" id="searchInput" placeholder="Search products" style="padding: 5px; border-radius: 5px; border: 1px solid #ddd; width: 250px; margin-top: 20px;width: 230px;">
+    </div>
+     <div class="dropdowns" style=" border-radius: 5px; width: 240px; margin-top: 20px;padding-left: 0px;">
+            <select id="productSelect" >
+                <option value="">select product...</option>
+                <!-- Options will be populated dynamically via JS -->
+            </select>
+        </div>
+</div>
+
+  <div class="container">
+
     <h2 style="padding-top: 60px;" class="section-title1">Popular, Loved & Timeless</h2>
     
     <h2 class="section-title">Popular, Loved & Timeless</h2>
     <div class="card-container">
 
       <!-- Product 1 -->
-      <div class="product-card">
-        <span class="category-label">Popular</span>
-        <img src="images/p1.avif" alt="Tom Ford Oud Wood">
-        <div class="product-name">Tom Ford Oud Wood - EDP</div>
-        <div class="size-options">
-          <span>30 ml</span>
-       
-        </div>
-        <div class="scent-notes">Woody, Oud + 3 more</div>
-        <div class="price">KES 34,821 <del>KES 50,720</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product-card">
-         <span class="category-label">Men</span>
-  <span class="category-label">Iconic</span>
-        <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-        <div class="product-name">Sauvage Dior Elixir</div>
-        <div class="size-options">
-          <span>60 ml</span>
-        </div>
-        <div class="scent-notes">Woody, Aromatic + 8 more</div>
-        <div class="price">KES 32,000 <del>KES 41,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="product-card">
-    <span class="category-label">Women</span>
-  <span class="category-label">Iconic</span>
-        <img src="images/p3.avif" alt="My Way EDP">
-        <div class="product-name">My Way EDP - Giorgio Armani</div>
-        <div class="size-options">
-          <span>90 ml</span>
-        </div>
-        <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-        <div class="price">KES 22,990 <del>KES 25,750</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product-card">
-        <span class="category-label">Women</span>
-        <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-        <div class="product-name">Kayali Vanilla 28 EDP</div>
-        <div class="size-options">
-          <span>100 ml</span>
-        </div>
-        <div class="scent-notes">Amber, Vanilla</div>
-        <div class="price">KES 29,997 <del>KES 33,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
-        </div>
-      </div>
-
-    </div>
-    
-    <h2 style="padding-top: 60px;" class="section-title1">Unisex Best Seller</h2>
-
-      <h2 class="section-title">Unisex Best Seller</h2>
-    <div class="card-container">
-
-      <!-- Product 1 -->
-  <div class="product-card"
+ <!-- Product 1 -->
+<div class="product-card"
     data-id="prod6"
     data-image="images/p1.avif"
     data-name="Tom Ford Oud Wood - EDP"
@@ -695,82 +687,244 @@
     <span class="category-label">Popular</span>
     <img src="images/p1.avif" alt="Tom Ford Oud Wood">
     <div class="product-name">Tom Ford Oud Wood - EDP</div>
-    <div class="size-options">
-        <span>30 ml</span>
-    </div>
+    <div class="size-options"><span>30 ml</span></div>
     <div class="scent-notes">Woody, Oud + 3 more</div>
     <div class="price">KES 34,821 <del>KES 50,720</del></div>
+
     <div class="product-actions">
-        <button class="btn  btn-add" onclick="addToCart(this)">
+        <button class="btn btn-add" onclick="addToCart(this)">
             <img src="images/grocery-store.png" alt="Cart"> Add to Cart
         </button>
         <div class="icons">
             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
+            <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
         </div>
     </div>
 </div>
 
+
+
+
+
+
       <!-- Product 2 -->
-      <div class="product-card">
-  
-         <span class="category-label">Men</span>
-          <span class="category-label">Iconic</span>
-        <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-        <div class="product-name">Sauvage Dior Elixir</div>
-        <div class="size-options">
-          <span>60 ml</span>
-        </div>
-        <div class="scent-notes">Woody, Aromatic + 8 more</div>
-        <div class="price">KES 32,000 <del>KES 41,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
+ <div class="product-card"
+      data-id="prod7"
+      data-image="images/p2.avif"
+      data-name="Sauvage Dior Elixir"
+      data-type="Eau De Parfum"
+      data-price="32000"
+      data-size="60ml"
+      data-description="Woody, Aromatic + 8 more">
+
+      <span class="category-label">Men</span>
+      <span class="category-label">Popular</span>
+      <img src="images/p2.avif" alt="Sauvage Dior Elixir">
+      <div class="product-name">Sauvage Dior Elixir</div>
+      <div class="size-options"><span>60 ml</span></div>
+      <div class="scent-notes">Woody, Aromatic + 8 more</div>
+      <div class="price">KES 32,000 <del>KES 41,000</del></div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
           <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
-        </div>
       </div>
+  </div>
 
       <!-- Product 3 -->
-      <div class="product-card">
- 
-         <span class="category-label">Women</span>
-          <span class="category-label">Iconic</span>
-        <img src="images/p3.avif" alt="My Way EDP">
-        <div class="product-name">My Way EDP - Giorgio Armani</div>
-        <div class="size-options">
-          <span>90 ml</span>
-        </div>
-        <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-        <div class="price">KES 22,990 <del>KES 25,750</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
+    <div class="product-card"
+      data-id="prod8"
+      data-image="images/p3.avif"
+      data-name="My Way EDP - Giorgio Armani"
+      data-type="Eau De Parfum"
+      data-price="22990"
+      data-size="90ml"
+      data-description="Floral, Orange Blossom + 2 more">
+
+      <span class="category-label">Women</span>
+      <span class="category-label">Popular</span>
+      <img src="images/p3.avif" alt="My Way EDP">
+      <div class="product-name">My Way EDP - Giorgio Armani</div>
+      <div class="size-options"><span>90 ml</span></div>
+      <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
+      <div class="price">KES 22,990 <del>KES 25,750</del></div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
           <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
-        </div>
       </div>
+  </div>
+
 
       <!-- Product 4 -->
-      <div class="product-card">
-        <span class="category-label">Women</span>
-        <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-        <div class="product-name">Kayali Vanilla 28 EDP</div>
-        <div class="size-options">
-          <span>100 ml</span>
-        </div>
-        <div class="scent-notes">Amber, Vanilla</div>
-        <div class="price">KES 29,997 <del>KES 33,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
+   
+  <!-- Product 4 -->
+  <div class="product-card"
+      data-id="prod9"
+      data-image="images/p5.avif"
+      data-name="Kayali Vanilla 28 EDP"
+      data-type="Eau De Parfum"
+      data-price="29997"
+      data-size="100ml"
+      data-description="Amber, Vanilla">
+
+      <span class="category-label">Women</span>
+      <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
+      <div class="product-name">Kayali Vanilla 28 EDP</div>
+      <div class="size-options"><span>100 ml</span></div>
+      <div class="scent-notes">Amber, Vanilla</div>
+      <div class="price">KES 29,997 <del>KES 33,000</del></div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
           <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
-        </div>
       </div>
+
+    </div>
+    </div>
+    
+    <h2 style="padding-top: 60px;" class="section-title1">Unisex Best Seller</h2>
+
+      <h2 class="section-title">Unisex Best Seller</h2>
+    <div class="card-container">
+
+      <!-- Product 1 -->
+  <!-- Product 1 -->
+<div class="product-card"
+    data-id="prod6"
+    data-image="images/p1.avif"
+    data-name="Tom Ford Oud Wood - EDP"
+    data-type="Eau De Parfum"
+    data-price="34821"
+    data-size="30ml"
+    data-description="Woody, Oud + 3 more">
+
+    <span class="category-label">Popular</span>
+    <img src="images/p1.avif" alt="Tom Ford Oud Wood">
+    <div class="product-name">Tom Ford Oud Wood - EDP</div>
+    <div class="size-options"><span>30 ml</span></div>
+    <div class="scent-notes">Woody, Oud + 3 more</div>
+    <div class="price">KES 34,821 <del>KES 50,720</del></div>
+
+    <div class="product-actions">
+        <button class="btn btn-add" onclick="addToCart(this)">
+            <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+        </button>
+        <div class="icons">
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+            <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+      <!-- Product 2 -->
+ <div class="product-card"
+      data-id="prod7"
+      data-image="images/p2.avif"
+      data-name="Sauvage Dior Elixir"
+      data-type="Eau De Parfum"
+      data-price="32000"
+      data-size="60ml"
+      data-description="Woody, Aromatic + 8 more">
+
+      <span class="category-label">Men</span>
+      <span class="category-label">Popular</span>
+      <img src="images/p2.avif" alt="Sauvage Dior Elixir">
+      <div class="product-name">Sauvage Dior Elixir</div>
+      <div class="size-options"><span>60 ml</span></div>
+      <div class="scent-notes">Woody, Aromatic + 8 more</div>
+      <div class="price">KES 32,000 <del>KES 41,000</del></div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+
+      <!-- Product 3 -->
+    <div class="product-card"
+      data-id="prod8"
+      data-image="images/p3.avif"
+      data-name="My Way EDP - Giorgio Armani"
+      data-type="Eau De Parfum"
+      data-price="22990"
+      data-size="90ml"
+      data-description="Floral, Orange Blossom + 2 more">
+
+      <span class="category-label">Women</span>
+      <span class="category-label">Popular</span>
+      <img src="images/p3.avif" alt="My Way EDP">
+      <div class="product-name">My Way EDP - Giorgio Armani</div>
+      <div class="size-options"><span>90 ml</span></div>
+      <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
+      <div class="price">KES 22,990 <del>KES 25,750</del></div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+
+
+      <!-- Product 4 -->
+   
+  <!-- Product 4 -->
+  <div class="product-card"
+      data-id="prod9"
+      data-image="images/p5.avif"
+      data-name="Kayali Vanilla 28 EDP"
+      data-type="Eau De Parfum"
+      data-price="29997"
+      data-size="100ml"
+      data-description="Amber, Vanilla">
+
+      <span class="category-label">Women</span>
+      <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
+      <div class="product-name">Kayali Vanilla 28 EDP</div>
+      <div class="size-options"><span>100 ml</span></div>
+      <div class="scent-notes">Amber, Vanilla</div>
+      <div class="price">KES 29,997 <del>KES 33,000</del></div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
 
     </div>
       <h2 style="padding-top: 60px;" class="section-title1">Men Best Seller</h2>
@@ -779,85 +933,128 @@
     <div class="card-container">
 
       <!-- Product 1 -->
-      <div class="product-card">
-        <span class="category-label">Popular</span>
-        <img src="images/p1.avif" alt="Tom Ford Oud Wood">
-        <div class="product-name">Tom Ford Oud Wood - EDP</div>
-        <div class="size-options">
-          <span>30 ml</span>
-     
-        </div>
-        <div class="scent-notes">Woody, Oud + 3 more</div>
-        <div class="price">KES 34,821 <del>KES 50,720</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
-          <div class="icons">
+       <!-- Product 1 -->
+<div class="product-card"
+    data-id="prod6"
+    data-image="images/p1.avif"
+    data-name="Tom Ford Oud Wood - EDP"
+    data-type="Eau De Parfum"
+    data-price="34821"
+    data-size="30ml"
+    data-description="Woody, Oud + 3 more">
+
+    <span class="category-label">Popular</span>
+    <img src="images/p1.avif" alt="Tom Ford Oud Wood">
+    <div class="product-name">Tom Ford Oud Wood - EDP</div>
+    <div class="size-options"><span>30 ml</span></div>
+    <div class="scent-notes">Woody, Oud + 3 more</div>
+    <div class="price">KES 34,821 <del>KES 50,720</del></div>
+
+    <div class="product-actions">
+        <button class="btn btn-add" onclick="addToCart(this)">
+            <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+        </button>
+        <div class="icons">
             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
-          </div>
+            <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
         </div>
-      </div>
+    </div>
+</div>
+
+
+
+
+
 
       <!-- Product 2 -->
-      <div class="product-card">
-     
-         <span class="category-label">Men</span>
-          <span class="category-label">Popular</span>
-        <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-        <div class="product-name">Sauvage Dior Elixir</div>
-        <div class="size-options">
-          <span>60 ml</span>
-        </div>
-        <div class="scent-notes">Woody, Aromatic + 8 more</div>
-        <div class="price">KES 32,000 <del>KES 41,000</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
+ <div class="product-card"
+      data-id="prod7"
+      data-image="images/p2.avif"
+      data-name="Sauvage Dior Elixir"
+      data-type="Eau De Parfum"
+      data-price="32000"
+      data-size="60ml"
+      data-description="Woody, Aromatic + 8 more">
+
+      <span class="category-label">Men</span>
+      <span class="category-label">Popular</span>
+      <img src="images/p2.avif" alt="Sauvage Dior Elixir">
+      <div class="product-name">Sauvage Dior Elixir</div>
+      <div class="size-options"><span>60 ml</span></div>
+      <div class="scent-notes">Woody, Aromatic + 8 more</div>
+      <div class="price">KES 32,000 <del>KES 41,000</del></div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
           <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
-        </div>
       </div>
+  </div>
 
       <!-- Product 3 -->
-      <div class="product-card">
- <span class="category-label">Men</span>
-          <span class="category-label">Popular</span>
-        <img src="images/p3.avif" alt="My Way EDP">
-        <div class="product-name">My Way EDP - Giorgio Armani</div>
-        <div class="size-options">
-          <span>90 ml</span>
-        </div>
-        <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-        <div class="price">KES 22,990 <del>KES 25,750</del></div>
-        <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
+    <div class="product-card"
+      data-id="prod8"
+      data-image="images/p3.avif"
+      data-name="My Way EDP - Giorgio Armani"
+      data-type="Eau De Parfum"
+      data-price="22990"
+      data-size="90ml"
+      data-description="Floral, Orange Blossom + 2 more">
+
+      <span class="category-label">Women</span>
+      <span class="category-label">Popular</span>
+      <img src="images/p3.avif" alt="My Way EDP">
+      <div class="product-name">My Way EDP - Giorgio Armani</div>
+      <div class="size-options"><span>90 ml</span></div>
+      <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
+      <div class="price">KES 22,990 <del>KES 25,750</del></div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
           <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
-        </div>
       </div>
+  </div>
+
 
       <!-- Product 4 -->
-      <div class="product-card">
-        <span class="category-label">Women</span>
-        <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-        <div class="product-name">Kayali Vanilla 28 EDP</div>
-        <div class="size-options">
-          <span>100 ml</span>
-        </div>
-        <div class="scent-notes">Amber, Vanilla</div>
-        <div class="price">KES 29,997 <del>KES 33,000</del></div>
-       <div class="product-actions">
-          <button class="btn-add"><img src="images/grocery-store.png" alt="Cart"> Add to Cart</button>
+   
+  <!-- Product 4 -->
+  <div class="product-card"
+      data-id="prod9"
+      data-image="images/p5.avif"
+      data-name="Kayali Vanilla 28 EDP"
+      data-type="Eau De Parfum"
+      data-price="29997"
+      data-size="100ml"
+      data-description="Amber, Vanilla">
+
+      <span class="category-label">Women</span>
+      <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
+      <div class="product-name">Kayali Vanilla 28 EDP</div>
+      <div class="size-options"><span>100 ml</span></div>
+      <div class="scent-notes">Amber, Vanilla</div>
+      <div class="price">KES 29,997 <del>KES 33,000</del></div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
           <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png"  alt="WhatsApp">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
-        </div>
       </div>
 
+  </div>
     </div>
      <h2 style="padding-top: 60px;" class="section-title1">Women Best Seller</h2>
       <h2 class="section-title">Women Best Seller</h2>
@@ -1105,196 +1302,61 @@
 </body>
 
 <script>
-function showPopups(icon) {
-    console.log("=== showPopups START ===");
-    console.log("Icon clicked:", icon);
+    // Populate the select dropdown with unique product names
+    document.addEventListener('DOMContentLoaded', function() {
+        const products = document.querySelectorAll('.product-card');
+        const select = document.getElementById('productSelect');
+        const uniqueProductNames = new Set();
 
-    const productCard = icon.closest(".product-card");
-    console.log("Product card:", productCard);
-    if (!productCard) {
-        console.error("ERROR: Product card not found!");
-        return;
-    }
-
-    const name = productCard.dataset.name;
-    const price = productCard.dataset.price;
-    const size = productCard.dataset.size;
-    const type = productCard.dataset.type;
-    console.log("Data extracted - Name:", name, "Price:", price);
-
-    const modalProductName = document.getElementById("modalProductName");
-    const modalPrice = document.getElementById("modalPrice");
-    const modalSize = document.getElementById("modalSize");
-    const modalBrand = document.getElementById("modalBrand");
-    const modalCategory = document.getElementById("modalCategory");
-    const modalQuantity = document.getElementById("modalQuantity");
-    console.log("Modal elements:", {modalProductName, modalPrice, modalSize, modalBrand, modalCategory, modalQuantity});
-
-    if (!modalProductName || !modalPrice || !modalSize || !modalBrand || !modalCategory || !modalQuantity) {
-        console.error("ERROR: Modal elements not found!");
-        return;
-    }
-
-    modalProductName.textContent = name;
-    modalPrice.textContent = "KES " + price;
-    modalSize.textContent = size;
-    modalBrand.textContent = name.split(" ")[0];
-    modalCategory.textContent = type;
-    modalQuantity.value = 1; // Initialize quantity
-    console.log("Modal filled with data");
-
-    const modalOverlay = document.getElementById("modalOverlay");
-    console.log("Modal overlay:", modalOverlay);
-    if (!modalOverlay) {
-        console.error("ERROR: Modal overlay not found!");
-        return;
-    }
-
-    modalOverlay.style.display = "flex";
-    console.log("Display set to flex. Current style:", modalOverlay.style.display);
-
-    const orderBtn = document.getElementById("placeOrderBtn");
-    const plusBtn = document.getElementById("plusBtn");
-    const minusBtn = document.getElementById("minusBtn");
-    if (orderBtn && plusBtn && minusBtn) {
-        orderBtn.textContent = "Place WhatsApp Order • KES " + price;
-        orderBtn.onclick = function() {
-            const fullName = document.getElementById("modalFullName").value || "Not provided";
-            const location = document.getElementById("modalLocation").value || "Not provided";
-            const quantity = document.getElementById("modalQuantity").value;
-            const totalPrice = parseInt(price) * parseInt(quantity);
-            const message = `Hello, I want to order:\n\n${name}\nSize: ${size}\nQuantity: ${quantity}\nPrice: KES ${price} x ${quantity} = KES ${totalPrice}\n\nCustomer: ${fullName}\nLocation: ${location}`;
-            const phoneNumber = "254114012345"; // Replace with real number
-            const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
-            window.open(url, "_blank");
-        };
-
-        plusBtn.onclick = function() {
-            modalQuantity.value = parseInt(modalQuantity.value) + 1;
-            orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
-            console.log("Quantity increased:", modalQuantity.value);
-        };
-
-        minusBtn.onclick = function() {
-            if (parseInt(modalQuantity.value) > 1) {
-                modalQuantity.value = parseInt(modalQuantity.value) - 1;
-                orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
-                console.log("Quantity decreased:", modalQuantity.value);
-            }
-        };
-        console.log("Buttons set up");
-    }
-
-    console.log("=== showPopups END ===");
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM loaded - Setting up listeners");
-    const cancelBtn = document.getElementById("cancelBtn");
-    const modalOverlay = document.getElementById("modalOverlay");
-    
-    if (cancelBtn && modalOverlay) {
-        cancelBtn.addEventListener("click", function() {
-            console.log("Cancel clicked");
-            modalOverlay.style.display = "none";
-            document.getElementById("modalFullName").value = "";
-            document.getElementById("modalLocation").value = "";
-            document.getElementById("modalQuantity").value = 1;
+        // Collect unique product names
+        products.forEach(product => {
+            const name = product.querySelector('.product-name').textContent;
+            uniqueProductNames.add(name);
         });
-        
-        modalOverlay.addEventListener("click", function(e) {
-            if (e.target === modalOverlay) {
-                console.log("Overlay clicked - closing");
-                modalOverlay.style.display = "none";
-                document.getElementById("modalFullName").value = "";
-                document.getElementById("modalLocation").value = "";
-                document.getElementById("modalQuantity").value = 1;
+
+        // Populate dropdown with unique names
+        uniqueProductNames.forEach(name => {
+            const option = document.createElement('option');
+            option.value = name.toLowerCase();
+            option.textContent = name;
+            select.appendChild(option);
+        });
+
+        // Filter products based on select change
+        select.addEventListener('change', function() {
+            const selectedValue = this.value;
+            filterProducts(selectedValue, 'select');
+        });
+
+        // Filter products based on search input
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+            filterProducts(searchValue, 'search');
+        });
+    });
+
+    // Function to filter and show products
+    function filterProducts(value, type) {
+        const products = document.querySelectorAll('.product-card');
+        products.forEach(product => {
+            const name = product.querySelector('.product-name').textContent.toLowerCase();
+            if (type === 'select') {
+                if (value === '' || name === value) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            } else if (type === 'search') {
+                if (name.includes(value)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
             }
         });
-    } else {
-        console.error("ERROR: Setup failed - elements missing");
     }
-});
-
-document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") {
-        const modalOverlay = document.getElementById("modalOverlay");
-        if (modalOverlay && modalOverlay.style.display === "flex") {
-            modalOverlay.style.display = "none";
-            document.getElementById("modalFullName").value = "";
-            document.getElementById("modalLocation").value = "";
-            document.getElementById("modalQuantity").value = 1;
-        }
-    }
-});
 </script>
-
-    <!-- Scripts -->
-     <script>
-        function showPopup(element) {
-            const card = element.closest('.product-card');
-            const name = card.getAttribute('data-name');
-            const overlay = document.getElementById('overlay');
-            const popup = document.getElementById('popup');
-            const popupName = popup.querySelector('h3');
-            const totalPrice = document.getElementById('total-price');
-
-            popupName.textContent = name;
-            totalPrice.textContent = card.getAttribute('data-price');
-            overlay.style.display = 'block';
-            popup.style.display = 'block';
-        }
-
-        function hidePopup() {
-            const overlay = document.getElementById('overlay');
-            const popup = document.getElementById('popup');
-            overlay.style.display = 'none';
-            popup.style.display = 'none';
-        }
-
-        function decreaseQuantity() {
-            const quantity = document.getElementById('quantity');
-            let val = parseInt(quantity.value);
-            if (val > 1) {
-                quantity.value = val - 1;
-                updateTotal();
-            }
-        }
-
-        function increaseQuantity() {
-            const quantity = document.getElementById('quantity');
-            quantity.value = parseInt(quantity.value) + 1;
-            updateTotal();
-        }
-
-        function updateTotal() {
-            const quantity = document.getElementById('quantity').value;
-            const size = document.getElementById('popup-size').value;
-            const price = size === '60' ? 32000 : 41000;
-            const totalPrice = document.getElementById('total-price');
-            totalPrice.textContent = (price * quantity).toString();
-        }
-
-        document.getElementById('popup-size').addEventListener('change', updateTotal);
-
-        function placeOrder() {
-            const name = document.getElementById('full-name').value;
-            const location = document.getElementById('delivery-location').value;
-            const quantity = document.getElementById('quantity').value;
-            const size = document.getElementById('popup-size').value;
-            const price = size === '60' ? 32000 : 41000;
-            const total = price * quantity;
-
-            if (name && location) {
-                const message = `Order Details:\nProduct: Sauvage Dior Elixir\nSize: ${size} ml\nQuantity: ${quantity}\nTotal: KES ${total}\nName: ${name}\nDelivery Location: ${location}`;
-                const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
-                hidePopup();
-            } else {
-                alert('Please fill in all fields.');
-            }
-        }
-    </script>
         <script>
 function addToCart(button) {
     const card = button.closest('.product-card');
@@ -1434,6 +1496,131 @@ document.getElementById('offcanvasCart')?.addEventListener('show.bs.offcanvas', 
 
 window.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
+});
+</script>
+
+<script>
+function showPopups(icon) {
+    console.log("=== showPopups START ===");
+    console.log("Icon clicked:", icon);
+
+    const productCard = icon.closest(".product-card");
+    console.log("Product card:", productCard);
+    if (!productCard) {
+        console.error("ERROR: Product card not found!");
+        return;
+    }
+
+    const name = productCard.dataset.name;
+    const price = productCard.dataset.price;
+    const size = productCard.dataset.size;
+    const type = productCard.dataset.type;
+    console.log("Data extracted - Name:", name, "Price:", price);
+
+    const modalProductName = document.getElementById("modalProductName");
+    const modalPrice = document.getElementById("modalPrice");
+    const modalSize = document.getElementById("modalSize");
+    const modalBrand = document.getElementById("modalBrand");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalQuantity = document.getElementById("modalQuantity");
+    console.log("Modal elements:", {modalProductName, modalPrice, modalSize, modalBrand, modalCategory, modalQuantity});
+
+    if (!modalProductName || !modalPrice || !modalSize || !modalBrand || !modalCategory || !modalQuantity) {
+        console.error("ERROR: Modal elements not found!");
+        return;
+    }
+
+    modalProductName.textContent = name;
+    modalPrice.textContent = "KES " + price;
+    modalSize.textContent = size;
+    modalBrand.textContent = name.split(" ")[0];
+    modalCategory.textContent = type;
+    modalQuantity.value = 1; // Initialize quantity
+    console.log("Modal filled with data");
+
+    const modalOverlay = document.getElementById("modalOverlay");
+    console.log("Modal overlay:", modalOverlay);
+    if (!modalOverlay) {
+        console.error("ERROR: Modal overlay not found!");
+        return;
+    }
+
+    modalOverlay.style.display = "flex";
+    console.log("Display set to flex. Current style:", modalOverlay.style.display);
+
+    const orderBtn = document.getElementById("placeOrderBtn");
+    const plusBtn = document.getElementById("plusBtn");
+    const minusBtn = document.getElementById("minusBtn");
+    if (orderBtn && plusBtn && minusBtn) {
+        orderBtn.textContent = "Place WhatsApp Order • KES " + price;
+        orderBtn.onclick = function() {
+            const fullName = document.getElementById("modalFullName").value || "Not provided";
+            const location = document.getElementById("modalLocation").value || "Not provided";
+            const quantity = document.getElementById("modalQuantity").value;
+            const totalPrice = parseInt(price) * parseInt(quantity);
+            const message = `Hello, I want to order:\n\n${name}\nSize: ${size}\nQuantity: ${quantity}\nPrice: KES ${price} x ${quantity} = KES ${totalPrice}\n\nCustomer: ${fullName}\nLocation: ${location}`;
+            const phoneNumber = "254114012345"; // Replace with real number
+            const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+            window.open(url, "_blank");
+        };
+
+        plusBtn.onclick = function() {
+            modalQuantity.value = parseInt(modalQuantity.value) + 1;
+            orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
+            console.log("Quantity increased:", modalQuantity.value);
+        };
+
+        minusBtn.onclick = function() {
+            if (parseInt(modalQuantity.value) > 1) {
+                modalQuantity.value = parseInt(modalQuantity.value) - 1;
+                orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
+                console.log("Quantity decreased:", modalQuantity.value);
+            }
+        };
+        console.log("Buttons set up");
+    }
+
+    console.log("=== showPopups END ===");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM loaded - Setting up listeners");
+    const cancelBtn = document.getElementById("cancelBtn");
+    const modalOverlay = document.getElementById("modalOverlay");
+    
+    if (cancelBtn && modalOverlay) {
+        cancelBtn.addEventListener("click", function() {
+            console.log("Cancel clicked");
+            modalOverlay.style.display = "none";
+            document.getElementById("modalFullName").value = "";
+            document.getElementById("modalLocation").value = "";
+            document.getElementById("modalQuantity").value = 1;
+        });
+        
+        modalOverlay.addEventListener("click", function(e) {
+            if (e.target === modalOverlay) {
+                console.log("Overlay clicked - closing");
+                modalOverlay.style.display = "none";
+                document.getElementById("modalFullName").value = "";
+                document.getElementById("modalLocation").value = "";
+                document.getElementById("modalQuantity").value = 1;
+            }
+        });
+    } else {
+        console.error("ERROR: Setup failed - elements missing");
+    }
+});
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        const modalOverlay = document.getElementById("modalOverlay");
+        if (modalOverlay && modalOverlay.style.display === "flex") {
+            modalOverlay.style.display = "none";
+            document.getElementById("modalFullName").value = "";
+            document.getElementById("modalLocation").value = "";
+            document.getElementById("modalQuantity").value = 1;
+        }
+    }
 });
 </script>
 
