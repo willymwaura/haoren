@@ -116,6 +116,10 @@
       text-align: center;
       margin: 10px;
     }
+     .category a {
+    text-decoration: none;   /* removes underline */
+    color: inherit;          /* keeps the text color consistent */
+  }
 
     .category img {
       width: 100px;
@@ -214,7 +218,7 @@
 }
 
     .product-card img {
-      max-width: 100%;
+      width: 100%;
       height: 300px;
       object-fit: contain;
     }
@@ -324,59 +328,58 @@
   </style>
 
     
+
 <style>
-        .dropdowns {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        select {
-            padding: 10px;
-            font-size: 1em;
-         border: 2px solid black;
-            border-radius: 5px;
-            background-color: #fff;
-            cursor: pointer;
-            width: 90%;
-       
-        }
+    /* Sidebar container */
     .fixed-sidebar {
         position: fixed;
         top: 30px;
         z-index: 1000;
-   
-
-        width: 90%; /* Fixed width for larger screens */
+        width: 240px; /* fixed width for desktop */
     }
 
-    /* For smaller screens (below 768px) */
+    /* Input and select consistent styling */
+    #searchInput, 
+    #productSelect {
+        display: block;
+        width: 100%;          /* Always 100% of parent */
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    /* Input wrapper spacing */
+    .input-wrapper {
+        margin-bottom: 15px;
+    }
+
+    /* Dropdown container */
+    .dropdowns {
+        margin-top: 10px;
+    }
+
+    /* Responsive: full width on smaller screens */
     @media (max-width: 768px) {
         .fixed-sidebar {
-            position: static; /* Remove fixed positioning */
+            position: static;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center horizontally */
-            width: 100%; /* Full width for responsiveness */
-            margin: 0 auto; /* Center the container */
+            align-items: center;
+            width: 100%; /* Full width */
+            margin: 0 auto;
             padding: 10px;
             margin-top: 0px !important;
         }
 
         .fixed-sidebar input,
-        .fixed-sidebar .dropdowns {
-            width: 100%; /* Full width for input and dropdown */
-            max-width: 100%; /* Ensure it doesn't exceed container */
+        .fixed-sidebar select {
+            width: 100% !important;   /* Force exact same width */
+            max-width: 100% !important;
         }
     }
 
-    /* Ensure input and select elements are styled consistently */
-    #searchInput, #productSelect {
-        box-sizing: border-box;
-        font-size: 16px;
-    }
-
-    /* Optional: Adjust padding for smaller screens */
     @media (max-width: 576px) {
         .fixed-sidebar {
             padding: 5px;
@@ -629,16 +632,28 @@
     <div class="card" style="margin-top: 20px;">
       <div class="categories">
         <div class="category">
-          <img src="images/p1.avif" alt="Women Perfume">
-          <p>Women Perfume</p>
+            <a href="womenperfumes.html">
+                 <img src="images/p1.avif" alt="Women Perfume">
+                        <p>Women Perfume</p>
+
+            </a>
+         
         </div>
         <div class="category">
-          <img src="images/p2.avif" alt="Men Perfume">
+            <a href="menperfumes.html">
+   <img src="images/p2.avif" alt="Men Perfume">
           <p>Men Perfume</p>
+
+            </a>
+       
         </div>
         <div class="category">
-          <img src="images/p3.avif" alt="Unisex Perfume">
+
+            <a href="unisexperfumes.html">
+    <img src="images/p3.avif" alt="Unisex Perfume">
           <p>Unisex Perfume</p>
+            </a>
+      
         </div>
   
       
@@ -647,16 +662,16 @@
 
   </div>
 
-      <div class="col-12 col-md-3 fixed-sidebar" style="margin-top: 160px;">
-    <div style="margin-bottom: 15px;margin-right: 15px;">
-        <input type="text" id="searchInput" placeholder="Search products" style="padding: 5px; border-radius: 5px; border: 2px solid black; width: 250px;  margin: 0 auto; ;width: 230px;">
+<div class="col-12 col-md-3 fixed-sidebar" style="margin-top: 160px;">
+    <div class="input-wrapper">
+        <input type="text" id="searchInput" placeholder="Search products">
     </div>
-     <div class="dropdowns" style=" border-radius: 5px; width: 240px; margin-top: 20px;padding-left: 0px;">
-            <select id="productSelect" >
-                <option value="">select product...</option>
-                <!-- Options will be populated dynamically via JS -->
-            </select>
-        </div>
+    <div class="dropdowns">
+        <select id="productSelect">
+            <option value="">Select product...</option>
+            <!-- Options will be populated dynamically via JS -->
+        </select>
+    </div>
 </div>
 
   <div class="container">
@@ -668,55 +683,21 @@
 
       <!-- Product 1 -->
  <!-- Product 1 -->
-<div class="product-card"
-    data-id="prod6"
-    data-image="images/p1.avif"
-    data-name="Tom Ford Oud Wood - EDP"
-    data-type="Eau De Parfum"
-    data-price="34821"
-    data-size="30ml"
-    data-description="Woody, Oud + 3 more">
-
-    <span class="category-label">Popular</span>
-    <img src="images/p1.avif" alt="Tom Ford Oud Wood">
-    <div class="product-name">Tom Ford Oud Wood - EDP</div>
-    <div class="size-options"><span>30 ml</span></div>
-    <div class="scent-notes">Woody, Oud + 3 more</div>
-    <div class="price">KES 34,821 <del>KES 50,720</del></div>
-
-    <div class="product-actions">
-        <button class="btn btn-add" onclick="addToCart(this)">
-            <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-        </button>
-        <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-      <!-- Product 2 -->
- <div class="product-card"
-      data-id="prod7"
-      data-image="images/p2.avif"
-      data-name="Sauvage Dior Elixir"
+  <div class="product-card"
+      data-id="prod1"
+      data-image="images/milima1.JPG"
+      data-name="Mlima Baridi"
       data-type="Eau De Parfum"
-      data-price="32000"
-      data-size="60ml"
-      data-description="Woody, Aromatic + 8 more">
+      data-price="3280"
+      data-size="100ml"
+      data-description="Woody, Herbal Woody">
 
       <span class="category-label">Men</span>
-      <span class="category-label">Popular</span>
-      <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-      <div class="product-name">Sauvage Dior Elixir</div>
-      <div class="size-options"><span>60 ml</span></div>
-      <div class="scent-notes">Woody, Aromatic + 8 more</div>
-      <div class="price">KES 32,000 <del>KES 41,000</del></div>
+      <img src="images/milima1.JPG" alt="Mlima Baridi">
+      <div class="product-name">Mlima Baridi</div>
+      <div class="size-options"><span>100 ml</span></div>
+      <div class="scent-notes">Woody, Herbal Woody</div>
+      <div class="price">KES 3,280</div>
 
       <div class="product-actions">
           <button class="btn btn-add" onclick="addToCart(this)">
@@ -729,23 +710,56 @@
       </div>
   </div>
 
-      <!-- Product 3 -->
-    <div class="product-card"
-      data-id="prod8"
-      data-image="images/p3.avif"
-      data-name="My Way EDP - Giorgio Armani"
+
+
+
+
+<!-- Product 2 -->
+  <div class="product-card"
+      data-id="prod2"
+      data-image="images/zawadi.JPG"
+      data-name="Zawadi ya Maua"
       data-type="Eau De Parfum"
-      data-price="22990"
-      data-size="90ml"
-      data-description="Floral, Orange Blossom + 2 more">
+      data-price="3280"
+      data-size="100ml"
+      data-description="Ambergis, Woody">
 
       <span class="category-label">Women</span>
-      <span class="category-label">Popular</span>
-      <img src="images/p3.avif" alt="My Way EDP">
-      <div class="product-name">My Way EDP - Giorgio Armani</div>
-      <div class="size-options"><span>90 ml</span></div>
-      <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-      <div class="price">KES 22,990 <del>KES 25,750</del></div>
+      <img src="images/zawadi.JPG" alt="Zawadi ya Maua">
+      <div class="product-name">Zawadi ya Maua</div>
+      <div class="size-options"><span>100 ml</span></div>
+      <div class="scent-notes">Ambergis, Woody</div>
+      <div class="price">KES 3,280</div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+
+     <!-- Product 3 -->
+  <div class="product-card"
+      data-id="prod3"
+      data-image="images/nuit1.JPG"
+      data-name="Nuit Blanche"
+      data-type="Eau De Parfum"
+      data-price="800"
+      data-size="25ml"
+      data-description="Fruity, Gourmand">
+
+
+      <span class="category-label">Women</span>
+        <span class="category-label">Popular</span>
+      <img src="images/nuit1.JPG" alt="Nuit Blanche">
+      <div class="product-name">Nuit Blanche</div>
+      <div class="size-options"><span>25 ml</span></div>
+      <div class="scent-notes">Fruity, Gourmand</div>
+      <div class="price">KES 800</div>
 
       <div class="product-actions">
           <button class="btn btn-add" onclick="addToCart(this)">
@@ -762,21 +776,23 @@
       <!-- Product 4 -->
    
   <!-- Product 4 -->
+ <!-- Product 4 -->
   <div class="product-card"
-      data-id="prod9"
-      data-image="images/p5.avif"
-      data-name="Kayali Vanilla 28 EDP"
+      data-id="prod4"
+      data-image="images/misbah1.JPG"
+      data-name="MisbahP"
       data-type="Eau De Parfum"
-      data-price="29997"
-      data-size="100ml"
-      data-description="Amber, Vanilla">
+      data-price="2200"
+      data-size="50ml"
+      data-description="Oriental Fougere">
 
-      <span class="category-label">Women</span>
-      <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-      <div class="product-name">Kayali Vanilla 28 EDP</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Amber, Vanilla</div>
-      <div class="price">KES 29,997 <del>KES 33,000</del></div>
+      <span class="category-label">Popular</span>
+        <span class="category-label">Unisex</span>
+      <img src="images/misbah1.JPG" alt="Misbah">
+      <div class="product-name">Misbah</div>
+      <div class="size-options"><span>50 ml</span></div>
+      <div class="scent-notes">Oriental Fougere</div>
+      <div class="price">KES 2,200</div>
 
       <div class="product-actions">
           <button class="btn btn-add" onclick="addToCart(this)">
@@ -787,8 +803,7 @@
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
-
-    </div>
+  </div>
     </div>
     
     <h2 style="padding-top: 60px;" class="section-title1">Unisex Best Seller</h2>
@@ -798,55 +813,53 @@
 
       <!-- Product 1 -->
   <!-- Product 1 -->
-<div class="product-card"
-    data-id="prod6"
-    data-image="images/p1.avif"
-    data-name="Tom Ford Oud Wood - EDP"
-    data-type="Eau De Parfum"
-    data-price="34821"
-    data-size="30ml"
-    data-description="Woody, Oud + 3 more">
+ <div class="product-card"
+      data-id="unisex1"
+      data-image="images/pwani1.JPG"
+      data-name="Pwani Limau"
+      data-type="Eau De Parfum"
+      data-price="3280"
+      data-size="100ml"
+      data-description="Citrus">
 
-    <span class="category-label">Popular</span>
-    <img src="images/p1.avif" alt="Tom Ford Oud Wood">
-    <div class="product-name">Tom Ford Oud Wood - EDP</div>
-    <div class="size-options"><span>30 ml</span></div>
-    <div class="scent-notes">Woody, Oud + 3 more</div>
-    <div class="price">KES 34,821 <del>KES 50,720</del></div>
+      <span class="category-label">Unisex</span>
+      <img src="images/pwani1.JPG" alt="Pwani Limau">
+      <div class="product-name">Pwani Limau</div>
+      <div class="size-options"><span>100 ml</span></div>
+      <div class="scent-notes">Citrus</div>
+      <div class="price">KES 3,280</div>
 
-    <div class="product-actions">
-        <button class="btn btn-add" onclick="addToCart(this)">
-            <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-        </button>
-        <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-        </div>
-    </div>
-</div>
-
-
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
 
 
 
 
       <!-- Product 2 -->
- <div class="product-card"
-      data-id="prod7"
-      data-image="images/p2.avif"
-      data-name="Sauvage Dior Elixir"
+<!-- Product 2 -->
+  <div class="product-card"
+      data-id="unisex2"
+      data-image="images/diamond1.JPG"
+      data-name="Al-Diamond"
       data-type="Eau De Parfum"
-      data-price="32000"
-      data-size="60ml"
-      data-description="Woody, Aromatic + 8 more">
+      data-price="680"
+      data-size="25ml"
+      data-description="Oriental, Floral">
 
-      <span class="category-label">Men</span>
-      <span class="category-label">Popular</span>
-      <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-      <div class="product-name">Sauvage Dior Elixir</div>
-      <div class="size-options"><span>60 ml</span></div>
-      <div class="scent-notes">Woody, Aromatic + 8 more</div>
-      <div class="price">KES 32,000 <del>KES 41,000</del></div>
+      <span class="category-label">Unisex</span>
+      <img src="images/diamond1.JPG" alt="Al-Diamond">
+      <div class="product-name">Al-Diamond - EDP</div>
+      <div class="size-options"><span>25 ml</span></div>
+      <div class="scent-notes">Oriental, Floral</div>
+      <div class="price">KES 680</div>
 
       <div class="product-actions">
           <button class="btn btn-add" onclick="addToCart(this)">
@@ -860,22 +873,22 @@
   </div>
 
       <!-- Product 3 -->
-    <div class="product-card"
-      data-id="prod8"
-      data-image="images/p3.avif"
-      data-name="My Way EDP - Giorgio Armani"
+<!-- Product 3 -->
+  <div class="product-card"
+      data-id="unisex3"
+      data-image="images/jannat1.JPG"
+      data-name="Jannat"
       data-type="Eau De Parfum"
-      data-price="22990"
-      data-size="90ml"
-      data-description="Floral, Orange Blossom + 2 more">
+      data-price="680"
+      data-size="25ml"
+      data-description="Floral, Chypre">
 
-      <span class="category-label">Women</span>
-      <span class="category-label">Popular</span>
-      <img src="images/p3.avif" alt="My Way EDP">
-      <div class="product-name">My Way EDP - Giorgio Armani</div>
-      <div class="size-options"><span>90 ml</span></div>
-      <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-      <div class="price">KES 22,990 <del>KES 25,750</del></div>
+      <span class="category-label">Unisex</span>
+      <img src="images/jannat1.JPG" alt="Jannat">
+      <div class="product-name">Jannat </div>
+      <div class="size-options"><span>25 ml</span></div>
+      <div class="scent-notes">Floral, Chypre</div>
+      <div class="price">KES 680</div>
 
       <div class="product-actions">
           <button class="btn btn-add" onclick="addToCart(this)">
@@ -888,25 +901,52 @@
       </div>
   </div>
 
-
       <!-- Product 4 -->
    
   <!-- Product 4 -->
   <div class="product-card"
-      data-id="prod9"
-      data-image="images/p5.avif"
-      data-name="Kayali Vanilla 28 EDP"
+      data-id="unisex4"
+      data-image="images/ghayat1.JPG"
+      data-name="Ghayat"
       data-type="Eau De Parfum"
-      data-price="29997"
-      data-size="100ml"
-      data-description="Amber, Vanilla">
+      data-price="680"
+      data-size="30ml"
+      data-description="Floral, Oriental">
 
-      <span class="category-label">Women</span>
-      <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-      <div class="product-name">Kayali Vanilla 28 EDP</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Amber, Vanilla</div>
-      <div class="price">KES 29,997 <del>KES 33,000</del></div>
+      <span class="category-label">Unisex</span>
+      <img src="images/ghayat1.JPG" alt="Ghayat">
+      <div class="product-name">Ghayat</div>
+      <div class="size-options"><span>30 ml</span></div>
+      <div class="scent-notes">Floral, Oriental</div>
+      <div class="price">KES 680</div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+
+    <div class="product-card"
+      data-id="prod4"
+      data-image="images/misbah1.JPG"
+      data-name="MisbahP"
+      data-type="Eau De Parfum"
+      data-price="2200"
+      data-size="50ml"
+      data-description="Oriental Fougere">
+
+      <span class="category-label">Popular</span>
+        <span class="category-label">Unisex</span>
+      <img src="images/misbah1.JPG" alt="Misbah">
+      <div class="product-name">Misbah</div>
+      <div class="size-options"><span>50 ml</span></div>
+      <div class="scent-notes">Oriental Fougere</div>
+      <div class="price">KES 2,200</div>
 
       <div class="product-actions">
           <button class="btn btn-add" onclick="addToCart(this)">
@@ -927,55 +967,21 @@
 
       <!-- Product 1 -->
        <!-- Product 1 -->
-<div class="product-card"
-    data-id="prod6"
-    data-image="images/p1.avif"
-    data-name="Tom Ford Oud Wood - EDP"
-    data-type="Eau De Parfum"
-    data-price="34821"
-    data-size="30ml"
-    data-description="Woody, Oud + 3 more">
-
-    <span class="category-label">Popular</span>
-    <img src="images/p1.avif" alt="Tom Ford Oud Wood">
-    <div class="product-name">Tom Ford Oud Wood - EDP</div>
-    <div class="size-options"><span>30 ml</span></div>
-    <div class="scent-notes">Woody, Oud + 3 more</div>
-    <div class="price">KES 34,821 <del>KES 50,720</del></div>
-
-    <div class="product-actions">
-        <button class="btn btn-add" onclick="addToCart(this)">
-            <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-        </button>
-        <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-      <!-- Product 2 -->
- <div class="product-card"
-      data-id="prod7"
-      data-image="images/p2.avif"
-      data-name="Sauvage Dior Elixir"
+          <div class="product-card"
+      data-id="men1"
+      data-image="images/wimbo1.JPG"
+      data-name="Wimbo Msafiri"
       data-type="Eau De Parfum"
-      data-price="32000"
-      data-size="60ml"
-      data-description="Woody, Aromatic + 8 more">
+      data-price="2400"
+      data-size="50ml"
+      data-description="Woody Fougere">
 
       <span class="category-label">Men</span>
-      <span class="category-label">Popular</span>
-      <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-      <div class="product-name">Sauvage Dior Elixir</div>
-      <div class="size-options"><span>60 ml</span></div>
-      <div class="scent-notes">Woody, Aromatic + 8 more</div>
-      <div class="price">KES 32,000 <del>KES 41,000</del></div>
+      <img src="images/wimbo1.JPG" alt="Wimbo Msafiri">
+      <div class="product-name">Wimbo Wa Msafiri</div>
+      <div class="size-options"><span>50 ml</span></div>
+      <div class="scent-notes">Woody Fougere</div>
+      <div class="price">KES 2,400</div>
 
       <div class="product-actions">
           <button class="btn btn-add" onclick="addToCart(this)">
@@ -988,54 +994,21 @@
       </div>
   </div>
 
-      <!-- Product 3 -->
     <div class="product-card"
-      data-id="prod8"
-      data-image="images/p3.avif"
-      data-name="My Way EDP - Giorgio Armani"
+      data-id="prod1"
+      data-image="images/milima1.JPG"
+      data-name="Mlima Baridi"
       data-type="Eau De Parfum"
-      data-price="22990"
-      data-size="90ml"
-      data-description="Floral, Orange Blossom + 2 more">
-
-      <span class="category-label">Women</span>
-      <span class="category-label">Popular</span>
-      <img src="images/p3.avif" alt="My Way EDP">
-      <div class="product-name">My Way EDP - Giorgio Armani</div>
-      <div class="size-options"><span>90 ml</span></div>
-      <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-      <div class="price">KES 22,990 <del>KES 25,750</del></div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-
-      <!-- Product 4 -->
-   
-  <!-- Product 4 -->
-  <div class="product-card"
-      data-id="prod9"
-      data-image="images/p5.avif"
-      data-name="Kayali Vanilla 28 EDP"
-      data-type="Eau De Parfum"
-      data-price="29997"
+      data-price="3280"
       data-size="100ml"
-      data-description="Amber, Vanilla">
+      data-description="Woody, Herbal Woody">
 
-      <span class="category-label">Women</span>
-      <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-      <div class="product-name">Kayali Vanilla 28 EDP</div>
+      <span class="category-label">Men</span>
+      <img src="images/milima1.JPG" alt="Mlima Baridi">
+      <div class="product-name">Mlima Baridi</div>
       <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Amber, Vanilla</div>
-      <div class="price">KES 29,997 <del>KES 33,000</del></div>
+      <div class="scent-notes">Woody, Herbal Woody</div>
+      <div class="price">KES 3,280</div>
 
       <div class="product-actions">
           <button class="btn btn-add" onclick="addToCart(this)">
@@ -1046,8 +1019,17 @@
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
-
   </div>
+
+
+
+
+
+
+
+
+
+  
     </div>
      <h2 style="padding-top: 60px;" class="section-title1">Women Best Seller</h2>
       <h2 class="section-title">Women Best Seller</h2>
@@ -1055,115 +1037,21 @@
 
       <!-- Product 1 -->
  <!-- Product 1 -->
-<div class="product-card"
-    data-id="prod6"
-    data-image="images/p1.avif"
-    data-name="Tom Ford Oud Wood - EDP"
-    data-type="Eau De Parfum"
-    data-price="34821"
-    data-size="30ml"
-    data-description="Woody, Oud + 3 more">
-
-    <span class="category-label">Popular</span>
-    <img src="images/p1.avif" alt="Tom Ford Oud Wood">
-    <div class="product-name">Tom Ford Oud Wood - EDP</div>
-    <div class="size-options"><span>30 ml</span></div>
-    <div class="scent-notes">Woody, Oud + 3 more</div>
-    <div class="price">KES 34,821 <del>KES 50,720</del></div>
-
-    <div class="product-actions">
-        <button class="btn btn-add" onclick="addToCart(this)">
-            <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-        </button>
-        <div class="icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-            <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-      <!-- Product 2 -->
- <div class="product-card"
-      data-id="prod7"
-      data-image="images/p2.avif"
-      data-name="Sauvage Dior Elixir"
+   <div class="product-card"
+      data-id="women1"
+      data-image="images/waridi.JPG"
+      data-name="Waridi wa Nyika"
       data-type="Eau De Parfum"
-      data-price="32000"
-      data-size="60ml"
-      data-description="Woody, Aromatic + 8 more">
-
-      <span class="category-label">Men</span>
-      <span class="category-label">Popular</span>
-      <img src="images/p2.avif" alt="Sauvage Dior Elixir">
-      <div class="product-name">Sauvage Dior Elixir</div>
-      <div class="size-options"><span>60 ml</span></div>
-      <div class="scent-notes">Woody, Aromatic + 8 more</div>
-      <div class="price">KES 32,000 <del>KES 41,000</del></div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-      <!-- Product 3 -->
-    <div class="product-card"
-      data-id="prod8"
-      data-image="images/p3.avif"
-      data-name="My Way EDP - Giorgio Armani"
-      data-type="Eau De Parfum"
-      data-price="22990"
-      data-size="90ml"
-      data-description="Floral, Orange Blossom + 2 more">
-
-      <span class="category-label">Women</span>
-      <span class="category-label">Popular</span>
-      <img src="images/p3.avif" alt="My Way EDP">
-      <div class="product-name">My Way EDP - Giorgio Armani</div>
-      <div class="size-options"><span>90 ml</span></div>
-      <div class="scent-notes">Floral, Orange Blossom + 2 more</div>
-      <div class="price">KES 22,990 <del>KES 25,750</del></div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-
-      <!-- Product 4 -->
-   
-  <!-- Product 4 -->
-  <div class="product-card"
-      data-id="prod9"
-      data-image="images/p5.avif"
-      data-name="Kayali Vanilla 28 EDP"
-      data-type="Eau De Parfum"
-      data-price="29997"
+      data-price="3280"
       data-size="100ml"
-      data-description="Amber, Vanilla">
+      data-description="Oriental, Spicy">
 
       <span class="category-label">Women</span>
-      <img src="images/p5.avif" alt="Kayali Vanilla 28 EDP">
-      <div class="product-name">Kayali Vanilla 28 EDP</div>
+      <img src="images/waridi.JPG" alt="Waridi wa Nyika">
+      <div class="product-name">Waridi wa Nyika</div>
       <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Amber, Vanilla</div>
-      <div class="price">KES 29,997 <del>KES 33,000</del></div>
+      <div class="scent-notes">Oriental, Spicy</div>
+      <div class="price">KES 3,280</div>
 
       <div class="product-actions">
           <button class="btn btn-add" onclick="addToCart(this)">
@@ -1176,6 +1064,63 @@
       </div>
   </div>
 
+<!-- Product 2 -->
+  <div class="product-card"
+      data-id="prod2"
+      data-image="images/zawadi.JPG"
+      data-name="Zawadi ya Maua"
+      data-type="Eau De Parfum"
+      data-price="3280"
+      data-size="100ml"
+      data-description="Ambergis, Woody">
+
+      <span class="category-label">Women</span>
+      <img src="images/zawadi1.JPG" alt="Zawadi ya Maua">
+      <div class="product-name">Zawadi ya Maua</div>
+      <div class="size-options"><span>100 ml</span></div>
+      <div class="scent-notes">Ambergis, Woody</div>
+      <div class="price">KES 3,280</div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+
+       <!-- Product 3 -->
+  <div class="product-card"
+      data-id="prod3"
+      data-image="images/nuit1.JPG"
+      data-name="Nuit Blanche"
+      data-type="Eau De Parfum"
+      data-price="800"
+      data-size="25ml"
+      data-description="Fruity, Gourmand">
+
+
+      <span class="category-label">Women</span>
+        <span class="category-label">Popular</span>
+      <img src="images/nuit1.JPG" alt="Nuit Blanche">
+      <div class="product-name">Nuit Blanche</div>
+      <div class="size-options"><span>25 ml</span></div>
+      <div class="scent-notes">Fruity, Gourmand</div>
+      <div class="price">KES 800</div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
     </div>
   </div>
 <div class="popup" id="popup" style="
