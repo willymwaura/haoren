@@ -486,13 +486,18 @@
                             <img style="width: 80px; height: 60px;" src="images/logo.avif">
                         </a>
                           <!-- Cart Icon (shows on all screens, moves with order classes) -->
-  <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 20px;">
-    <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" class="position-relative">
+  <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
+    <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" class="position-relative" style="margin-right: 10px;">
       <svg class="text-black cart" width="22" height="22">
         <use xlink:href="#cart"></use>
       </svg>
       <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
     </a>
+    <a href="wishlist.html">
+  <img id="navbar-heart" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+       alt="Wishlist" style="width:30px;cursor:pointer;margin: 5px;">
+</a>
+
   </div>
                     <button class="navbar-toggler d-flex d-lg-none order-3 p-0 border-0 shadow-none" type="button"
                         data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar"
@@ -700,7 +705,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -732,7 +738,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -762,7 +769,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+            <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -795,7 +803,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+                <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -830,7 +839,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+              <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -862,7 +872,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+         <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -891,7 +902,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -921,7 +933,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -949,7 +962,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+                     <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -984,7 +998,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -1011,7 +1026,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+                   <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -1054,7 +1070,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+                 <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -1082,7 +1099,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+         <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -1112,7 +1130,8 @@
               <img src="images/grocery-store.png" alt="Cart"> Add to Cart
           </button>
           <div class="icons">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Heart">
+         <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
               <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
           </div>
       </div>
@@ -1555,6 +1574,63 @@ document.addEventListener("keydown", function(e) {
             document.getElementById("modalQuantity").value = 1;
         }
     }
+});
+</script>
+
+<script>
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+function toggleWishlist(el) {
+    const card = el.closest(".product-card");
+    const id = card.dataset.id;
+
+    // Check if already in wishlist
+    const index = wishlist.findIndex(item => item.id === id);
+
+    if (index === -1) {
+        // Add to wishlist
+        wishlist.push({
+            id: id,
+            image: card.dataset.image,
+            name: card.dataset.name,
+            type: card.dataset.type,
+            price: card.dataset.price,
+            size: card.dataset.size,
+            description: card.dataset.description
+        });
+        el.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png"; // filled black heart
+    } else {
+        // Remove from wishlist
+        wishlist.splice(index, 1);
+        el.src = "https://cdn-icons-png.flaticon.com/512/1077/1077035.png"; // outline heart
+    }
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    updateNavbarHeart();
+}
+
+function updateWishlistHearts() {
+    document.querySelectorAll(".product-card").forEach(card => {
+        const id = card.dataset.id;
+        const icon = card.querySelector(".wishlist-icon");
+        if (wishlist.some(item => item.id === id)) {
+            icon.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png";
+        }
+    });
+}
+
+function updateNavbarHeart() {
+    const navbarHeart = document.getElementById("navbar-heart");
+    if (!navbarHeart) return;
+    navbarHeart.src = wishlist.length > 0 
+        ? "https://cdn-icons-png.flaticon.com/512/833/833472.png" // filled
+        : "https://cdn-icons-png.flaticon.com/512/1077/1077035.png"; // outline
+}
+
+// Run on load
+document.addEventListener("DOMContentLoaded", () => {
+    updateWishlistHearts();
+    updateNavbarHeart();
 });
 </script>
 

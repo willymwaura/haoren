@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haoren Men Perfumes</title>
-   <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  <title>My Wishlist</title>
+  <link rel="stylesheet" href="style.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Swiper CSS -->
@@ -18,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <style>
+    <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -311,6 +310,16 @@
       width: 20px;
       height: 20px;
     }
+#wishlist-container p {
+    text-align: center;
+    font-size: 16px;
+    color: #6c757d;
+    margin: 20px 0;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    grid-column: 1 / -1; /* Span all grid columns */
+  }
   </style>
   <style>
     .header-card {
@@ -455,8 +464,8 @@
 </style>
 </head>
 <body>
-    
-  <div class="position-fixed top-0 start-0 w-100 z-3">
+
+    <div class="position-fixed top-0 start-0 w-100 z-3">
     <div  style="width: 100%; height: 40px; background-color: #988558; display: flex; align-items: center; justify-content: center;max-width: 1360px; margin: 0 auto; padding: 0px 20px;">
         <p style="color: white; margin: 0; font-size: 12px;">
             Highway Heights, Kilimani, Nairobi | ☎ (+254) 0114 012345
@@ -683,141 +692,14 @@
 </div>
 
 
-
-
-
-  <div class="container" style="padding-top: 180px;">
-    <div class="header-card">
-      
-        <h1>Women <span>perfumes</span></h1>
-    </div>
-    </div>
-
-        <div class="col-12 col-md-3 fixed-sidebar" style="margin-top: 160px;">
-        <div class="input-wrapper">
-            <input type="text" id="searchInput" placeholder="Search products">
-        </div>
-        <div class="dropdowns">
-            <select id="productSelect">
-                <option value="">Select product...</option>
-                <!-- Options will be populated dynamically via JS -->
-            </select>
-        </div>
-    </div>
-
-
+<div class="container">
+ <h2 style="padding-top: 160px;" class="section-title1">My Wishlist</h2>
     
-
-    <div class="container">
-<div class="content-card">
-      
-   
-     <h2 style="padding-top: 50px;" class="section-title1">Women Best Seller</h2>
-      <h2 class="section-title">Women Best Seller</h2>
-    <div class="card-container">
-
-      <!-- Product 1 -->
-   <div class="product-card"
-      data-id="women1"
-      data-image="images/waridi.JPG"
-      data-name="Waridi wa Nyika"
-      data-type="Eau De Parfum"
-      data-price="3280"
-      data-size="100ml"
-      data-description="Oriental, Spicy">
-
-      <span class="category-label">Women</span>
-      <img src="images/waridi.JPG" alt="Waridi wa Nyika">
-      <div class="product-name">Waridi wa Nyika</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Oriental, Spicy</div>
-      <div class="price">KES 3,280</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-           <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-<!-- Product 2 -->
-  <div class="product-card"
-      data-id="prod2"
-      data-image="images/zawadi.JPG"
-      data-name="Zawadi ya Maua"
-      data-type="Eau De Parfum"
-      data-price="3280"
-      data-size="100ml"
-      data-description="Ambergis, Woody">
-
-      <span class="category-label">Women</span>
-      <img src="images/zawadi1.JPG" alt="Zawadi ya Maua">
-      <div class="product-name">Zawadi ya Maua</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Ambergis, Woody</div>
-      <div class="price">KES 3,280</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                       <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-       <!-- Product 3 -->
-  <div class="product-card"
-      data-id="prod3"
-      data-image="images/nuit1.JPG"
-      data-name="Nuit Blanche"
-      data-type="Eau De Parfum"
-      data-price="800"
-      data-size="25ml"
-      data-description="Fruity, Gourmand">
-
-
-      <span class="category-label">Women</span>
-        <span class="category-label">Popular</span>
-      <img src="images/nuit1.JPG" alt="Nuit Blanche">
-      <div class="product-name">Nuit Blanche</div>
-      <div class="size-options"><span>25 ml</span></div>
-      <div class="scent-notes">Fruity, Gourmand</div>
-      <div class="price">KES 800</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                 <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-    </div>
-
- 
-  </div>
-
-
-      <div class="popup" id="popup">
-        <p style="color: #000; font-size: 18px;">Added to Cart!</p>
-        <button style="background-color: #000; color: #fff; padding: 10px 20px; border-radius: 5px; border: none; margin-top: 10px;" onclick="closePopup()">OK</button>
-    </div>
-
-    <!-- WhatsApp Modal -->
+  
+  
+  <div class="card-container" id="wishlist-container"></div>
+</div>
+     <!-- WhatsApp Modal -->
 <div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 10000;">
   <div style="background: #fff; border-radius: 12px; padding: 24px; width: 90%; max-width: 500px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-height: 80vh; overflow-y: auto; position: relative; animation: modalSlideIn 0.3s ease-out; display: block;">
     <h2 id="modalProductName" style="margin: 0 0 12px 0; color: #333; font-size: 24px; text-align: center;">Product Name</h2>
@@ -840,59 +722,81 @@
   </div>
 </div>
 
-<style>
-@keyframes modalSlideIn {
-    from { opacity: 0; transform: translateY(-50px) scale(0.95); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-@media (max-width: 768px) {
-    #modalOverlay > div { width: 95%; padding: 20px; margin: 20px; }
-    #modalOverlay > div > div:last-child { flex-direction: column; }
-    #modalOverlay > div > div:last-child > button { width: 100%; }
-}
-</style>
-  <!-- Footer -->
-    <footer style="background-color: #988558; padding-top: 20px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-3 mb-4">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801634920605!2d36.78817777582776!3d-1.2934915356358103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e50d566add%3A0x2d4a4d5689faf57!2sHighway%20Heights!5e0!3m2!1sen!2ske!4v1756724788688!5m2!1sen!2ske" class="img-fluid" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="col-12 col-md-3 mb-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-                        <li><p class="mb-0 text-white">&copy; 2025 Haoren. All rights reserved.</p></li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-3 mb-4">
-                    <h5>Follow Us</h5>
-                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-                    <h5>Contact Us</h5>
-                    <p class="mb-1 text-white">Email: info@haorenaf.com</p>
-                    <p class="mb-1 text-white">Phone: (+254) 0114012345</p>
-                    <p class="text-white">Address: Highway Heights, Kilimani, Nairobi</p>
-                </div>
-                <div class="col-12 col-md-3"></div>
-            </div>
-            <hr class="bg-white my-4">
-        </div>
-    </footer>
+  <script src="wishlist.js"></script>
+  <script>
+    function loadWishlist() {
+        const container = document.getElementById("wishlist-container");
+        const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-</body>
-    <!-- Scripts -->
-     
-    <!-- Scripts -->
+        container.innerHTML = ""; // Clear existing content
 
-<script>
+         if (wishlist.length === 0) {
+      console.log("Wishlist is empty, adding empty message div");
+      const emptyMessage = document.createElement("div");
+      emptyMessage.id = "empty-wishlist-message";
+      emptyMessage.textContent = "No items in wishlist.";
+            emptyMessage.style.cssText = `
+        text-align: center;
+        font-size: 16px;
+        text-decoration:bold;
+        color: #6c757d;
+        margin: 20px 0;
+        padding: 10px;
+        background-color: #f9fbfd;
+        display: block;
+        visibility: visible;
+        opacity: 1;
+        grid-column: 1 / -1;
+        padding-top:200px;
+      `;
+      container.appendChild(emptyMessage);
+      console.log("Container HTML after adding empty message:", container.innerHTML);
+      container.offsetHeight; // Force DOM reflow
+      return;
+    }
+
+        wishlist.forEach(item => {
+            const card = document.createElement("div");
+            card.classList.add("product-card");
+            card.setAttribute("data-id", item.id);
+            card.setAttribute("data-image", item.image);
+            card.setAttribute("data-name", item.name);
+            card.setAttribute("data-type", item.type || "Women"); // Default to "Women" if not present
+            card.setAttribute("data-price", item.price);
+            card.setAttribute("data-size", item.size);
+            card.setAttribute("data-description", item.description);
+            card.innerHTML = `
+               
+                <img src="${item.image}" alt="${item.name}">
+                <div class="product-name">${item.name}</div>
+                <div class="size-options"><span>${item.size}</span></div>
+                <div class="scent-notes">${item.description}</div>
+                <div class="price">KES ${item.price}</div>
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                    <button class="btn btn-whatsapp" onclick="showPopups(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp"> 
+                    </button>
+                    <button class="btn btn-remove-wishlist" onclick="removeFromWishlist(this)">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Remove from Wishlist">
+                    </button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", loadWishlist);
+  </script>
+
+  <script>
     // Populate the select dropdown with unique product names
     document.addEventListener('DOMContentLoaded', function() {
+        // Since loadWishlist is called first, .product-card should exist
         const products = document.querySelectorAll('.product-card');
         const select = document.getElementById('productSelect');
         const uniqueProductNames = new Set();
@@ -945,273 +849,290 @@
             }
         });
     }
-</script>
-        <script>
-function addToCart(button) {
-    const card = button.closest('.product-card');
-    const price = parseFloat(card.getAttribute('data-price'));
+  </script>
 
-    const product = {
-        id: card.getAttribute('data-id'),
-        image: card.getAttribute('data-image'),
-        name: card.getAttribute('data-name'),
-        type: card.getAttribute('data-type'),
-        price: card.getAttribute('data-price'), // store as string number
-        size: card.getAttribute('data-size'),
-        description: card.getAttribute('data-description'),
-        quantity: 1,
-        subtotal: price
-    };
+  <script>
+    function addToCart(button) {
+        const card = button.closest('.product-card');
+        const price = parseFloat(card.getAttribute('data-price'));
 
-    let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-    const existingItem = cartData.items.find(item => item.id === product.id);
+        const product = {
+            id: card.getAttribute('data-id'),
+            image: card.getAttribute('data-image'),
+            name: card.getAttribute('data-name'),
+            type: card.getAttribute('data-type'),
+            price: card.getAttribute('data-price'), // store as string number
+            size: card.getAttribute('data-size'),
+            description: card.getAttribute('data-description'),
+            quantity: 1,
+            subtotal: price
+        };
 
-    if (existingItem) {
-        existingItem.quantity += 1;
-        existingItem.subtotal = parseFloat(existingItem.price) * existingItem.quantity;
-    } else {
-        cartData.items.push(product);
+        let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+        const existingItem = cartData.items.find(item => item.id === product.id);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+            existingItem.subtotal = parseFloat(existingItem.price) * existingItem.quantity;
+        } else {
+            cartData.items.push(product);
+        }
+
+        cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+        localStorage.setItem('cartData', JSON.stringify(cartData));
+
+        showPopup();
+        updateCartCount();
     }
 
-    cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
-    localStorage.setItem('cartData', JSON.stringify(cartData));
+    function updateQuantity(productId, change) {
+        let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+        const item = cartData.items.find(item => item.id === productId);
 
-    showPopup();
-    updateCartCount();
-}
+        if (item) {
+            item.quantity = Math.max(1, item.quantity + change);
+            item.subtotal = parseFloat(item.price) * item.quantity;
+            cartData.total = cartData.items.reduce((sum, i) => sum + i.subtotal, 0);
+            localStorage.setItem('cartData', JSON.stringify(cartData));
+            loadMiniCart();
+            updateCartCount();
+        }
+    }
 
-function updateQuantity(productId, change) {
-    let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-    const item = cartData.items.find(item => item.id === productId);
-
-    if (item) {
-        item.quantity = Math.max(1, item.quantity + change);
-        item.subtotal = parseFloat(item.price) * item.quantity;
-        cartData.total = cartData.items.reduce((sum, i) => sum + i.subtotal, 0);
+    function removeFromCart(productId) {
+        let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+        cartData.items = cartData.items.filter(item => item.id !== productId);
+        cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
         localStorage.setItem('cartData', JSON.stringify(cartData));
         loadMiniCart();
         updateCartCount();
     }
-}
 
-function removeFromCart(productId) {
-    let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-    cartData.items = cartData.items.filter(item => item.id !== productId);
-    cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
-    localStorage.setItem('cartData', JSON.stringify(cartData));
-    loadMiniCart();
-    updateCartCount();
-}
+    function showPopup() {
+        const popup = document.getElementById('popup');
+        if (!popup) return;
+        popup.style.display = 'block';
+        setTimeout(closePopup, 3000);
+    }
 
-function showPopup() {
-    const popup = document.getElementById('popup');
-    if (!popup) return;
-    popup.style.display = 'block';
-    setTimeout(closePopup, 3000);
-}
+    function closePopup() {
+        const popup = document.getElementById('popup');
+        if (popup) popup.style.display = 'none';
+    }
 
-function closePopup() {
-    const popup = document.getElementById('popup');
-    if (popup) popup.style.display = 'none';
-}
+    function updateCartCount() {
+        const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [] };
+        const count = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
 
-function updateCartCount() {
-    const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [] };
-    const count = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+        const cartCount = document.getElementById('cartCount');
+        const offcanvasCartCount = document.getElementById('offcanvasCartCount');
 
-    const cartCount = document.getElementById('cartCount');
-    const offcanvasCartCount = document.getElementById('offcanvasCartCount');
+        if (cartCount) cartCount.textContent = count;
+        if (offcanvasCartCount) offcanvasCartCount.textContent = count;
+    }
 
-    if (cartCount) cartCount.textContent = count;
-    if (offcanvasCartCount) offcanvasCartCount.textContent = count;
-}
+    function loadMiniCart() {
+        const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+        const miniCartItemsDiv = document.getElementById('miniCartItems');
+        const miniCartTotal = document.getElementById('miniCartTotal');
+        const offcanvasCartItems = document.getElementById('offcanvasCartItems');
 
-function loadMiniCart() {
-    const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-    const miniCartItemsDiv = document.getElementById('miniCartItems');
-    const miniCartTotal = document.getElementById('miniCartTotal');
-    const offcanvasCartItems = document.getElementById('offcanvasCartItems');
+        if (!miniCartItemsDiv || !miniCartTotal || !offcanvasCartItems) return;
 
-    if (!miniCartItemsDiv || !miniCartTotal || !offcanvasCartItems) return;
+        miniCartItemsDiv.innerHTML = '';
+        offcanvasCartItems.innerHTML = '';
 
-    miniCartItemsDiv.innerHTML = '';
-    offcanvasCartItems.innerHTML = '';
-
-    if (cartData.items.length === 0) {
-        miniCartItemsDiv.innerHTML = '<p class="text-muted">Your cart is empty.</p>';
-        offcanvasCartItems.innerHTML = '<li class="list-group-item text-muted">Your cart is empty.</li>';
-    } else {
-        cartData.items.forEach(item => {
-            const miniDiv = document.createElement('div');
-            miniDiv.className = 'cart-item';
-            miniDiv.style.cssText = 'padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;';
-            miniDiv.innerHTML = `
-                <img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto; margin-right: 10px;">
-                <div style="flex-grow: 1;">
-                    <p style="margin:0;font-weight:bold;">${item.name}</p>
-                    <div class="quantity-controls">
-                        <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
-                        <span>Qty: ${item.quantity}</span>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
+        if (cartData.items.length === 0) {
+            miniCartItemsDiv.innerHTML = '<p class="text-muted">Your cart is empty.</p>';
+            offcanvasCartItems.innerHTML = '<li class="list-group-item text-muted">Your cart is empty.</li>';
+        } else {
+            cartData.items.forEach(item => {
+                const miniDiv = document.createElement('div');
+                miniDiv.className = 'cart-item';
+                miniDiv.style.cssText = 'padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;';
+                miniDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto; margin-right: 10px;">
+                    <div style="flex-grow: 1;">
+                        <p style="margin:0;font-weight:bold;">${item.name}</p>
+                        <div class="quantity-controls">
+                            <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
+                            <span>Qty: ${item.quantity}</span>
+                            <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
+                        </div>
+                        <p style="margin:0;">Subtotal: Ksh ${item.subtotal.toFixed(2)}</p>
                     </div>
-                    <p style="margin:0;">Subtotal: Ksh ${item.subtotal.toFixed(2)}</p>
-                </div>
-                <button class="btn btn-danger btn-sm" onclick="removeFromCart('${item.id}')">×</button>
-            `;
-            miniCartItemsDiv.appendChild(miniDiv);
+                    <button class="btn btn-danger btn-sm" onclick="removeFromCart('${item.id}')">×</button>
+                `;
+                miniCartItemsDiv.appendChild(miniDiv);
 
-            const offcanvasDiv = document.createElement('li');
-            offcanvasDiv.className = 'list-group-item d-flex justify-content-between lh-sm';
-            offcanvasDiv.innerHTML = `
-                <div>
-                    <h6 class="my-0">${item.name}</h6>
-                    <small class="text-body-secondary">Qty: ${item.quantity}</small>
-                </div>
-                <div>
-                    <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
-                    <button class="btn btn-danger btn-sm ms-2" onclick="removeFromCart('${item.id}')">×</button>
-                </div>
-            `;
-            offcanvasCartItems.appendChild(offcanvasDiv);
-        });
+                const offcanvasDiv = document.createElement('li');
+                offcanvasDiv.className = 'list-group-item d-flex justify-content-between lh-sm';
+                offcanvasDiv.innerHTML = `
+                    <div>
+                        <h6 class="my-0">${item.name}</h6>
+                        <small class="text-body-secondary">Qty: ${item.quantity}</small>
+                    </div>
+                    <div>
+                        <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
+                        <button class="btn btn-danger btn-sm ms-2" onclick="removeFromCart('${item.id}')">×</button>
+                    </div>
+                `;
+                offcanvasCartItems.appendChild(offcanvasDiv);
+            });
+        }
+
+        miniCartTotal.textContent = `Ksh ${cartData.total.toFixed(2)}`;
+        updateCartCount();
     }
 
-    miniCartTotal.textContent = `Ksh ${cartData.total.toFixed(2)}`;
-    updateCartCount();
-}
+    document.getElementById('miniCart')?.addEventListener('show.bs.offcanvas', loadMiniCart);
+    document.getElementById('offcanvasCart')?.addEventListener('show.bs.offcanvas', loadMiniCart);
 
-document.getElementById('miniCart')?.addEventListener('show.bs.offcanvas', loadMiniCart);
-document.getElementById('offcanvasCart')?.addEventListener('show.bs.offcanvas', loadMiniCart);
+    window.addEventListener('DOMContentLoaded', () => {
+        updateCartCount();
+    });
+  </script>
 
-window.addEventListener('DOMContentLoaded', () => {
-    updateCartCount();
-});
-</script>
+  <script>
+    function showPopups(icon) {
+        console.log("=== showPopups START ===");
+        console.log("Icon clicked:", icon);
 
-<script>
-function showPopups(icon) {
-    console.log("=== showPopups START ===");
-    console.log("Icon clicked:", icon);
+        const productCard = icon.closest(".product-card");
+        console.log("Product card:", productCard);
+        if (!productCard) {
+            console.error("ERROR: Product card not found!");
+            return;
+        }
 
-    const productCard = icon.closest(".product-card");
-    console.log("Product card:", productCard);
-    if (!productCard) {
-        console.error("ERROR: Product card not found!");
-        return;
-    }
+        const name = productCard.dataset.name;
+        const price = productCard.dataset.price;
+        const size = productCard.dataset.size;
+        const type = productCard.dataset.type;
+        console.log("Data extracted - Name:", name, "Price:", price);
 
-    const name = productCard.dataset.name;
-    const price = productCard.dataset.price;
-    const size = productCard.dataset.size;
-    const type = productCard.dataset.type;
-    console.log("Data extracted - Name:", name, "Price:", price);
+        const modalProductName = document.getElementById("modalProductName");
+        const modalPrice = document.getElementById("modalPrice");
+        const modalSize = document.getElementById("modalSize");
+        const modalBrand = document.getElementById("modalBrand");
+        const modalCategory = document.getElementById("modalCategory");
+        const modalQuantity = document.getElementById("modalQuantity");
+        console.log("Modal elements:", {modalProductName, modalPrice, modalSize, modalBrand, modalCategory, modalQuantity});
 
-    const modalProductName = document.getElementById("modalProductName");
-    const modalPrice = document.getElementById("modalPrice");
-    const modalSize = document.getElementById("modalSize");
-    const modalBrand = document.getElementById("modalBrand");
-    const modalCategory = document.getElementById("modalCategory");
-    const modalQuantity = document.getElementById("modalQuantity");
-    console.log("Modal elements:", {modalProductName, modalPrice, modalSize, modalBrand, modalCategory, modalQuantity});
+        if (!modalProductName || !modalPrice || !modalSize || !modalBrand || !modalCategory || !modalQuantity) {
+            console.error("ERROR: Modal elements not found!");
+            return;
+        }
 
-    if (!modalProductName || !modalPrice || !modalSize || !modalBrand || !modalCategory || !modalQuantity) {
-        console.error("ERROR: Modal elements not found!");
-        return;
-    }
+        modalProductName.textContent = name;
+        modalPrice.textContent = "KES " + price;
+        modalSize.textContent = size;
+        modalBrand.textContent = name.split(" ")[0];
+        modalCategory.textContent = type;
+        modalQuantity.value = 1; // Initialize quantity
+        console.log("Modal filled with data");
 
-    modalProductName.textContent = name;
-    modalPrice.textContent = "KES " + price;
-    modalSize.textContent = size;
-    modalBrand.textContent = name.split(" ")[0];
-    modalCategory.textContent = type;
-    modalQuantity.value = 1; // Initialize quantity
-    console.log("Modal filled with data");
+        const modalOverlay = document.getElementById("modalOverlay");
+        console.log("Modal overlay:", modalOverlay);
+        if (!modalOverlay) {
+            console.error("ERROR: Modal overlay not found!");
+            return;
+        }
 
-    const modalOverlay = document.getElementById("modalOverlay");
-    console.log("Modal overlay:", modalOverlay);
-    if (!modalOverlay) {
-        console.error("ERROR: Modal overlay not found!");
-        return;
-    }
+        modalOverlay.style.display = "flex";
+        console.log("Display set to flex. Current style:", modalOverlay.style.display);
 
-    modalOverlay.style.display = "flex";
-    console.log("Display set to flex. Current style:", modalOverlay.style.display);
+        const orderBtn = document.getElementById("placeOrderBtn");
+        const plusBtn = document.getElementById("plusBtn");
+        const minusBtn = document.getElementById("minusBtn");
+        if (orderBtn && plusBtn && minusBtn) {
+            orderBtn.textContent = "Place WhatsApp Order • KES " + price;
+            orderBtn.onclick = function() {
+                const fullName = document.getElementById("modalFullName").value || "Not provided";
+                const location = document.getElementById("modalLocation").value || "Not provided";
+                const quantity = document.getElementById("modalQuantity").value;
+                const totalPrice = parseInt(price) * parseInt(quantity);
+                const message = `Hello, I want to order:\n\n${name}\nSize: ${size}\nQuantity: ${quantity}\nPrice: KES ${price} x ${quantity} = KES ${totalPrice}\n\nCustomer: ${fullName}\nLocation: ${location}`;
+                const phoneNumber = "254114012345"; // Replace with real number
+                const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+                window.open(url, "_blank");
+            };
 
-    const orderBtn = document.getElementById("placeOrderBtn");
-    const plusBtn = document.getElementById("plusBtn");
-    const minusBtn = document.getElementById("minusBtn");
-    if (orderBtn && plusBtn && minusBtn) {
-        orderBtn.textContent = "Place WhatsApp Order • KES " + price;
-        orderBtn.onclick = function() {
-            const fullName = document.getElementById("modalFullName").value || "Not provided";
-            const location = document.getElementById("modalLocation").value || "Not provided";
-            const quantity = document.getElementById("modalQuantity").value;
-            const totalPrice = parseInt(price) * parseInt(quantity);
-            const message = `Hello, I want to order:\n\n${name}\nSize: ${size}\nQuantity: ${quantity}\nPrice: KES ${price} x ${quantity} = KES ${totalPrice}\n\nCustomer: ${fullName}\nLocation: ${location}`;
-            const phoneNumber = "254114012345"; // Replace with real number
-            const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
-            window.open(url, "_blank");
-        };
-
-        plusBtn.onclick = function() {
-            modalQuantity.value = parseInt(modalQuantity.value) + 1;
-            orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
-            console.log("Quantity increased:", modalQuantity.value);
-        };
-
-        minusBtn.onclick = function() {
-            if (parseInt(modalQuantity.value) > 1) {
-                modalQuantity.value = parseInt(modalQuantity.value) - 1;
+            plusBtn.onclick = function() {
+                modalQuantity.value = parseInt(modalQuantity.value) + 1;
                 orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
-                console.log("Quantity decreased:", modalQuantity.value);
-            }
-        };
-        console.log("Buttons set up");
+                console.log("Quantity increased:", modalQuantity.value);
+            };
+
+            minusBtn.onclick = function() {
+                if (parseInt(modalQuantity.value) > 1) {
+                    modalQuantity.value = parseInt(modalQuantity.value) - 1;
+                    orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
+                    console.log("Quantity decreased:", modalQuantity.value);
+                }
+            };
+            console.log("Buttons set up");
+        }
+
+        console.log("=== showPopups END ===");
     }
 
-    console.log("=== showPopups END ===");
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM loaded - Setting up listeners");
-    const cancelBtn = document.getElementById("cancelBtn");
-    const modalOverlay = document.getElementById("modalOverlay");
-    
-    if (cancelBtn && modalOverlay) {
-        cancelBtn.addEventListener("click", function() {
-            console.log("Cancel clicked");
-            modalOverlay.style.display = "none";
-            document.getElementById("modalFullName").value = "";
-            document.getElementById("modalLocation").value = "";
-            document.getElementById("modalQuantity").value = 1;
-        });
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("DOM loaded - Setting up listeners");
+        const cancelBtn = document.getElementById("cancelBtn");
+        const modalOverlay = document.getElementById("modalOverlay");
         
-        modalOverlay.addEventListener("click", function(e) {
-            if (e.target === modalOverlay) {
-                console.log("Overlay clicked - closing");
+        if (cancelBtn && modalOverlay) {
+            cancelBtn.addEventListener("click", function() {
+                console.log("Cancel clicked");
+                modalOverlay.style.display = "none";
+                document.getElementById("modalFullName").value = "";
+                document.getElementById("modalLocation").value = "";
+                document.getElementById("modalQuantity").value = 1;
+            });
+            
+            modalOverlay.addEventListener("click", function(e) {
+                if (e.target === modalOverlay) {
+                    console.log("Overlay clicked - closing");
+                    modalOverlay.style.display = "none";
+                    document.getElementById("modalFullName").value = "";
+                    document.getElementById("modalLocation").value = "";
+                    document.getElementById("modalQuantity").value = 1;
+                }
+            });
+        } else {
+            console.error("ERROR: Setup failed - elements missing");
+        }
+    });
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+            const modalOverlay = document.getElementById("modalOverlay");
+            if (modalOverlay && modalOverlay.style.display === "flex") {
                 modalOverlay.style.display = "none";
                 document.getElementById("modalFullName").value = "";
                 document.getElementById("modalLocation").value = "";
                 document.getElementById("modalQuantity").value = 1;
             }
-        });
-    } else {
-        console.error("ERROR: Setup failed - elements missing");
-    }
-});
-
-document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") {
-        const modalOverlay = document.getElementById("modalOverlay");
-        if (modalOverlay && modalOverlay.style.display === "flex") {
-            modalOverlay.style.display = "none";
-            document.getElementById("modalFullName").value = "";
-            document.getElementById("modalLocation").value = "";
-            document.getElementById("modalQuantity").value = 1;
         }
+    });
+  </script>
+
+  <script>
+    function removeFromWishlist(button) {
+        const card = button.closest('.product-card');
+        const id = card.getAttribute('data-id');
+
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        wishlist = wishlist.filter(item => item.id !== id);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+        // Reload the wishlist to update the display
+        loadWishlist();
     }
-});
-</script>
+  </script>
+
+
 
 <script>
 let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -1269,7 +1190,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNavbarHeart();
 });
 </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+</body>
 </html>
