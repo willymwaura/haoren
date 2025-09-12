@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>My Wishlist</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -181,7 +183,10 @@
       font-family: cursive;
     }
 
-    /* ✅ Grid layout for products */
+    /* ✅ Grid layout fo
+    r products */
+
+    
  .card-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -213,7 +218,7 @@
 
     .product-card img {
       width: 100%;
-      height: 300px;
+      height: 400px;
       object-fit: cover;
     }
 
@@ -455,6 +460,7 @@
             max-width: 100% !important;
         }
     }
+    
 
     @media (max-width: 576px) {
         .fixed-sidebar {
@@ -722,7 +728,7 @@
   </div>
 </div>
 
-  <script src="wishlist.js"></script>
+ 
   <script>
     function loadWishlist() {
         const container = document.getElementById("wishlist-container");
@@ -777,12 +783,11 @@
                         <img src="images/grocery-store.png" alt="Cart"> Add to Cart
                     </button>
                     <div class="icons">
-                    <button class="btn btn-whatsapp" onclick="showPopups(this)">
-                        <img src="images/whatsapp.png" alt="WhatsApp"> 
-                    </button>
-                    <button class="btn btn-remove-wishlist" onclick="removeFromWishlist(this)">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" alt="Remove from Wishlist">
-                    </button>
+                              <div class="icons">
+                     <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
                     </div>
                 </div>
             `;
@@ -791,64 +796,6 @@
     }
 
     document.addEventListener("DOMContentLoaded", loadWishlist);
-  </script>
-
-  <script>
-    // Populate the select dropdown with unique product names
-    document.addEventListener('DOMContentLoaded', function() {
-        // Since loadWishlist is called first, .product-card should exist
-        const products = document.querySelectorAll('.product-card');
-        const select = document.getElementById('productSelect');
-        const uniqueProductNames = new Set();
-
-        // Collect unique product names
-        products.forEach(product => {
-            const name = product.querySelector('.product-name').textContent;
-            uniqueProductNames.add(name);
-        });
-
-        // Populate dropdown with unique names
-        uniqueProductNames.forEach(name => {
-            const option = document.createElement('option');
-            option.value = name.toLowerCase();
-            option.textContent = name;
-            select.appendChild(option);
-        });
-
-        // Filter products based on select change
-        select.addEventListener('change', function() {
-            const selectedValue = this.value;
-            filterProducts(selectedValue, 'select');
-        });
-
-        // Filter products based on search input
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', function() {
-            const searchValue = this.value.toLowerCase();
-            filterProducts(searchValue, 'search');
-        });
-    });
-
-    // Function to filter and show products
-    function filterProducts(value, type) {
-        const products = document.querySelectorAll('.product-card');
-        products.forEach(product => {
-            const name = product.querySelector('.product-name').textContent.toLowerCase();
-            if (type === 'select') {
-                if (value === '' || name === value) {
-                    product.style.display = 'block';
-                } else {
-                    product.style.display = 'none';
-                }
-            } else if (type === 'search') {
-                if (name.includes(value)) {
-                    product.style.display = 'block';
-                } else {
-                    product.style.display = 'none';
-                }
-            }
-        });
-    }
   </script>
 
   <script>
@@ -1169,9 +1116,11 @@ function toggleWishlist(el) {
 function updateWishlistHearts() {
     document.querySelectorAll(".product-card").forEach(card => {
         const id = card.dataset.id;
-        const icon = card.querySelector(".wishlist-icon");
-        if (wishlist.some(item => item.id === id)) {
-            icon.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png";
+        const icon = card.querySelector(".btn-remove-wishlist img"); // Line 1116
+        if (icon && wishlist.some(item => item.id === id)) {
+            icon.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png"; // Line 1120
+        } else if (icon) {
+            icon.src = "https://cdn-icons-png.flaticon.com/512/1077/1077035.png";
         }
     });
 }
