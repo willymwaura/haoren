@@ -65,12 +65,19 @@
         }
 
     /* Container */
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 20px 20px;
-   
-    }
+/* Main container */
+.container {
+  width: 100%;
+  max-width: clamp(800px, calc(100% - 260px), 1300px);
+  /* 
+    - never smaller than 1000px
+    - scales fluidly with screen size (100% - sidebar space)
+    - never larger than 1600px for readability
+  */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
     .card {
       background-color: white;
@@ -341,7 +348,7 @@
     }
     .bar-1600 {
   width: 100%; /* keeps it fluid but capped */
-       max-width: 1400px;
+       max-width: 1300px;
       margin: 0 auto;
       padding: 0px 20px;
 }
@@ -374,26 +381,34 @@
     /* Sidebar container */
     .fixed-sidebar {
         position: fixed;
-        top: 30px;
+        top: 40px;
         z-index: 1000;
-        width: 240px; /* fixed width for desktop */
+        width: 150px;        /* let content decide width */
+        padding-left: 12px;
     }
 
     /* Input and select consistent styling */
     #searchInput, 
     #productSelect {
         display: block;
-        width: 100%;          /* Always 100% of parent */
+        width: 50%;    
+              /* Always 100% of parent */
+    
         padding: 10px;
         border: 2px solid black;
         border-radius: 5px;
         font-size: 16px;
         box-sizing: border-box;
+        background-color: #FAFAFA;
+        margin: 0 auto;
     }
 
     /* Input wrapper spacing */
     .input-wrapper {
-        margin-bottom: 15px;
+        background-color: #FAFAFA;
+        padding-top: 10px;
+   
+      
     }
 
     /* Dropdown container */
@@ -426,16 +441,19 @@
             padding: 5px;
         }
     }
+
+
 </style>
 </head>
 <body>
     
-  <div class="position-fixed top-0 start-0 w-100 z-3">
-    <div  style="width: 100%; height: 40px; background-color: #988558; display: flex; align-items: center; justify-content: center;max-width: 1360px; margin: 0 auto; padding: 0px 20px;">
+  <div class="position-fixed top-0 start-0 w-100 z-3  ">
+    <div  style="width: 100%; height: 30px; background-color: #988558; display: flex; align-items: center; justify-content: center;max-width: 1300px; margin: 0 auto; padding: 0px 20px;">
         <p style="color: white; margin: 0; font-size: 12px;">
             Highway Heights, Kilimani, Nairobi | ☎ (+254) 0114 012345
         </p>
     </div>
+
 
     <!-- svg icon -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -524,11 +542,14 @@
 
     <!-- header section start -->
     <header id="header" style="width: 100;" class="bar-1600">
+         <div class="input-wrapper">
+        <input type="text" id="searchInput" placeholder="Search products">
+    </div>
         <div class="container-fluid" style="background-color: #FAFAFA;">
             <div class="row">
                 <nav class="navbar navbar-expand-lg">
                                                 <a href="index.html" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
-                            <img style="width: 80px; height: 60px;" src="images/logo.avif">
+                            <img style="width: 120px; height: 60px;" src="images/haorenlogo.jpeg">
                         </a>
                           <!-- Cart Icon (shows on all screens, moves with order classes) -->
   <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
@@ -561,9 +582,10 @@
                             </div>
                             <div class="col-md-2 d-flex">
                                 <a href="index.html" class="navbar-brand order-2 order-lg-2 d-none d-lg-flex">
-                                    <img style="width: 120px;height: 80px;" src="images/logo.avif">
+                                    <img style="width: 200px;height: 100px;" src="images/haorenlogo.jpeg">
                                 </a>
                             </div>
+                            
                             <div class="col-md-5 offset-lg-2">
                                 <div class="navbar-collapse order-1 order-lg-1 ms-3 ms-lg-0" id="navbarMenu">
                                     <ul class="navbar-nav d-flex justify-content-center">
@@ -628,19 +650,19 @@
                                          <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="menperfumes.html">
-                                                Men-Perfumes
+                                                Men
                                             </a>
                                         </li>
                                          <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="womenperfumes.html">
-                                                Women-Perfumes
+                                                Women
                                             </a>
                                         </li>
                                          <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="unisexperfumes.html">
-                                                Unisex-Perfumes
+                                                Unisex
                                             </a>
                                         </li>
 
@@ -664,16 +686,149 @@
         <p style="color: #000; font-size: 18px;">Added to Cart!</p>
         <button style="background-color: #000; color: #fff; padding: 10px 20px; border-radius: 5px; border: none; margin-top: 10px;" onclick="closePopup()">OK</button>
     </div>
-    <div class="card">
-      <div class="hero">
-        <div class="hero-content">
-          <h1>Haoren</h1>
-          <p>Scents crafted for YOU.</p>
-          <button>Products</button>
-        </div>
-        <img class="hero-image" src="images/zawadi.JPG" alt="Hand holding perfume bottle">
+    <div class="slider">
+  <div class="slides">
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="hero-content">
+        <h1>Haoren</h1>
+        <p>Scents crafted for YOU.</p>
+        <button>Products</button>
       </div>
+      <img class="hero-image" src="images/zawadi.JPG" alt="Hand holding perfume bottle">
     </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="hero-content">
+        <h1>Luxury</h1>
+        <p>Perfume that defines elegance.</p>
+        <button>Discover</button>
+      </div>
+      <img class="hero-image" src="images/zawadi.JPG" alt="Perfume bottle with flowers">
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="hero-content">
+        <h1>Signature</h1>
+        <p>Fragrance that lasts all day.</p>
+        <button>Shop Now</button>
+      </div>
+      <img class="hero-image" src="images/zawadi.JPG" alt="Perfume bottle close-up">
+    </div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+</div>
+
+<style>
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  margin-top: 20px;
+  height: 500px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+    height: 500px;
+}
+
+.slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.hero-content {
+  flex: 1;
+  padding: 50px;
+  color: #222;
+   
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+   padding-left: 20px;
+
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+   padding-left: 20px;
+}
+
+.hero-content button {
+  padding: 10px 20px;
+  border: none;
+  background: #111;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s;
+   padding-left: 20px;
+}
+
+.hero-content button:hover {
+  background: #444;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 500px;
+  border-radius: 15px;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+</style>
+
 
     <div class="card" style="margin-top: 20px;">
       <div class="categories">
@@ -709,16 +864,51 @@
   </div>
 
 <div class="col-12 col-md-3 fixed-sidebar" style="margin-top: 160px;">
-    <div class="input-wrapper">
-        <input type="text" id="searchInput" placeholder="Search products">
-    </div>
-    <div class="dropdowns">
-        <select id="productSelect">
-            <option value="">Select product...</option>
-            <!-- Options will be populated dynamically via JS -->
-        </select>
-    </div>
-</div>
+              
+                    <h5 style="color: #000; font-family: serif; text-transform: uppercase; font-weight: bold; font-size: 18px;">Filter by Category</h5>
+                    <div style="border-left: 2px solid #ddd; padding-left: 10px;">
+                        <a href="products.html" style="color: #000; text-decoration: none;">All products</a><br>
+                        <a href="offers.html" style="color: #000; text-decoration: none; margin-top: 10px;">Eid Offers</a><br>
+                        <a href="menproducts.html" style="color: #000; text-decoration: none; margin-top: 10px;">Men</a><br>
+                        <a href="unisexproducts.html" style="color: #000; text-decoration: none; margin-top: 10px;">Unisex</a><br>
+                        <a href="womenproducts.html" style="color: #000; text-decoration: none; margin-top: 10px;">Women</a>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <h7 style="color: #000; font-family: serif; text-transform: uppercase; font-weight: bold; font-size: 18px;">Filter by Price Ksh</h7>
+                        <div style="padding-left: 10px; border-left: 2px solid #ddd;">
+                            <label style="display: block;">
+                                <input type="checkbox" name="price" value="0-500">0-500
+                            </label>
+                            <label style="display: block;">
+                                <input type="checkbox" name="price" value="501-1000">501 - 1000
+                            </label>
+                            <label style="display: block;">
+                                <input type="checkbox" name="price" value="1001-1500">1001 - 1500
+                            </label>
+                            <label style="display: block;">
+                                <input type="checkbox" name="price" value="1501+"> 1501+
+                            </label>
+                        </div>
+                        <h5 style="color: #000; font-family: serif; text-transform: uppercase; font-weight: bold; font-size: 18px;">Filter by Size</h5>
+                        <div style="padding-left: 10px; border-left: 2px solid #ddd;">
+                            <label style="display: block;">
+                                <input type="checkbox" name="size" value="50ml"> 25ml
+                            </label>
+                            <label style="display: block;">
+                                <input type="checkbox" name="size" value="100ml"> 50ml
+                            </label>
+                            <label style="display: block;">
+                                <input type="checkbox" name="size" value="200ml"> 100ml
+                            </label>
+                        </div>
+                        <h5 style="color: #000; font-family: serif; text-transform: uppercase; font-weight: bold; font-size: 18px;">New Arrivals</h5>
+                        <div style="padding-left: 10px; border-left: 2px solid #ddd;">
+                            <label style="display: block;">
+                                <input type="checkbox" name="new-arrivals" value="new"> Show New Arrivals
+                            </label>
+                        </div>
+                    </div>
+                </div>
 
   <div class="container">
 
@@ -739,7 +929,11 @@
       data-description="Woody, Herbal Woody">
 
       <span class="category-label">Men</span>
-      <img src="images/milima1.JPG" alt="Mlima Baridi">
+      <a href="mlima.html">
+          <img src="images/milima1.JPG" alt="Mlima Baridi">
+
+      </a>
+    
       <div class="product-name">Mlima Baridi</div>
       <div class="size-options"><span>100 ml</span></div>
       <div class="scent-notes">Woody, Herbal Woody</div>
@@ -772,7 +966,11 @@
       data-description="Ambergis, Woody">
 
       <span class="category-label">Women</span>
-      <img src="images/zawadi.JPG" alt="Zawadi ya Maua">
+      <a href="zawadi.html">
+          <img src="images/zawadi.JPG" alt="Zawadi ya Maua">
+
+      </a>
+    
       <div class="product-name">Zawadi ya Maua</div>
       <div class="size-options"><span>100 ml</span></div>
       <div class="scent-notes">Ambergis, Woody</div>
@@ -967,7 +1165,10 @@
       data-description="Floral, Oriental">
 
       <span class="category-label">Unisex</span>
-      <img src="images/ghayat1.JPG" alt="Ghayat">
+      <a href="gyahat.html">
+   <img src="images/ghayat1.JPG" alt="Ghayat">
+      </a>
+   
       <div class="product-name">Ghayat</div>
       <div class="size-options"><span>25 ml</span></div>
       <div class="scent-notes">Floral, Oriental</div>
@@ -1678,6 +1879,56 @@ document.addEventListener("DOMContentLoaded", () => {
     updateNavbarHeart();
 });
 </script>
+
+
+<script>
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+const totalSlides = slides.length;
+const intervalTime = 5000;
+let slideInterval;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) {
+      slide.classList.add('active');
+    }
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  showSlide(currentSlide);
+}
+
+document.querySelector('.next').addEventListener('click', () => {
+  nextSlide();
+  resetInterval();
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+  prevSlide();
+  resetInterval();
+});
+
+function startSlideShow() {
+  slideInterval = setInterval(nextSlide, intervalTime);
+}
+
+function resetInterval() {
+  clearInterval(slideInterval);
+  startSlideShow();
+}
+
+startSlideShow();
+</script>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGPS73CVV1"></script>
 
