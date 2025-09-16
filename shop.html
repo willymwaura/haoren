@@ -132,7 +132,7 @@
 
   width: 400px;
   height: 100%;      /* fill vertical space */
-  object-fit: cover; /* scale proportionally inside box */
+  object-fit: contain; /* scale proportionally inside box */
 }
 
     .categories {
@@ -175,15 +175,25 @@
         justify-content: center;
         height: auto;
       }
-.hero-image {
-    max-width: 100%;   /* make it fill width */
-    width: 100%;
-    height: auto;
-    margin: 0 auto;    /* center horizontally */
-    object-fit: contain;
-  }
 
-      
+      .hero-content {
+        max-width: 100% !important;
+        padding-left: 0;
+        padding-top: 20px;
+        z-index: 2;
+      }
+
+      .hero-image {
+        display: none; 
+      }
+
+      .hero-content h1,
+      .hero-content p,
+      .hero-content button {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     /* Products section */
@@ -410,14 +420,7 @@
     /* Responsive: full width on smaller screens */
     @media (max-width: 768px) {
         .fixed-sidebar {
-            position: static;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%; /* Full width */
-            margin: 0 auto;
-            padding: 10px;
-            margin-top: 0px !important;
+         display: none;
         }
 
         .fixed-sidebar input,
@@ -427,11 +430,7 @@
         }
     }
 
-    @media (max-width: 576px) {
-        .fixed-sidebar {
-            padding: 5px;
-        }
-    }
+
 
 
 </style>
@@ -678,208 +677,36 @@
 </div>
 
 
-  <div class="container" style="margin-top: 200px;">
+  <div class="container" style="margin-top: 100px;">
 
 
     <div class="popup" id="popup">
         <p style="color: #000; font-size: 18px;">Added to Cart!</p>
         <button style="background-color: #000; color: #fff; padding: 10px 20px; border-radius: 5px; border: none; margin-top: 10px;" onclick="closePopup()">OK</button>
     </div>
-    <div class="slider">
-  <div class="slides">
-    <!-- Slide 1 -->
-    <div class="slide active">
-      <div class="hero-content">
-        <h1>Haoren</h1>
-        <p>Scents crafted for YOU.</p>
-        <button>Products</button>
-      </div>
-      <img class="hero-image" src="images/zawadi.JPG" alt="Hand holding perfume bottle">
-    </div>
+    
 
-    <!-- Slide 2 -->
-    <div class="slide">
-      <div class="hero-content">
-        <h1>Luxury</h1>
-        <p>Perfume that defines elegance.</p>
-        <button>Discover</button>
-      </div>
-      <img class="hero-image" src="images/misbah.JPG" alt="Perfume bottle with flowers">
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="slide">
-      <div class="hero-content">
-        <h1>Signature</h1>
-        <p>Fragrance that lasts all day.</p>
-        <button>Shop Now</button>
-      </div>
-      <img class="hero-image" src="images/waridi.JPG" alt="Perfume bottle close-up">
-    </div>
-  </div>
-
-  <!-- Navigation buttons -->
-  <button class="prev">&#10094;</button>
-  <button class="next">&#10095;</button>
-</div>
-
-<style>
-.slider {
-  position: relative;
-  width: 100%;
-  max-width: 1300px;
-  margin: auto;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  margin-top: 20px;
-  height: 500px;
-}
-
-.slides {
-  display: flex;
-  transition: transform 1s ease-in-out;
-}
-
-.slide {
-  min-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-    height: 500px;
-}
-
-.slide.active {
-  opacity: 1;
-  position: relative;
-}
-
-.hero-content {
-  flex: 1;
-  padding: 50px;
-  color: #222;
-   
-}
-
-.hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-   padding-left: 20px;
-
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-   padding-left: 20px;
-}
-
-.hero-content button {
-  padding: 10px 20px;
-  border: none;
-  background: #111;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background 0.3s;
-   padding-left: 20px;
-}
-
-.hero-content button:hover {
-  background: #444;
-}
-
-.hero-image {
-  flex: 1;
-  max-width: 500px;
-  border-radius: 15px;
-}
-
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 12px;
-  cursor: pointer;
-  font-size: 24px;
-  border-radius: 50%;
-  transition: background 0.3s;
-}
-
-.prev:hover, .next:hover {
-  background: rgba(0,0,0,0.8);
-}
-
-.prev {
-  left: 20px;
-}
-
-.next {
-  right: 20px;
-}
-
-@media (max-width: 768px) {
-        .hero-content {
-          display: none;
-    }
-    .slide {
-    justify-content: center;  /* center the image */
-  }
-
-  
-}
-</style>
-
-
-    <div class="card" style="margin-top: 20px;">
-      <div class="categories">
-        <div class="category">
-            <a href="index.html#women">
-                 <img src="images/p1.avif" alt="Women Perfume">
-                        <p>Women Perfume</p>
-
-            </a>
-         
-        </div>
-        <div class="category">
-            <a href="index.html#men">
-   <img src="images/p2.avif" alt="Men Perfume">
-          <p>Men Perfume</p>
-
-            </a>
-       
-        </div>
-        <div class="category">
-
-            <a href="index.html#unisex">
-    <img src="images/p3.avif" alt="Unisex Perfume">
-          <p>Unisex Perfume</p>
-            </a>
-      
-        </div>
-  
-      
-      </div>
-    </div>
 
   </div>
 
+<div class="col-12 col-md-3 fixed-sidebar" style="margin-top: 160px;">
+              
+                    <h5 style="color: #000; font-family: serif; text-transform: uppercase; font-weight: bold; font-size: 18px;">Filter by Category</h5>
+                    <div style="border-left: 2px solid #ddd; padding-left: 10px;">
+                        <a href="shop.html#all" style="color: #000; text-decoration: none;">All products</a><br>
+                
+                        <a href="shop.html#men" style="color: #000; text-decoration: none; margin-top: 10px;">Men</a><br>
+                        <a href="shop.html#unisex" style="color: #000; text-decoration: none; margin-top: 10px;">Unisex</a><br>
+                        <a href="shop.html#women" style="color: #000; text-decoration: none; margin-top: 10px;">Women</a>
+                    </div>
 
+                </div>
 
   <div class="container">
 
-    <h2 style="padding-top: 60px;" class="section-title1">Popular, Loved & Timeless</h2>
+    <h2 style="padding-top: 60px;" id="all" class="section-title1">All Products</h2>
     
-    <h2 class="section-title">Popular, Loved & Timeless</h2>
+    <h2 class="section-title">All Products</h2>
     <div class="card-container">
 
       <!-- Product 1 -->
@@ -1026,6 +853,196 @@
           </div>
       </div>
   </div>
+   
+ <div class="product-card"
+      data-id="unisex1"
+      data-image="images/pwani1.JPG"
+      data-name="Pwani Limau"
+      data-type="Eau De Parfum"
+      data-price="2700"
+      data-size="100ml"
+      data-description="Citrus">
+
+      <span class="category-label">Unisex</span>
+
+      <a href="pwani.html">
+          <img src="images/pwani1.JPG" alt="Pwani Limau">
+
+      </a>
+    
+      <div class="product-name">Pwani Limau</div>
+      <div class="size-options"><span>100 ml</span></div>
+      <div class="scent-notes">Citrus</div>
+      <div class="price">KES 2,700</div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+              <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+
+    <div class="product-card"
+      data-id="unisex2"
+      data-image="images/diamond1.JPG"
+      data-name="Al-Diamond"
+      data-type="Eau De Parfum"
+      data-price="680"
+      data-size="25ml"
+      data-description="Oriental, Floral">
+
+      <span class="category-label">Unisex</span>
+      <a href="diamond.html">
+          <img src="images/diamond1.JPG" alt="Al-Diamond">
+
+      </a>
+    
+      <div class="product-name">Al-Diamond</div>
+      <div class="size-options"><span>25 ml</span></div>
+      <div class="scent-notes">Oriental, Floral</div>
+      <div class="price">KES 680</div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+         <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+
+   <div class="product-card"
+      data-id="unisex3"
+      data-image="images/jannat1.JPG"
+      data-name="Jannat"
+      data-type="Eau De Parfum"
+      data-price="680"
+      data-size="25ml"
+      data-description="Floral, Chypre">
+
+      <span class="category-label">Unisex</span>
+
+      <a href="jannat.html">
+  <img src="images/jannat1.JPG" alt="Jannat">
+      </a>
+    
+      <div class="product-name">Jannat </div>
+      <div class="size-options"><span>25 ml</span></div>
+      <div class="scent-notes">Floral, Chypre</div>
+      <div class="price">KES 680</div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+
+
+    <div class="product-card"
+      data-id="unisex4"
+      data-image="images/ghayat1.JPG"
+      data-name="Ghayat"
+      data-type="Eau De Parfum"
+      data-price="680"
+      data-size="30ml"
+      data-description="Floral, Oriental">
+
+      <span class="category-label">Unisex</span>
+      <a href="gyahat.html">
+   <img src="images/ghayat1.JPG" alt="Ghayat">
+      </a>
+   
+      <div class="product-name">Ghayat</div>
+      <div class="size-options"><span>25 ml</span></div>
+      <div class="scent-notes">Floral, Oriental</div>
+      <div class="price">KES 680</div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+
+   <div class="product-card"
+      data-id="men1"
+      data-image="images/wimbo1.JPG"
+      data-name="Wimbo Msafiri"
+      data-type="Eau De Parfum"
+      data-price="1600"
+      data-size="50ml"
+      data-description="Woody Fougere">
+
+      <span class="category-label">Men</span>
+      <img src="images/wimbo1.JPG" alt="Wimbo Msafiri">
+      <div class="product-name">Wimbo Wa Msafiri</div>
+      <div class="size-options"><span>50 ml</span></div>
+      <div class="scent-notes">Woody Fougere</div>
+      <div class="price">KES 1,600</div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+     <div class="product-card"
+      data-id="women1"
+      data-image="images/waridi.JPG"
+      data-name="Waridi wa Nyika"
+      data-type="Eau De Parfum"
+      data-price="2700"
+      data-size="100ml"
+      data-description="Oriental, Spicy">
+
+      <span class="category-label">Women</span>
+      <img src="images/waridi.JPG" alt="Waridi wa Nyika">
+      <div class="product-name">Waridi wa Nyika</div>
+      <div class="size-options"><span>100 ml</span></div>
+      <div class="scent-notes">Oriental, Spicy</div>
+      <div class="price">KES 2,700</div>
+
+      <div class="product-actions">
+          <button class="btn btn-add" onclick="addToCart(this)">
+              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+          </button>
+          <div class="icons">
+           <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+     alt="Heart" onclick="toggleWishlist(this)">
+
+              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+          </div>
+      </div>
+  </div>
+
+
+
+
+
     </div>
     
     <h2 style="padding-top: 60px;" id="unisex" class="section-title1">Unisex Best Seller</h2>
@@ -1035,6 +1052,7 @@
 
       <!-- Product 1 -->
   <!-- Product 1 -->
+
  <div class="product-card"
       data-id="unisex1"
       data-image="images/pwani1.JPG"
@@ -1207,7 +1225,7 @@
   </div>
 
     </div>
-      <h2 style="padding-top: 60px;"id="men" class="section-title1">Men Best Seller</h2>
+      <h2 style="padding-top: 60px;" id="men" class="section-title1">Men Best Seller</h2>
     
       <h2 class="section-title">Men Best Seller</h2>
     <div class="card-container">
