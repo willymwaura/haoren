@@ -145,22 +145,7 @@
       padding: 40px;
       gap: 20px;
     }
-
-    @media (max-width: 768px) {
-      .card-container {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 5px;
-        gap: 5px;
-      }
-          .product-card img {
-      max-width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
-
-    }
-
-   .product-card {
+       .product-card {
   position: relative;
   background: white;
   border-radius: 10px;
@@ -176,6 +161,62 @@
       height: 300px;
       object-fit: cover;
     }
+
+    @media (max-width: 768px) {
+      .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 5px;
+        gap: 5px;
+      }
+
+        .category img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+       .category p {
+      color: black;
+      font-size: 8px;
+      margin-top: 10px;
+    }
+        .section-title {
+      text-align: center;
+      font-size: 24px;
+      color: black;
+      margin-bottom: 0px;
+      font-weight: normal;
+      display: none;
+    }
+          .section-title1 {
+      text-align: center;
+      font-size: 16px;
+      color: #d3a07a;
+      margin-bottom: 10px;
+      font-weight: normal;
+      font-style: italic;
+      font-family: cursive;
+    }
+    .product-card {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+        .product-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+
+    }
+
+
 
    .category-label {
   position: absolute;
@@ -360,6 +401,9 @@
         .fixed-sidebar select {
             width: 100% !important;   /* Force exact same width */
             max-width: 100% !important;
+        }
+        .input-wrapper{
+            width: 100%;
         }
     }
 
@@ -762,17 +806,39 @@
 .next {
   right: 20px;
 }
-
 @media (max-width: 768px) {
-        .hero-content {
-          display: none;
-    }
-    .slide {
-    justify-content: center;  /* center the image */
+  .hero-content {
+    display: none;
   }
 
-  
+  .slide {
+    justify-content: center; /* center the image */
+  }
+
+  .slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    height: 250px; /* fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white; /* optional: fills gaps */
+  }
+
+  .hero-image {
+    max-height: 100%;  /* respect 250px height */
+    max-width: 100%;   /* prevent overflow */
+    width: auto;       /* keep aspect ratio */
+    height: auto;      /* keep aspect ratio */
+    object-fit: contain;
+    border-radius: 15px;
+    display: block;
+  }
 }
+
 </style>
 
 
@@ -813,7 +879,7 @@
 
   <div class="container">
 
-    <h2 style="padding-top: 60px;" class="section-title1">Popular, Loved & Timeless</h2>
+    <h2  class="section-title1">Popular, Loved & Timeless</h2>
     
     <h2 class="section-title">Popular, Loved & Timeless</h2>
     <div class="card-container">
@@ -964,7 +1030,7 @@
   </div>
     </div>
     
-    <h2 style="padding-top: 60px;" id="unisex" class="section-title1">Unisex Best Seller</h2>
+    <h2  id="unisex" class="section-title1">Unisex Best Seller</h2>
 
       <h2 class="section-title">Unisex Best Seller</h2>
     <div class="card-container">
@@ -1143,7 +1209,7 @@
   </div>
 
     </div>
-      <h2 style="padding-top: 60px;"id="men" class="section-title1">Men Best Seller</h2>
+      <h2 id="men" class="section-title1">Men Best Seller</h2>
     
       <h2 class="section-title">Men Best Seller</h2>
     <div class="card-container">
@@ -1223,7 +1289,7 @@
 
   
     </div>
-     <h2 style="padding-top: 60px;" id="women" class="section-title1">Women Best Seller</h2>
+     <h2  id="women" class="section-title1">Women Best Seller</h2>
       <h2 class="section-title">Women Best Seller</h2>
     <div class="card-container">
 
