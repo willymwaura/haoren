@@ -178,6 +178,77 @@
             }
         }
     </style>
+    
+    <style>
+@media (max-width: 576px) {
+  /* Remove vertical spacing but keep horizontal */
+  .container,
+  .container-fluid,
+  .row,
+  .col-12,
+  .col-md-6,
+ 
+  .text-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    
+    /* Keep left/right */
+    padding-left: 10px;   /* adjust as needed */
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Image adjustments */
+  .image-container img {
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 150px;
+  }
+
+  /* Text adjustments */
+  #productName {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  #productType,
+  #productSize,
+  #productDescription {
+    font-size: 12px;
+    margin: 5px 0;
+  }
+  #productPrice {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  /* Buttons & inputs */
+  .product-actions button,
+  .btn-add {
+    font-size: 12px;
+    padding: 6px 10px;
+    margin: 5px 0;
+  }
+  #quantity {
+    width: 40px;
+    font-size: 12px;
+  }
+
+  /* Icons */
+  .icons img {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    margin-bottom: 20px;
+  }
+}
+
+    </style>
 </head>
 <body>
  
