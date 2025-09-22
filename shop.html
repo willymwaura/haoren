@@ -432,29 +432,23 @@
     }
 
     /* Input and select consistent styling */
-    #searchInput, 
-    #productSelect {
-        display: block;
-        width: 50%;    
-              /* Always 100% of parent */
-    
-        padding: 10px;
-        border: 2px solid #988558;
-        border-radius: 5px;
-        font-size: 16px;
-        box-sizing: border-box;
-        background-color: #FAFAFA;
-        margin: 0 auto;
-    }
+ #searchInput, #productSelect {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #988558;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #FAFAFA;
+    margin: 0 auto;
+  }
 
-    /* Input wrapper spacing */
-    .input-wrapper {
-        background-color: #FAFAFA;
-        padding-top: 10px;
-   
-      
-    }
-
+  .input-wrapper {
+    background-color: #FAFAFA;
+    padding-top: 10px;
+  }
     /* Dropdown container */
     .dropdowns {
        display: none; 
@@ -473,7 +467,43 @@
         }
     }
 
+    /* Responsive: full width on smaller screens */
+     @media (max-width: 768px) {
+    .input-wrapper {
+     width: 100%; 
+    margin: 0;
+    padding: 20px; 
+    background-color: #FAFAFA;
+    box-sizing: border-box; 
+    }
 
+    .input-wrapper input {
+  width: 100% !important;   /* override desktop 50% */
+      margin: 0 !important;     /* remove auto-centering */
+      border: none;           /* remove border for clean look */
+      border-bottom: 2px solid #988558; /* subtle underline */
+      border-radius: 0;       /* edge-to-edge */
+      padding: 12px 15px;     /* comfortable touch target */
+      font-size: 16px;
+      background-color: #FAFAFA;
+      direction: ltr;         /* text starts from right */
+      box-sizing: border-box;
+    }
+
+    /* Optional: make placeholder text centered */
+    .input-wrapper input::placeholder {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+    }
+  }
+/* Custom width for mobile offcanvas */
+@media (max-width: 768px) {
+  #bdNavbar.offcanvas-end {
+    width: 70% !important;   /* adjust percentage as you like */
+    max-width: 300px;        /* optional: cap width */
+  }
+}
 
 
 </style>
@@ -628,60 +658,6 @@
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="index.html">Home</a>
                                         </li>
-                                        <!--
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="about-us.html">About</a>
-                                        </li>
-                                     
-                                        <li class="nav-item me-5 dropdown">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0 dropdown-toggle"
-                                                href="#" id="navbarDropdownShop" role="button" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                Shop
-                                            </a>
-                                            <ul class="dropdown-menu bg-white">
-                                                <li><a class="dropdown-item text-black" href="wholesale.html">Wholesale</a></li>
-                                                <li><a class="dropdown-item text-black" href="products.html">Retail</a></li>
-                                            </ul>
-                                        </li>
-                            
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="blog.html">
-                                                Blog
-                                            </a>
-                                        </li>
-                                        <li class="nav-item me-5 dropdown">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0 dropdown-toggle"
-                                                href="#" id="navbarDropdownPages" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                Pages
-                                            </a>
-                                            <ul class="dropdown-menu bg-white">
-                                                <li><a href="cart.html" class="dropdown-item text-black">Cart</a></li>
-                                                <li><a href="checkout.html" class="dropdown-item text-black">Checkout</a></li>
-                                                <li><a href="contact.html" class="dropdown-item text-black">Contact</a></li>
-                                                <li><a href="privacy-policy.html" class="dropdown-item text-black">Privacy Policy</a></li>
-                                                <li><a href="terms-conditions.html" class="dropdown-item text-black">Terms and Conditions</a></li>
-                                            </ul>
-                                        </li>
-                                   
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="gallery.html">
-                                                Gallery
-                                            </a>
-                                        </li>
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="contact.html">
-                                                Contact
-                                            </a>
-                                        </li>
-                                        <li class="nav-item mt-4 mt-lg-0">
-                                            <a class="nav-link text-black pb-1 pe-0">Affiliate</a>
-                                        </li> -->
                                          <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="about-us.html">
@@ -1537,6 +1513,7 @@
 
   <!-- Footer -->
      <!-- Footer -->
+     
 <footer style="background-color: #988558; padding-top: 20px;">
   <div class="container">
     <!-- Desktop layout -->
@@ -1554,10 +1531,9 @@
       <div class="col mb-4">
         <h5>Quick Links</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
         </ul>
       </div>
 
@@ -1566,8 +1542,8 @@
         <h5>Follow Us</h5>
         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@Haoren_af" class="text-white"><i class="fab fa-youtube"></i></a>
 
         <h5 class="mt-3">Contact Us</h5>
         <p class="mb-1 text-white">Email: info@haorenaf.com</p>
@@ -1585,17 +1561,17 @@
       <div class="col mb-4">
         <h5>Quick Links</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-          <li><a href="https://maps.app.goo.gl/xxxx" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
+        
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+          <li><a href="https://www.google.com/maps/place/Highway+Heights/@-1.2934915,36.7881778,17z/data=!4m14!1m7!3m6!1s0x182f11e50d566add:0x2d4a4d5689faf57!2sHighway+Heights!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk!3m5!1s0x182f11e50d566add:0x2d4a4d5689faf57!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
         </ul>
                 <h5>Follow Us</h5>
         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@Haoren_af" class="text-white"><i class="fab fa-youtube"></i></a>
       </div>
 
       <!-- Follow Us + Contact Us -->

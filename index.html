@@ -341,6 +341,12 @@
 
   
 }
+@media (max-width: 768px) {
+  #bdNavbar.offcanvas-end {
+    width: 70% !important;   /* adjust percentage as you like */
+    max-width: 300px;        /* optional: cap width */
+  }
+}
   </style>
 
     
@@ -356,60 +362,66 @@
     }
 
     /* Input and select consistent styling */
-    #searchInput, 
-    #productSelect {
-        display: block;
-        width: 50%;    
-              /* Always 100% of parent */
-    
-        padding: 10px;
-        border: 2px solid #988558;
-        border-radius: 5px;
-        font-size: 16px;
-        box-sizing: border-box;
-        background-color: #FAFAFA;
-        margin: 0 auto;
-    }
+    /* Default (desktop/tablet) */
+  #searchInput, #productSelect {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    border: 2px solid #988558;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #FAFAFA;
+    margin: 0 auto;
+  }
 
-    /* Input wrapper spacing */
-    .input-wrapper {
-        background-color: #FAFAFA;
-        padding-top: 10px;
-   
-      
-    }
-
+  .input-wrapper {
+    background-color: #FAFAFA;
+    padding-top: 10px;
+  }
     /* Dropdown container */
     .dropdowns {
        display: none; 
     }
 
     /* Responsive: full width on smaller screens */
-    @media (max-width: 768px) {
-        .fixed-sidebar {
-            position: static;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%; /* Full width */
-            margin: 0 auto;
-            padding: 10px;
-            margin-top: 0px !important;
-        }
-
-        .fixed-sidebar input,
-        .fixed-sidebar select {
-            width: 100% !important;   /* Force exact same width */
-            max-width: 100% !important;
-        }
-     
+     @media (max-width: 768px) {
+    .input-wrapper {
+     width: 100%; 
+    margin: 0;
+    padding: 20px; 
+    background-color: #FAFAFA;
+    box-sizing: border-box; 
     }
 
-    @media (max-width: 576px) {
-        .fixed-sidebar {
-            padding: 5px;
-        }
+    .input-wrapper input {
+  width: 100% !important;   /* override desktop 50% */
+      margin: 0 !important;     /* remove auto-centering */
+      border: none;           /* remove border for clean look */
+      border-bottom: 2px solid #988558; /* subtle underline */
+      border-radius: 0;       /* edge-to-edge */
+      padding: 12px 15px;     /* comfortable touch target */
+      font-size: 16px;
+      background-color: #FAFAFA;
+      direction: ltr;         /* text starts from right */
+      box-sizing: border-box;
     }
+
+    /* Optional: make placeholder text centered */
+    .input-wrapper input::placeholder {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+    }
+  }
+  /* Custom width for mobile offcanvas */
+@media (max-width: 768px) {
+  #bdNavbar.offcanvas-end {
+    width: 70% !important;   /* adjust percentage as you like */
+    max-width: 300px;        /* optional: cap width */
+  }
+}
+
 
 
 </style>
@@ -657,6 +669,7 @@
 
 
   <div class="container" style="margin-top: 200px;">
+    
 
 
     <div class="popup" id="popup">
@@ -1475,7 +1488,7 @@
 
 
   <!-- Footer -->
-       <!-- Footer -->
+      
 <footer style="background-color: #988558; padding-top: 20px;">
   <div class="container">
     <!-- Desktop layout -->
@@ -1493,10 +1506,9 @@
       <div class="col mb-4">
         <h5>Quick Links</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
         </ul>
       </div>
 
@@ -1505,8 +1517,8 @@
         <h5>Follow Us</h5>
         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@Haoren_af" class="text-white"><i class="fab fa-youtube"></i></a>
 
         <h5 class="mt-3">Contact Us</h5>
         <p class="mb-1 text-white">Email: info@haorenaf.com</p>
@@ -1524,17 +1536,17 @@
       <div class="col mb-4">
         <h5>Quick Links</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-          <li><a href="https://maps.app.goo.gl/xxxx" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
+        
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+          <li><a href="https://www.google.com/maps/place/Highway+Heights/@-1.2934915,36.7881778,17z/data=!4m14!1m7!3m6!1s0x182f11e50d566add:0x2d4a4d5689faf57!2sHighway+Heights!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk!3m5!1s0x182f11e50d566add:0x2d4a4d5689faf57!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
         </ul>
                 <h5>Follow Us</h5>
         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@Haoren_af" class="text-white"><i class="fab fa-youtube"></i></a>
       </div>
 
       <!-- Follow Us + Contact Us -->
