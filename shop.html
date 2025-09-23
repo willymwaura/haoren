@@ -135,29 +135,7 @@
   object-fit: contain; /* scale proportionally inside box */
 }
 
-    .categories {
-      padding: 20px;
-      background-color: white;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
 
-    .category {
-      text-align: center;
-      margin: 10px;
-    }
-     .category a {
-    text-decoration: none;   /* removes underline */
-    color: inherit;          /* keeps the text color consistent */
-  }
-
-    .category img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
 
     .category p {
       color: black;
@@ -245,17 +223,7 @@
         gap: 5px;
       }
 
-        .category img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-       .category p {
-      color: black;
-      font-size: 8px;
-      margin-top: 10px;
-    }
+
         .section-title {
       text-align: center;
       font-size: 24px;
@@ -828,6 +796,7 @@
                     <!-- Options will be populated dynamically via JS -->
                 </select>
             </div>
+            
 
     </header>
     
@@ -847,20 +816,51 @@
 
   </div>
 
-<div class="col-12 col-md-3 fixed-sidebar" style="margin-top: 160px;">
-              
-                    <h5 style="color: #000; font-family: serif; text-transform: uppercase; font-weight: bold; font-size: 18px;">Filter by Category</h5>
-                    <div style="border-left: 2px solid #ddd; padding-left: 10px;">
-                        <a href="shop.html#all" style="color: #000; text-decoration: none;">All products</a><br>
-                
-                        <a href="shop.html#men" style="color: #000; text-decoration: none; margin-top: 10px;">Men</a><br>
-                        <a href="shop.html#unisex" style="color: #000; text-decoration: none; margin-top: 10px;">Unisex</a><br>
-                        <a href="shop.html#women" style="color: #000; text-decoration: none; margin-top: 10px;">Women</a>
-                    </div>
 
-                </div>
 
   <div class="container">
+    <div class="category-bar d-none d-md-block text-center my-4" style="padding-top: 50px;">
+  <h5 class="category-title">Filter by Category</h5>
+  <div class="category-links">
+    <a href="shop.html#all">All products</a>
+    <a href="shop.html#men">Men</a>
+    <a href="shop.html#unisex">Unisex</a>
+    <a href="shop.html#women">Women</a>
+  </div>
+</div>
+<style>
+  .category-bar {
+  margin: 20px auto;
+}
+
+.category-title {
+  color: #000;
+  font-family: serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.category-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  padding-top: 10px;
+}
+
+.category-links a {
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.category-links a:hover {
+  text-decoration: underline;
+}
+
+</style>
 
     <h2 style="padding-top: 20px;" id="all" class="section-title1">All Products</h2>
     
