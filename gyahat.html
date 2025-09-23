@@ -252,6 +252,10 @@
     width: 70% !important;   /* adjust percentage as you like */
     max-width: 300px;        /* optional: cap width */
   }
+    #miniCart.offcanvas-end {
+    width: 70% !important;   /* adjust percentage as you like */
+    max-width: 300px;        /* optional: cap width */
+  }
 }
 
     </style>
@@ -323,13 +327,18 @@
             <h5 class="offcanvas-title">Your Cart</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-        <div class="offcanvas-body">
+        <div id="miniCart" class="offcanvas-body">
             <div id="miniCartItems"></div>
             <div style="border-top: 1px solid #ddd; padding-top: 10px; text-align: right;">
                 <h6>Total: <span id="miniCartTotal">Ksh 0.00</span></h6>
                 <div class="d-grid gap-2 mt-3">
                     <a href="cart.html" class="btn btn-outline-dark">View Full Cart</a>
+                     <a href="index.html" class="btn btn-outline-dark">Continue to Shop</a>
                     <a href="checkout.html" class="btn btn-dark">Checkout</a>
+                  
+                 
+                         <a href="whatsappmodal.html" class="btn btn-dark">Checkout via whatsapp</a>
+                    
                 </div>
             </div>
         </div>
@@ -365,19 +374,33 @@
                             <img style="width: 120px; height: 60px;" src="images/haorenlogo.jpeg" alt="logo">
                         </a>
                           <!-- Cart Icon (shows on all screens, moves with order classes) -->
-  <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
-    <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" class="position-relative" style="margin-right: 10px;">
-      <svg class="text-black cart" width="22" height="22">
-        <use xlink:href="#cart"></use>
-      </svg>
-      <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-    </a>
-    <a href="wishlist.html">
-  <img id="navbar-heart" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-       alt="Wishlist" style="width:30px;cursor:pointer;margin: 5px;">
-</a>
+ <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
+  
+  <!-- 🛒 Cart -->
+  <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" 
+     class="position-relative d-flex align-items-center" style="margin-right: 10px;">
+    <svg class="text-black cart" width="28" height="28" style="display:block;">
+      <use xlink:href="#cart"></use>
+    </svg>
+    <span id="cartCount" 
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      0
+    </span>
+  </a>
 
-  </div>
+  <!-- ❤️ Wishlist -->
+  <a href="wishlist.html" class="position-relative d-flex align-items-center">
+    <img id="navbar-heart"
+         src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+         alt="Wishlist"
+         style="width:28px; height:28px; object-fit:contain; display:block; cursor:pointer; margin:5px;">
+    <span id="wishlistCount" 
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      0
+    </span>
+  </a>
+
+</div>
                     <button class="navbar-toggler d-flex d-lg-none order-3 p-0 border-0 shadow-none" type="button"
                         data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -958,5 +981,21 @@ sophisticated scent
             }
         });
     </script>
+    <script>
+function updateWishlistCount() {
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const wishlistCount = document.getElementById("wishlistCount");
+
+    if (!wishlistCount) return;
+
+    wishlistCount.textContent = wishlist.length;
+}
+
+// Run once immediately
+updateWishlistCount();
+
+// Then run every 30 seconds (30000 ms)
+setInterval(updateWishlistCount, 3000);
+</script>
 </body>
 </html>

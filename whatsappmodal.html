@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Order Summary</title>
+ <style>
+@keyframes modalSlideIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(-50px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+@media (max-width: 768px) {
+  #modalOverlay > div {
+    width: calc(100% - 60px); /* 30px left + 30px right */
+    padding: 20px;
+    margin: 30px; /* ensures 30px all around */
+    box-sizing: border-box;
+  }
+
+  #modalOverlay > div > div:last-child {
+    flex-direction: column;
+  }
+
+  #modalOverlay > div > div:last-child > button {
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+<body>
+    <div id="whatsappModalOverlay" 
+         style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                background: rgba(0,0,0,0.6); justify-content: center; align-items: center; 
+                z-index: 10000;">
+        <div style="background: #fff; border-radius: 12px; padding: 24px; width: 90%; max-width: 500px; 
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-height: 80vh; overflow-y: auto; 
+                    position: relative; animation: modalSlideIn 0.3s ease-out; display: block; z-index: 10002;">
+            <h2 style="margin: 0 0 12px 0; color: #333; font-size: 22px; text-align: center;">
+                Order Summary
+            </h2>
+            <p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 16px;">
+                Review your cart and place your order via WhatsApp
+            </p>
+            <pre id="whatsappOrderSummary" 
+                 style="background: #f9f9f9; padding: 12px; border: 1px solid #ddd; 
+                        border-radius: 6px; white-space: pre-wrap; font-size: 14px; 
+                        color: #333; margin-bottom: 16px;">
+            </pre>
+            <input id="whatsappFullName" type="text" placeholder="Full Name" 
+                   style="width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; 
+                          border-radius: 6px; font-size: 16px; box-sizing: border-box; 
+                          transition: border-color 0.2s ease; pointer-events: auto !important; 
+                          outline: none; z-index: 10003; position: relative; user-select: text !important; 
+                          -webkit-user-select: text !important; cursor: text;"
+                   onfocus="this.style.borderColor='#25d366'; this.style.boxShadow='0 0 0 2px rgba(37,211,102,0.2)'" 
+                   onblur="this.style.borderColor='#ddd'; this.style.boxShadow='none'">
+            <input id="whatsappLocation" type="text" placeholder="Delivery Location" 
+                   style="width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; 
+                          border-radius: 6px; font-size: 16px; box-sizing: border-box; 
+                          transition: border-color 0.2s ease; pointer-events: auto !important; 
+                          outline: none; z-index: 10003; position: relative; user-select: text !important; 
+                          -webkit-user-select: text !important; cursor: text;"
+                   onfocus="this.style.borderColor='#25d366'; this.style.boxShadow='0 0 0 2px rgba(37,211,102,0.2)'" 
+                   onblur="this.style.borderColor='#ddd'; this.style.boxShadow='none'">
+            <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
+                <button id="whatsappCancelBtn" 
+                        style="padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; 
+                               font-size: 16px; font-weight: 500; min-width: 120px; 
+                               background: #95a5a6; color: white;" 
+                        onmouseover="this.style.background='#7f8c8d'" 
+                        onmouseout="this.style.background='#95a5a6'">
+                    Cancel
+                </button>
+                <button id="whatsappPlaceOrderBtn" 
+                        style="padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; 
+                               font-size: 16px; font-weight: 500; min-width: 160px; 
+                               background: #25d366; color: white;" 
+                        onmouseover="this.style.background='#128c7e'" 
+                        onmouseout="this.style.background='#25d366'">
+                    Place WhatsApp Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("WhatsApp Order Summary Modal - Initialized");
+
+        const modalOverlay = document.getElementById("whatsappModalOverlay");
+        const orderSummary = document.getElementById("whatsappOrderSummary");
+        const fullNameInput = document.getElementById("whatsappFullName");
+        const locationInput = document.getElementById("whatsappLocation");
+        const cancelBtn = document.getElementById("whatsappCancelBtn");
+        const placeOrderBtn = document.getElementById("whatsappPlaceOrderBtn");
+
+        // Ensure inputs remain editable
+        const ensureInputsEditable = () => {
+            fullNameInput.disabled = false;
+            fullNameInput.readOnly = false;
+            locationInput.disabled = false;
+            locationInput.readOnly = false;
+            fullNameInput.style.pointerEvents = "auto";
+            locationInput.style.pointerEvents = "auto";
+            console.log("Ensured inputs are editable:", {
+                fullName: { disabled: fullNameInput.disabled, readOnly: fullNameInput.readOnly },
+                location: { disabled: locationInput.disabled, readOnly: locationInput.readOnly }
+            });
+        };
+
+        // Stop event propagation to prevent external interference
+        [fullNameInput, locationInput].forEach(input => {
+            input.addEventListener("click", (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                input.focus();
+                console.log(`${input.id} clicked`);
+            }, { capture: true });
+            input.addEventListener("focus", () => console.log(`${input.id} focused`), { capture: true });
+            input.addEventListener("input", () => console.log(`${input.id} value:`, input.value), { capture: true });
+            input.addEventListener("keydown", (e) => {
+                e.stopPropagation();
+                console.log(`${input.id} keydown:`, e.key);
+            }, { capture: true });
+            input.addEventListener("touchstart", (e) => {
+                e.stopPropagation();
+                input.focus();
+                console.log(`${input.id} touchstart`);
+            }, { capture: true });
+        });
+
+        // Monitor attribute changes
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                const target = mutation.target;
+                console.log(`${target.id} modified:`, {
+                    disabled: target.disabled,
+                    readOnly: target.readOnly,
+                    style: target.style.cssText
+                });
+                if (target.disabled || target.readOnly) {
+                    target.disabled = false;
+                    target.readOnly = false;
+                    target.style.pointerEvents = "auto";
+                    console.log(`Reverted ${target.id} to editable`);
+                }
+            });
+        });
+        [fullNameInput, locationInput].forEach(input => {
+            observer.observe(input, { attributes: true });
+        });
+
+        // Open modal and populate with cart summary
+        function openCartModal() {
+            console.log("Opening WhatsApp Order Summary modal...");
+            const cartData = JSON.parse(localStorage.getItem("cartData")) || { items: [], total: 0 };
+            if (cartData.items.length === 0) {
+                orderSummary.textContent = "Your cart is empty.";
+            } else {
+                let itemsText = "";
+                cartData.items.forEach(item => {
+                    itemsText += `• ${item.name} (x${item.quantity}) - Ksh ${(item.price * item.quantity).toFixed(2)}\n`;
+                });
+                itemsText += `\nTotal: Ksh ${cartData.total.toFixed(2)}`;
+                orderSummary.textContent = itemsText;
+            }
+
+            modalOverlay.style.display = "flex";
+            ensureInputsEditable();
+            fullNameInput.focus();
+            console.log("Modal opened, attempting to focus fullNameInput");
+        }
+
+        // Automatically open the modal on page load
+        openCartModal();
+
+        // Cancel button redirects back to index.html
+        cancelBtn.addEventListener("click", () => {
+            console.log("WhatsApp modal closed (Cancel)");
+            modalOverlay.style.display = "none";
+            fullNameInput.value = "";
+            locationInput.value = "";
+            window.location.href = "index.html"; // Redirect to main page
+        });
+
+        // Close modal when clicking outside and redirect
+        modalOverlay.addEventListener("click", (e) => {
+            if (e.target === modalOverlay) {
+                console.log("Overlay clicked - closing WhatsApp modal");
+                modalOverlay.style.display = "none";
+                fullNameInput.value = "";
+                locationInput.value = "";
+                window.location.href = "index.html"; // Redirect to main page
+            }
+        });
+
+        // Place WhatsApp Order
+        placeOrderBtn.addEventListener("click", () => {
+            const cartData = JSON.parse(localStorage.getItem("cartData")) || { items: [], total: 0 };
+            if (cartData.items.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            const fullName = fullNameInput.value.trim() || "Not provided";
+            const location = locationInput.value.trim() || "Not provided";
+            const orderItems = cartData.items
+                .map(item => `${item.name} (x${item.quantity}) - Ksh ${(item.price * item.quantity).toFixed(2)}`)
+                .join("\n");
+            const message =
+                `🛒 New Order\n\n` +
+                `${orderItems}\n\n` +
+                `Total: Ksh ${cartData.total.toFixed(2)}\n\n` +
+                `👤 Name: ${fullName}\n📍 Location: ${location}`;
+            const phoneNumber = "254114012345"; // Replace with your WhatsApp number
+            const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+            console.log("Opening WhatsApp with message:", message);
+            window.open(url, "_blank");
+            // Optionally redirect back to index.html after WhatsApp opens
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1000); // Delay to ensure WhatsApp opens
+        });
+
+        // Initial setup
+        ensureInputsEditable();
+    });
+    </script>
+</body>
+</html>
+

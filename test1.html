@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Modal</title>
+</head>
+<body>
+  <button onclick="openCartModal()">Open Modal</button>
+
+  <div id="whatsappModalOverlay" 
+       style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+              background: rgba(0,0,0,0.6); justify-content: center; align-items: center; 
+              z-index: 10000;">
+    <div style="background: #fff; border-radius: 12px; padding: 24px; width: 90%; max-width: 500px; 
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-height: 80vh; overflow-y: auto; 
+                position: relative; z-index: 10002;">
+      <input id="whatsappFullName" type="text" placeholder="Full Name" 
+             style="width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; 
+                    border-radius: 6px; font-size: 16px; box-sizing: border-box; 
+                    pointer-events: auto !important; outline: none; z-index: 10001;">
+      <input id="whatsappLocation" type="text" placeholder="Delivery Location" 
+             style="width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; 
+                    border-radius: 6px; font-size: 16px; box-sizing: border-box; 
+                    pointer-events: auto !important; outline: none; z-index: 10001;">
+      <button id="whatsappCancelBtn">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    const modalOverlay = document.getElementById("whatsappModalOverlay");
+    const cancelBtn = document.getElementById("whatsappCancelBtn");
+    const fullNameInput = document.getElementById("whatsappFullName");
+    const locationInput = document.getElementById("whatsappLocation");
+
+    fullNameInput.addEventListener("focus", () => console.log("Full Name input focused"));
+    fullNameInput.addEventListener("input", () => console.log("Full Name input value:", fullNameInput.value));
+    locationInput.addEventListener("focus", () => console.log("Location input focused"));
+    locationInput.addEventListener("input", () => console.log("Location input value:", locationInput.value));
+
+    window.openCartModal = function () {
+      console.log("Opening modal...");
+      modalOverlay.style.display = "flex";
+    };
+
+    cancelBtn.addEventListener("click", () => {
+      modalOverlay.style.display = "none";
+    });
+  </script>
+</body>
+</html>

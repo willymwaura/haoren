@@ -349,6 +349,8 @@
 }
   </style>
 
+  
+
     
 
 <style>
@@ -417,6 +419,10 @@
   /* Custom width for mobile offcanvas */
 @media (max-width: 768px) {
   #bdNavbar.offcanvas-end {
+    width: 70% !important;   /* adjust percentage as you like */
+    max-width: 300px;        /* optional: cap width */
+  }
+    #miniCart.offcanvas-end {
     width: 70% !important;   /* adjust percentage as you like */
     max-width: 300px;        /* optional: cap width */
   }
@@ -493,13 +499,18 @@
             <h5 class="offcanvas-title">Your Cart</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-        <div class="offcanvas-body">
+        <div id="miniCart" class="offcanvas-body">
             <div id="miniCartItems"></div>
             <div style="border-top: 1px solid #ddd; padding-top: 10px; text-align: right;">
                 <h6>Total: <span id="miniCartTotal">Ksh 0.00</span></h6>
                 <div class="d-grid gap-2 mt-3">
                     <a href="cart.html" class="btn btn-outline-dark">View Full Cart</a>
+                     <a href="index.html" class="btn btn-outline-dark">Continue to Shop</a>
                     <a href="checkout.html" class="btn btn-dark">Checkout</a>
+                  
+                 
+                         <a href="whatsappmodal.html" class="btn btn-dark">Checkout via whatsapp</a>
+                    
                 </div>
             </div>
         </div>
@@ -517,6 +528,7 @@
                 </h4>
                 <ul class="list-group mb-4" id="offcanvasCartItems"></ul>
                 <button class="w-100 btn btn-dark" type="submit">Continue to checkout</button>
+              
             </div>
         </div>
     </div>
@@ -535,19 +547,34 @@
                             <img style="width: 120px; height: 60px;" src="images/haorenlogo.jpeg" alt="logo">
                         </a>
                           <!-- Cart Icon (shows on all screens, moves with order classes) -->
-  <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
-    <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" class="position-relative" style="margin-right: 10px;">
-      <svg class="text-black cart" width="22" height="22">
-        <use xlink:href="#cart"></use>
-      </svg>
-      <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-    </a>
-    <a href="wishlist.html">
-  <img id="navbar-heart" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-       alt="Wishlist" style="width:30px;cursor:pointer;margin: 5px;">
-</a>
+ <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
+  
+  <!-- 🛒 Cart -->
+  <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" 
+     class="position-relative d-flex align-items-center" style="margin-right: 10px;">
+    <svg class="text-black cart" width="28" height="28" style="display:block;">
+      <use xlink:href="#cart"></use>
+    </svg>
+    <span id="cartCount" 
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      0
+    </span>
+  </a>
 
-  </div>
+  <!-- ❤️ Wishlist -->
+  <a href="wishlist.html" class="position-relative d-flex align-items-center">
+    <img id="navbar-heart"
+         src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+         alt="Wishlist"
+         style="width:28px; height:28px; object-fit:contain; display:block; cursor:pointer; margin:5px;">
+    <span id="wishlistCount" 
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      0
+    </span>
+  </a>
+
+</div>
+
                     <button class="navbar-toggler d-flex d-lg-none order-3 p-0 border-0 shadow-none" type="button"
                         data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -850,6 +877,7 @@
     
   }
 }
+
 
 </style>
 
@@ -1449,6 +1477,12 @@
 
 
 <!-- WhatsApp Modal -->
+
+
+
+
+
+<!-- WhatsApp Modal -->
 <div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 10000;">
   <div style="background: #fff; border-radius: 12px; padding: 24px; width: 90%; max-width: 500px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-height: 80vh; overflow-y: auto; position: relative; animation: modalSlideIn 0.3s ease-out; display: block;">
     <h2 id="modalProductName" style="margin: 0 0 12px 0; color: #333; font-size: 24px; text-align: center;">Product Name</h2>
@@ -1471,6 +1505,9 @@
   </div>
 </div>
 
+
+
+
 <style>
 @keyframes modalSlideIn {
     from { opacity: 0; transform: translateY(-50px) scale(0.95); }
@@ -1482,8 +1519,6 @@
     #modalOverlay > div > div:last-child > button { width: 100%; }
 }
 </style>
-
-
 
 
 
@@ -1623,6 +1658,22 @@
             }
         });
     }
+</script>
+<script>
+function updateWishlistCount() {
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const wishlistCount = document.getElementById("wishlistCount");
+
+    if (!wishlistCount) return;
+
+    wishlistCount.textContent = wishlist.length;
+}
+
+// Run once immediately
+updateWishlistCount();
+
+// Then run every 30 seconds (30000 ms)
+setInterval(updateWishlistCount, 3000);
 </script>
         <script>
 function addToCart(button) {
@@ -1996,6 +2047,7 @@ function resetInterval() {
 
 startSlideShow();
 </script>
+
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGPS73CVV1"></script>
