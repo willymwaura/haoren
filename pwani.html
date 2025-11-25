@@ -35,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <style>
+      <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -57,7 +57,6 @@
         }
             .bar-1600 {
   width: 100%; /* keeps it fluid but capped */
-       max-width: 1300px;
       margin: 0 auto;
       padding: 0px 20px;
 }
@@ -257,12 +256,22 @@
     max-width: 300px;        /* optional: cap width */
   }
 }
+
+@media (max-width: 768px) {
+.image-container {
+    padding-top: 100px !important;
+    /* Sets a height for the container, specifically on mobile devices */
+    height: 500px; /* Adjust this value (e.g., 300px, 400px) to your preferred mobile height */
+    overflow: hidden; /* Important: Hides any part of the image that spills outside the set height */
+} 
+   
+}
     </style>
 </head>
 <body>
  
   <div class="position-fixed top-0 start-0 w-100 z-3  ">
-    <div  style="width: 100%; height: 30px; background-color: #988558; display: flex; align-items: center; justify-content: center;max-width: 1300px; margin: 0 auto; padding: 0px 20px;">
+    <div  style="width: 100%; height: 40px; background-color: black; display: flex; align-items: center; justify-content: center; margin: 0 auto; padding: 0px 20px;">
         <p style="color: white; margin: 0; font-size: 12px;">
             Highway Heights, Kilimani, Nairobi | ☎ (+254) 0114 012345
         </p>
@@ -326,7 +335,7 @@
             <h5 class="offcanvas-title">Your Cart</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-                <div id="miniCart" class="offcanvas-body">
+        <div id="miniCart" class="offcanvas-body">
             <div id="miniCartItems"></div>
             <div style="border-top: 1px solid #ddd; padding-top: 10px; text-align: right;">
                 <h6>Total: <span id="miniCartTotal">Ksh 0.00</span></h6>
@@ -355,22 +364,23 @@
                 </h4>
                 <ul class="list-group mb-4" id="offcanvasCartItems"></ul>
                 <button class="w-100 btn btn-dark" type="submit">Continue to checkout</button>
+              
             </div>
         </div>
     </div>
 
     <!-- header section start -->
-    <header id="header" style="width: 100;margin-bottom: 50px;" class="bar-1600" >
+     <header id="header" style="width: 100;margin-bottom: 50px;" class="bar-1600" >
         
 
 
 
 
-        <div class="container-fluid" style="background-color: #FAFAFA;">
+        <div class="container-fluid" style="background-color: white;">
             <div class="row">
                 <nav class="navbar navbar-expand-lg">
                                                 <a href="index.html" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
-                            <img style="width: 120px; height: 60px;" src="images/haorenlogo.jpeg" alt="logo">
+                            <img style="width: 160px; height: 180px;" src="images/logo1.jpg" alt="logo">
                         </a>
                           <!-- Cart Icon (shows on all screens, moves with order classes) -->
  <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
@@ -400,6 +410,7 @@
   </a>
 
 </div>
+
                     <button class="navbar-toggler d-flex d-lg-none order-3 p-0 border-0 shadow-none" type="button"
                         data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -417,71 +428,18 @@
                             </div>
                             <div class="col-md-2 d-flex">
                                 <a href="index.html" class="navbar-brand order-2 order-lg-2 d-none d-lg-flex">
-                                    <img style="width: 200px;height: 100px;" src="images/haorenlogo.jpeg" alt="logo">
+                                    <img style="width: 200px;height: 200px;" src="images/logo1.jpg" alt="logo">
                                 </a>
                             </div>
                             
                             <div class="col-md-5 offset-lg-2">
                                 <div class="navbar-collapse order-1 order-lg-1 ms-3 ms-lg-0" id="navbarMenu">
-                                    <ul class="navbar-nav d-flex justify-content-center">
+                                    <ul class="navbar-nav d-flex justify-content-center w-100">
                                         <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="index.html">Home</a>
                                         </li>
-                                        <!--
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="about-us.html">About</a>
-                                        </li>
-                                     
-                                        <li class="nav-item me-5 dropdown">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0 dropdown-toggle"
-                                                href="#" id="navbarDropdownShop" role="button" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                Shop
-                                            </a>
-                                            <ul class="dropdown-menu bg-white">
-                                                <li><a class="dropdown-item text-black" href="wholesale.html">Wholesale</a></li>
-                                                <li><a class="dropdown-item text-black" href="products.html">Retail</a></li>
-                                            </ul>
-                                        </li>
-                            
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="blog.html">
-                                                Blog
-                                            </a>
-                                        </li>
-                                        <li class="nav-item me-5 dropdown">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0 dropdown-toggle"
-                                                href="#" id="navbarDropdownPages" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                Pages
-                                            </a>
-                                            <ul class="dropdown-menu bg-white">
-                                                <li><a href="cart.html" class="dropdown-item text-black">Cart</a></li>
-                                                <li><a href="checkout.html" class="dropdown-item text-black">Checkout</a></li>
-                                                <li><a href="contact.html" class="dropdown-item text-black">Contact</a></li>
-                                                <li><a href="privacy-policy.html" class="dropdown-item text-black">Privacy Policy</a></li>
-                                                <li><a href="terms-conditions.html" class="dropdown-item text-black">Terms and Conditions</a></li>
-                                            </ul>
-                                        </li>
-                                   
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="gallery.html">
-                                                Gallery
-                                            </a>
-                                        </li>
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="contact.html">
-                                                Contact
-                                            </a>
-                                        </li>
-                                        <li class="nav-item mt-4 mt-lg-0">
-                                            <a class="nav-link text-black pb-1 pe-0">Affiliate</a>
-                                        </li> -->
+                                        
                                          <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="about-us.html">
@@ -492,6 +450,12 @@
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="shop.html">
                                                 Shop-Now
+                                            </a>
+                                        </li>
+                                         <li class="nav-item me-5">
+                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
+                                                href="blog.html">
+                                                Blogs
                                             </a>
                                         </li>
                                     
@@ -505,14 +469,21 @@
                 </nav>
             </div>
         </div>
-
+        <!---
+                          <div class="input-wrapper">
+                <input type="text" id="searchInput" placeholder="Search products">
+            </div>
+            <div class="dropdowns">
+                <select id="productSelect">
+                    <option value="">Select product...</option>
+                     Options will be populated dynamically via JS 
+                </select>
+            </div> -->
 
     </header>
     
 </div>
-
-  
-    <div class="container">
+    <div style="padding-top: 200px;" class="container">
 
     <div class="container-fluid mt-5">
         <div class="row flex-column flex-md-row align-items-start">
@@ -594,8 +565,7 @@ elegance.
 
     <!-- Footer -->
     <!-- Footer -->
-     
-<footer style="background-color: #988558; padding-top: 20px;">
+ <footer style="background-color: black; padding-top: 20px;">
   <div class="container">
     <!-- Desktop layout -->
     <div class="row row-cols-2 row-cols-md-4 d-none d-md-flex">
@@ -610,23 +580,24 @@ elegance.
 
       <!-- Quick Links -->
       <div class="col mb-4">
-        <h5>Quick Links</h5>
+        <h5 style="color: white;">Quick Links</h5>
         <ul class="list-unstyled">
           <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
           <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
           <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
         </ul>
+             <h5 style="color: white;">Follow Us</h5>
+         <a href="https://www.facebook.com/HaorenAf" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                 <a href="https://www.tiktok.com/@haoren.af" class="text-white me-3"><i class="fab fa-tiktok"></i></a>
+      
+        <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white"><i class="fab fa-youtube"></i></a>
       </div>
 
       <!-- Follow Us + Contact Us -->
       <div class="col mb-4">
-        <h5>Follow Us</h5>
-        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@Haoren_af" class="text-white"><i class="fab fa-youtube"></i></a>
-
-        <h5 class="mt-3">Contact Us</h5>
+   
+        <h5 style="color: white;" class="mt-3">Contact Us</h5>
         <p class="mb-1 text-white">Email: info@haorenaf.com</p>
         <p class="mb-1 text-white">Phone: (+254) 0114012345</p>
         <p class="text-white">Address: Highway Heights, Kilimani, Nairobi</p>
@@ -640,7 +611,7 @@ elegance.
     <div class="row row-cols-2 d-flex d-md-none">
       <!-- Quick Links (with Map link) -->
       <div class="col mb-4">
-        <h5>Quick Links</h5>
+        <h5 style="color: white;" >Quick Links</h5>
         <ul class="list-unstyled">
           <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
           <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
@@ -648,18 +619,18 @@ elegance.
           <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
           <li><a href="https://www.google.com/maps/place/Highway+Heights/@-1.2934915,36.7881778,17z/data=!4m14!1m7!3m6!1s0x182f11e50d566add:0x2d4a4d5689faf57!2sHighway+Heights!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk!3m5!1s0x182f11e50d566add:0x2d4a4d5689faf57!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
         </ul>
-                <h5>Follow Us</h5>
-        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <h5 style="color: white;">Follow Us</h5>
+        <a href="https://www.facebook.com/HaorenAf" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@haoren.af" class="text-white me-3"><i class="fab fa-tiktok"></i></a>
         <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@Haoren_af" class="text-white"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white"><i class="fab fa-youtube"></i></a>
       </div>
 
       <!-- Follow Us + Contact Us -->
       <div class="col mb-4">
 
 
-        <h5 class="mt-3">Contact Us</h5>
+        <h5 style="color: white;" class="mt-3">Contact Us</h5>
         <p class="mb-1 text-white">Email: info@haorenaf.com</p>
         <p class="mb-1 text-white">Phone: (+254) 0114012345</p>
         <p class="text-white">Address: Highway Heights, Kilimani, Nairobi</p>

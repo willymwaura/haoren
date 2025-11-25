@@ -43,13 +43,14 @@
 </head>
 <body>
 
-  <div class="position-fixed top-0 start-0 w-100 z-3">
-
-    <div style="width: 100%; height: 40px; background-color: #988558; display: flex; align-items: center; justify-content: center;">
-      <p style="color: white; margin: 0; font-size: 12px;">
-        Highway Heights, Kilimani, Nairobi | ☎ (+254) 0114 012345
-      </p>
+  <div class="position-fixed top-0 start-0 w-100 z-3  ">
+    <div  style="width: 100%; height: 40px; background-color: black; display: flex; align-items: center; justify-content: center; margin: 0 auto; padding: 0px 20px;">
+        <p style="color: white; margin: 0; font-size: 12px;">
+            Highway Heights, Kilimani, Nairobi | ☎ (+254) 0114 012345
+        </p>
     </div>
+
+
     <!-- svg icon -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="arrow-left" viewBox="0 0 256 256">
@@ -99,46 +100,7 @@
         </symbol>
     </svg>
 
-    <div class="search-popup">
-        <div class="search-popup-container">
 
-            <form role="search" method="get" class="form-group" action="">
-                <input type="search" id="search-form" class="form-control border-0 border-bottom"
-                    placeholder="Type and press enter" value="" name="s" />
-                <button type="submit" class="search-submit border-0 position-absolute bg-white"
-                    style="top: 15px;right: 15px;"><svg class="search" width="24" height="24">
-                        <use xlink:href="#search"></use>
-                    </svg></button>
-            </form>
-
-            <h5 class="cat-list-title">Browse Categories</h5>
-
-            <ul class="cat-list">
-                <li class="cat-list-item mb-3">
-                    <a href="#" title="Product-1">Product-1</a>
-                </li>
-                <li class="cat-list-item mb-3">
-                    <a href="#" title="Product-2">Product-2</a>
-                </li>
-                <li class="cat-list-item mb-3">
-                    <a href="#" title="Product-3">Product-3</a>
-                </li>
-                <li class="cat-list-item mb-3">
-                    <a href="#" title="Product-4">Product-4</a>
-                </li>
-                <li class="cat-list-item mb-3">
-                    <a href="#" title="Product-5">Product-5</a>
-                </li>
-                <li class="cat-list-item mb-3">
-                    <a href="#" title="Product-6">Product-6</a>
-                </li>
-                <li class="cat-list-item mb-3">
-                    <a href="#" title="Product-7">Product-7</a>
-                </li>
-            </ul>
-
-        </div>
-    </div>
 
     <!-- Mini Cart Sidebar (slides in from right) -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="miniCart">
@@ -146,13 +108,18 @@
             <h5 class="offcanvas-title">Your Cart</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-        <div class="offcanvas-body">
+        <div id="miniCart" class="offcanvas-body">
             <div id="miniCartItems"></div>
             <div style="border-top: 1px solid #ddd; padding-top: 10px; text-align: right;">
                 <h6>Total: <span id="miniCartTotal">Ksh 0.00</span></h6>
                 <div class="d-grid gap-2 mt-3">
                     <a href="cart.html" class="btn btn-outline-dark">View Full Cart</a>
+                     <a href="index.html" class="btn btn-outline-dark">Continue to Shop</a>
                     <a href="checkout.html" class="btn btn-dark">Checkout</a>
+                  
+                 
+                         <a href="whatsappmodal.html" class="btn btn-dark">Checkout via whatsapp</a>
+                    
                 </div>
             </div>
         </div>
@@ -170,27 +137,53 @@
                 </h4>
                 <ul class="list-group mb-4" id="offcanvasCartItems"></ul>
                 <button class="w-100 btn btn-dark" type="submit">Continue to checkout</button>
+              
             </div>
         </div>
     </div>
 
-    <!-- header section start  -->
-    <header id="header" style="width: 100;">
-        <div class="container-fluid" style="background-color: #f5f5f5;">
+    <!-- header section start -->
+    <header id="header" style="width: 100;margin-bottom: 50px;" class="bar-1600" >
+        
+
+
+
+
+        <div class="container-fluid" style="background-color: white;">
             <div class="row">
                 <nav class="navbar navbar-expand-lg">
                                                 <a href="index.html" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
-                            <img style="width: 80px; height: 60px;" src="images/logo.avif">
+                            <img style="width: 160px; height: 180px;" src="images/logo1.jpg" alt="logo">
                         </a>
                           <!-- Cart Icon (shows on all screens, moves with order classes) -->
-  <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 20px;">
-    <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" class="position-relative">
-      <svg class="text-black cart" width="22" height="22">
-        <use xlink:href="#cart"></use>
-      </svg>
-      <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
-    </a>
-  </div>
+ <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
+  
+  <!-- 🛒 Cart -->
+  <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" 
+     class="position-relative d-flex align-items-center" style="margin-right: 10px;">
+    <svg class="text-black cart" width="28" height="28" style="display:block;">
+      <use xlink:href="#cart"></use>
+    </svg>
+    <span id="cartCount" 
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      0
+    </span>
+  </a>
+
+  <!-- ❤️ Wishlist -->
+  <a href="wishlist.html" class="position-relative d-flex align-items-center">
+    <img id="navbar-heart"
+         src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+         alt="Wishlist"
+         style="width:28px; height:28px; object-fit:contain; display:block; cursor:pointer; margin:5px;">
+    <span id="wishlistCount" 
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      0
+    </span>
+  </a>
+
+</div>
+
                     <button class="navbar-toggler d-flex d-lg-none order-3 p-0 border-0 shadow-none" type="button"
                         data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -198,7 +191,7 @@
                             <use xlink:href="#navbar-icon"></use>
                         </svg>
                     </button>
-              
+                 
                     <div class="offcanvas offcanvas-end bg-white" tabindex="-1" id="bdNavbar"
                         aria-labelledby="bdNavbarOffcanvasLabel">
                         <div class="offcanvas-body align-items-center">
@@ -208,80 +201,60 @@
                             </div>
                             <div class="col-md-2 d-flex">
                                 <a href="index.html" class="navbar-brand order-2 order-lg-2 d-none d-lg-flex">
-                                    <img style="width: 120px;height: 80px;" src="images/logo.avif">
+                                    <img style="width: 200px;height: 200px;" src="images/logo1.jpg" alt="logo">
                                 </a>
                             </div>
+                            
                             <div class="col-md-5 offset-lg-2">
                                 <div class="navbar-collapse order-1 order-lg-1 ms-3 ms-lg-0" id="navbarMenu">
-                                    <ul class="navbar-nav d-flex justify-content-center">
+                                    <ul class="navbar-nav d-flex justify-content-center w-100">
                                         <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="index.html">Home</a>
                                         </li>
-                                        <li class="nav-item me-5">
+                                        
+                                         <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="about-us.html">About</a>
-                                        </li>
-                                        <!-- Dropdown for Shop -->
-                                        <li class="nav-item me-5 dropdown">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0 dropdown-toggle"
-                                                href="#" id="navbarDropdownShop" role="button" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                Shop
+                                                href="about-us.html">
+                                                About 
                                             </a>
-                                            <ul class="dropdown-menu bg-white">
-                                                <li><a class="dropdown-item text-black" href="wholesale.html">Wholesale</a></li>
-                                                <li><a class="dropdown-item text-black" href="products.html">Retail</a></li>
-                                            </ul>
                                         </li>
-                                        <!-- Dropdown for Blog -->
-                                        <li class="nav-item me-5">
+                                         <li class="nav-item me-5">
+                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
+                                                href="shop.html">
+                                                Shop-Now
+                                            </a>
+                                        </li>
+                                         <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="blog.html">
-                                                Blog
+                                                Blogs
                                             </a>
                                         </li>
-                                        <li class="nav-item me-5 dropdown">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0 dropdown-toggle"
-                                                href="#" id="navbarDropdownPages" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                Pages
-                                            </a>
-                                            <ul class="dropdown-menu bg-white">
-                                                <li><a href="cart.html" class="dropdown-item text-black">Cart</a></li>
-                                                <li><a href="checkout.html" class="dropdown-item text-black">Checkout</a></li>
-                                                <li><a href="contact.html" class="dropdown-item text-black">Contact</a></li>
-                                                <li><a href="faqs.html" class="dropdown-item text-black">FAQs</a></li>
-                                                <li><a href="privacy-policy.html" class="dropdown-item text-black">Privacy Policy</a></li>
-                                                <li><a href="terms-conditions.html" class="dropdown-item text-black">Terms and Conditions</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- Dropdown for Pages -->
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="gallery.html">
-                                                Gallery
-                                            </a>
-                                        </li>
-                                        <li class="nav-item me-5">
-                                            <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
-                                                href="contact.html">
-                                                Contact
-                                            </a>
-                                        </li>
-                                        <li class="nav-item mt-4 mt-lg-0">
-                                            <a class="nav-link text-black pb-1 pe-0">Affiliate</a>
-                                        </li>
+                                    
+
                                     </ul>
                                 </div>
                             </div>
-                      
+                       
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
+        <!---
+                          <div class="input-wrapper">
+                <input type="text" id="searchInput" placeholder="Search products">
+            </div>
+            <div class="dropdowns">
+                <select id="productSelect">
+                    <option value="">Select product...</option>
+                     Options will be populated dynamically via JS 
+                </select>
+            </div> -->
+
     </header>
+    
 </div>
 
 <style>
@@ -293,7 +266,7 @@
   .section-wrapper img {
       height: auto; /* fixed height only for larger screens */
       object-fit: cover; /* ensures it crops nicely */
-      max-width: 100%;
+      max-width: 80%;
     }
 
   @media (min-width: 768px) {
@@ -310,93 +283,186 @@
 </style>
 
 <div class="section-wrapper">
-    <div class="container-fluid mt-5">
-        <div class="row flex-column align-items-center">
-            <div class="col-12 text-center" style="padding-top: 120px;">
-                <h1 class="display-4 fw-bold" style="color: #000;">Our Blog</h1>
-                <p style="color: #666;">Explore the latest insights, tips, and stories from Haoren.</p>
-            </div>
-            <div class="col-12">
-                <div class="row g-4 mt-3">
-                    <div class="col-12 col-md-4">
-                        <a href="singleblog.html">
-                            <div class="image-container" style="margin-bottom: 20px; text-align: center;">
-                                <img src="images/p1.avif" alt="Blog 1" style="border-radius: 15px;">
-                                <h5 style="color: #000; margin-top: 10px;">The Art of Fragrance</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="image-container" style="margin-bottom: 20px; text-align: center;">
-                            <img src="images/p2.avif" alt="Blog 2" style="border-radius: 15px;">
-                            <h5 style="color: #000; margin-top: 10px;">Sustainable Sourcing</h5>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="image-container" style="margin-bottom: 20px; text-align: center;">
-                            <img src="images/p3.avif" alt="Blog 3" style="border-radius: 15px;">
-                            <h5 style="color: #000; margin-top: 10px;">History of Perfume</h5>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="image-container" style="margin-bottom: 20px; text-align: center;">
-                            <img src="images/p4.avif" alt="Blog 4" style="border-radius: 15px;">
-                            <h5 style="color: #000; margin-top: 10px;">Seasonal Scents</h5>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="image-container" style="margin-bottom: 20px; text-align: center;">
-                            <img src="images/p5.avif" alt="Blog 5" style="border-radius: 15px;">
-                            <h5 style="color: #000; margin-top: 10px;">Behind the Bottle</h5>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <div class="image-container" style="margin-bottom: 20px; text-align: center;">
-                            <img src="images/p6.avif" alt="Blog 6" style="border-radius: 15px;">
-                            <h5 style="color: #000; margin-top: 10px;">Perfume Trends 2025</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container-fluid mt-5">
+<div class="row flex-column align-items-center">
+<div class="col-12 text-center" style="padding-top: 220px;">
+<h1 class="display-4 fw-bold" style="color: #000;">Our Blogs</h1>
+<p style="color: #666;">Explore the latest insights, tips, and stories from Haoren.</p>
+</div>
+<div class="col-12">
+<div class="row g-4 mt-3">
+<!-- Original 6 items -->
+<div class="col-12 col-md-4">
+<a href="pwaniblog.html">
+<div class="image-container" style="margin-bottom: 20px; text-align: center;">
+<img src="images/p1.avif" alt="Blog 1" style="border-radius: 15px;">
+<h5 style="color: #000; margin-top: 10px;">Pwani Limau — The Scent of Pure Coastal Energy</h5>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-4">
+<a href="nuitblog.html">
+<div class="image-container" style="margin-bottom: 20px; text-align: center;">
+<img src="images/nuit3.jpeg" alt="Blog 2" style="border-radius: 15px;">
+<h5 style="color: #000; margin-top: 10px;">Nuit Blanche — Sweet Temptation After Dark</h5>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-4">
+<a href="mlimablog.html">
+<div class="image-container" style="margin-bottom: 20px; text-align: center;">
+<img src="images/milima1.JPG" alt="Blog 3" style="border-radius: 15px;">
+<h5 style="color: #000; margin-top: 10px;">Mlima Baridi — Where Strength Meets the Mountain Air</h5>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-4">
+<a href="misbahblog.html">
+<div class="image-container" style="margin-bottom: 20px; text-align: center;">
+<img src="images/misbah3.png" alt="Blog 4" style="border-radius: 15px;">
+<h5 style="color: #000; margin-top: 10px;">Misbah — Fresh Waves Meets Deep Sensuality</h5>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-4">
+<a href="waridiblog.html">
+<div class="image-container" style="margin-bottom: 20px; text-align: center;">
+<img src="images/waridi4.jpeg" alt="Blog 5" style="border-radius: 15px;">
+<h5 style="color: #000; margin-top: 10px;">Waridi wa Nyika — The Untamed Rose of Feminine Power</h5>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-4">
+<a href="wimboblog.html">
+<div class="image-container" style="margin-bottom: 20px; text-align: center;">
+<img src="images/wimbo1.JPG" alt="Blog 6" style="border-radius: 15px;">
+<h5 style="color: #000; margin-top: 10px;">Wimbo wa Msafiri — A Scent Carved From Adventure</h5>
+</div>
+</a>
 </div>
 
-<footer style="background-color: #988558;padding-right: 20px;">
-    <div class="container">
-        <div class="row">
-            <!-- Logo Section -->
-            <div class="col-12 col-md-3 mb-4 mb-md-0">
-                <iframe class="img-fluid" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801634920605!2d36.78817777582776!3d-1.2934915356358103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e50d566add%3A0x2d4a4d5689faf57!2sHighway%20Heights!5e0!3m2!1sen!2ske!4v1756724788688!5m2!1sen!2ske" width="400" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <!-- Navigation Links -->
-            <div class="col-12 col-md-3 mb-4 mb-md-0">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
-                    <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-                    <p class="mb-0">&copy; 2025 Haoren. All rights reserved.</p>
-                </ul>
-            </div>
-            <!-- Contact Information -->
-            <div class="col-12 col-md-3 mb-4 mb-md-0">
-                <h5>Follow Us</h5>
-                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-                <h5>Contact Us</h5>
-                <p class="mb-1">Email: info@haorenaf.com</p>
-                <p class="mb-1">Phone: (+254) 0114012345</p>
-                <p>Address: Highway heights, Kilimani, Nairobi</p>
-            </div>
-            <!-- Social Media -->
-            <div class="col-12 col-md-3"></div>
-        </div>
-        <hr class="bg-white my-4">
+
+<!-- Added 4 new items -->
+<div class="col-12 col-md-4">
+<a href="zawadiblog.html">
+<div class="image-container" style="margin-bottom: 20px; text-align: center;">
+<img src="images/zawadi3.jpeg" alt="Blog 7" style="border-radius: 15px;">
+<h5 style="color: #000; margin-top: 10px;">Zawadi ya Maua — A Floral Gift Wrapped in Warmth
+</h5>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-4">
+<a href="aldiamondblog.html">
+<div class="image-container" style="margin-bottom: 20px; text-align: center;">
+<img src="images/diamond1.JPG" alt="Blog 8" style="border-radius: 15px;">
+<h5 style="color: #000; margin-top: 10px;"> Al-Diamond — The Bold Aura of Modern Luxury
+</h5>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-4">
+<a href="jannatblog.html">
+<div class="image-container" style="margin-bottom: 20px; text-align: center;">
+<img src="images/jannat1.JPG" alt="Blog 9" style="border-radius: 15px;">
+<h5 style="color: #000; margin-top: 10px;"> Jannat — Sunshine, Joy, and the Spirit of Endless Summer
+</h5>
+</div>
+</a>
+</div>
+<div class="col-12 col-md-4">
+<a href="ghayatblog.html">
+<div class="image-container" style="margin-bottom: 20px; text-align: center;">
+<img src="images/ghayat1.JPG" alt="Blog 10" style="border-radius: 15px;">
+<h5 style="color: #000; margin-top: 10px;"> Ghayat — Elegance Woven in Mystery
+</h5>
+</div>
+</a>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+ <footer style="background-color: black; padding-top: 20px;">
+  <div class="container">
+    <!-- Desktop layout -->
+    <div class="row row-cols-2 row-cols-md-4 d-none d-md-flex">
+      <!-- Map (only desktop) -->
+      <div class="col mb-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801634920605!2d36.78817777582776!3d-1.2934915356358103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e50d566add%3A0x2d4a4d5689faf57!2sHighway%20Heights!5e0!3m2!1sen!2ske!4v1756724788688!5m2!1sen!2ske" 
+                class="img-fluid w-100" 
+                allowfullscreen 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col mb-4">
+        <h5 style="color: white;">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+             <h5 style="color: white;">Follow Us</h5>
+         <a href="https://www.facebook.com/HaorenAf" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                 <a href="https://www.tiktok.com/@haoren.af" class="text-white me-3"><i class="fab fa-tiktok"></i></a>
+      
+        <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white"><i class="fab fa-youtube"></i></a>
+      </div>
+
+      <!-- Follow Us + Contact Us -->
+      <div class="col mb-4">
+   
+        <h5 style="color: white;" class="mt-3">Contact Us</h5>
+        <p class="mb-1 text-white">Email: info@haorenaf.com</p>
+        <p class="mb-1 text-white">Phone: (+254) 0114012345</p>
+        <p class="text-white">Address: Highway Heights, Kilimani, Nairobi</p>
+      </div>
+
+      <!-- Empty spacing column -->
+      <div class="col mb-4 d-none d-md-block"></div>
     </div>
+
+    <!-- Mobile layout -->
+    <div class="row row-cols-2 d-flex d-md-none">
+      <!-- Quick Links (with Map link) -->
+      <div class="col mb-4">
+        <h5 style="color: white;" >Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
+        
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+          <li><a href="https://www.google.com/maps/place/Highway+Heights/@-1.2934915,36.7881778,17z/data=!4m14!1m7!3m6!1s0x182f11e50d566add:0x2d4a4d5689faf57!2sHighway+Heights!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk!3m5!1s0x182f11e50d566add:0x2d4a4d5689faf57!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
+        </ul>
+                <h5 style="color: white;">Follow Us</h5>
+        <a href="https://www.facebook.com/HaorenAf" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@haoren.af" class="text-white me-3"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white"><i class="fab fa-youtube"></i></a>
+      </div>
+
+      <!-- Follow Us + Contact Us -->
+      <div class="col mb-4">
+
+
+        <h5 style="color: white;" class="mt-3">Contact Us</h5>
+        <p class="mb-1 text-white">Email: info@haorenaf.com</p>
+        <p class="mb-1 text-white">Phone: (+254) 0114012345</p>
+        <p class="text-white">Address: Highway Heights, Kilimani, Nairobi</p>
+      </div>
+    </div>
+
+    <hr class="bg-white my-4">
+    <p class="mb-0 text-center text-white">&copy; 2025 Haoren. All rights reserved.</p>
+  </div>
 </footer>
 
 <script src="js/jquery-1.11.0.min.js"></script>
