@@ -2,53 +2,48 @@
 <html lang="en">
 <head>
     <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-SGPS73CVV1');
-</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        gtag('config', 'G-SGPS73CVV1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  <title>Haoren Perfume | Luxury Perfumes in Kenya for Men & Women</title>
+    <title>Haoren Perfume | Luxury Perfumes in Kenya for Men & Women</title>
 
-<!-- Meta Description (under 160 characters, keyword-rich, click-friendly) -->
 <meta name="description" content="Shop Haoren Perfume in Kenya – premium, long-lasting fragrances for men, women, and unisex. Discover your signature scent today.">
 
-<!-- Canonical URL -->
 <link rel="canonical" href="https://haorenaf.com/">
 
-<!-- Open Graph (for Facebook & social media previews) -->
 <meta property="og:title" content="Haoren Perfume | Luxury Fragrances in Kenya">
 <meta property="og:description" content="Discover Haoren Perfume – elegant, long-lasting perfumes for men, women & unisex. Shop our luxury fragrance collection online.">
 <meta property="og:image" content="https://haorenaf.com/images/haorenlogo.jpeg">
 <meta property="og:url" content="https://haorenaf.com/">
 <meta property="og:type" content="website">
-   <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
-    <!-- Font Awesome -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <style>
-    :root { --header-offset: 280px; } /* change if needed */
+    <style>
+        :root { --header-offset: 280px; } /* change if needed */
 
 .anchor-offset, /* utility class you can add to each target */
 [id^="all"], /* optional - not needed if you add class */
-[id^="men"], 
+[id^="men"],
 [id^="unisex"],
 [id^="women"] {
-  scroll-margin-top: var(--header-offset) !important;
+    scroll-margin-top: var(--header-offset) !important;
 }
 
 /* OR target specific IDs directly (works even if they're <div>) */
@@ -56,15 +51,15 @@
 #men,
 #unisex,
 #women {
-  scroll-margin-top: var(--header-offset) !important;
+    scroll-margin-top: var(--header-offset) !important;
 }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9fbfd;
-    }
-      .popup {
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9fbfd;
+        }
+        .popup {
             display: none;
             position: fixed;
             top: 0;
@@ -83,349 +78,348 @@
         }
 
 
-    /* Container */
+        /* Container */
 /* Main container */
 .container {
-  width: 100%;
-  /* 
-    - never smaller than 1000px
-    - scales fluidly with screen size (100% - sidebar space)
-    - never larger than 1600px for readability
-  */
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-  padding-top: 130px;
+    width: 100%;
+    /* 
+    - never smaller than 1000px
+    - scales fluidly with screen size (100% - sidebar space)
+    - never larger than 1600px for readability
+  */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    padding-top: 130px;
 }
 
 @media (max-width: 768px) {
-      .container {
+    .container {
         padding-top: 70px;
-      }
     }
+}
 
 
-    .card {
-      background-color: white;
-      border: none;
-      border-radius: 0;
-      margin: 0;
-    }
+        .card {
+            background-color: white;
+            border: none;
+            border-radius: 0;
+            margin: 0;
+        }
 
-    .hero {
-      padding: 40px 20px;
-      position: relative;
-      overflow: hidden;
-      height: 400px;
-    }
+        .hero {
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
 
-    .hero-content {
-      padding-top: 100px;
-      max-width: 50%;
-      z-index: 1;
-      overflow: hidden;
-      padding-left: 50px;
-    }
+        .hero-content {
+            padding-top: 100px;
+            max-width: 50%;
+            z-index: 1;
+            overflow: hidden;
+            padding-left: 50px;
+        }
 
-    .hero h1 {
-      font-size: 48px;
-      color: #333;
-      margin: 0;
-    }
+        .hero h1 {
+            font-size: 48px;
+            color: #333;
+            margin: 0;
+        }
 
-    .hero p {
-      font-size: 24px;
-      color: #666;
-      margin: 10px 0;
-    }
+        .hero p {
+            font-size: 24px;
+            color: #666;
+            margin: 10px 0;
+        }
 
-    .hero button {
-      background-color: #ff3366;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 20px;
-      cursor: pointer;
-    }
+        .hero button {
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
 
 .hero-image {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 
-  width: 400px;
-  height: 100%;      /* fill vertical space */
-  object-fit: contain; /* scale proportionally inside box */
+    width: 400px;
+    height: 100%;      /* fill vertical space */
+    object-fit: contain; /* scale proportionally inside box */
 }
 
 
 
-    .category p {
-      color: black;
-      font-size: 14px;
-      margin-top: 10px;
-    }
+        .category p {
+            color: black;
+            font-size: 14px;
+            margin-top: 10px;
+        }
 
-    /* Mobile hero */
-    @media (max-width: 768px) {
-      .hero {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: auto;
-      }
+        /* Mobile hero */
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: auto;
+            }
 
-      .hero-content {
-        max-width: 100% !important;
-        padding-left: 0;
-        padding-top: 20px;
-        z-index: 2;
-      }
+            .hero-content {
+                max-width: 100% !important;
+                padding-left: 0;
+                padding-top: 20px;
+                z-index: 2;
+            }
 
-      .hero-image {
-        display: none; 
-      }
+            .hero-image {
+                display: none;
+            }
 
-      .hero-content h1,
-      .hero-content p,
-      .hero-content button {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
+            .hero-content h1,
+            .hero-content p,
+            .hero-content button {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
 
-    /* Products section */
-    .section-title {
-      text-align: center;
-      font-size: 24px;
-      color: black;
-      margin-bottom: 20px;
-      font-weight: normal;
-    }
-      .section-title1 {
-      text-align: center;
-      font-size: 24px;
-      color: black;
-      margin-bottom: 20px;
-      font-weight: normal;
-      font-style: italic;
-      font-family: cursive;
-    }
-
-    /* ✅ Grid layout for products */
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      padding: 40px;
-      gap: 20px;
-    }
-       .product-card {
-  position: relative;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-    .product-card img {
-      width: 100%;
-      height: 300px;
-      object-fit: contain;
-    }
-
- @media (max-width: 768px) {
-      .card-container {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 5px;
-        gap: 5px;
-      }
-
-
+        /* Products section */
         .section-title {
-      text-align: center;
-      font-size: 24px;
-      color: black;
-      margin-bottom: 0px;
-      font-weight: normal;
-      display: none;
-    }
-          .section-title1 {
-      text-align: center;
-      font-size: 16px;
-      color: black;
-      margin-bottom: 10px;
-      font-weight: normal;
-      font-style: italic;
-      font-family: cursive;
-    }
-    .product-card {
-  position: relative;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
+            text-align: center;
+            font-size: 24px;
+            color: black;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        .section-title1 {
+            text-align: center;
+            font-size: 24px;
+            color: black;
+            margin-bottom: 20px;
+            font-weight: normal;
+            font-style: italic;
+            font-family: cursive;
+        }
+
+        /* ✅ Grid layout for products */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 40px;
+            gap: 20px;
+        }
+        .product-card {
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
         .product-card img {
-      width: 100%;
-      height: 120px;
-      object-fit: contain;
-    }
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 5px;
+                gap: 5px;
+            }
 
 
-    }
+            .section-title {
+                text-align: center;
+                font-size: 24px;
+                color: black;
+                margin-bottom: 0px;
+                font-weight: normal;
+                display: none;
+            }
+            .section-title1 {
+                text-align: center;
+                font-size: 16px;
+                color: black;
+                margin-bottom: 10px;
+                font-weight: normal;
+                font-style: italic;
+                font-family: cursive;
+            }
+            .product-card {
+                position: relative;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                text-align: center;
+                padding: 10px;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .product-card img {
+                width: 100%;
+                height: 120px;
+                object-fit: contain;
+            }
+
+
+        }
 
 
 
-   .category-label {
-  position: absolute;
-  top: 10px;
-  padding: 3px 8px;
-  font-size: 12px;
-  background-color: purple;
-  color: white;  /* brown text */
-  border-radius: 8px;
-  font-weight: bold;
-  z-index: 2;
-  white-space: nowrap;
-}
-.product-card .category-label:first-of-type {
-  right: 10px;
-  width: 30%;
-}
-.product-card .category-label:last-of-type {
-  left: 10px;
-  width: 30%;
-}
+        .category-label {
+            position: absolute;
+            top: 10px;
+            padding: 3px 8px;
+            font-size: 12px;
+            background-color: purple;
+            color: white; /* brown text */
+            border-radius: 8px;
+            font-weight: bold;
+            z-index: 2;
+            white-space: nowrap;
+        }
+        .product-card .category-label:first-of-type {
+            right: 10px;
+            width: 30%;
+        }
+        .product-card .category-label:last-of-type {
+            left: 10px;
+            width: 30%;
+        }
 
-    .product-name {
-      font-size: 14px;
-      color: #333;
-      margin: 5px 0;
-    }
+        .product-name {
+            font-size: 14px;
+            color: #333;
+            margin: 5px 0;
+        }
 
-    .size-options {
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-      margin: 5px 0;
-      color: #6c757d;
-    }
+        .size-options {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: 5px 0;
+            color: #6c757d;
+        }
 
-    .size-options span {
-      padding: 2px 6px;
-      background: #e9ecef;
-      border-radius: 10px;
-    }
+        .size-options span {
+            padding: 2px 6px;
+            background: #e9ecef;
+            border-radius: 10px;
+        }
 
-    .scent-notes {
-      font-size: 12px;
-      color: #6c757d;
-      margin: 5px 0;
-    }
+        .scent-notes {
+            font-size: 12px;
+            color: #6c757d;
+            margin: 5px 0;
+        }
 
-    .price {
-      font-size: 14px;
-      color: #333;
-      margin: 5px 0;
-    }
+        .price {
+            font-size: 14px;
+            color: #333;
+            margin: 5px 0;
+        }
 
-    .price del {
-      color: #6c757d;
-      margin-left: 5px;
-    }
+        .price del {
+            color: #6c757d;
+            margin-left: 5px;
+        }
 
-    /* ✅ Add to cart + icons in one row */
-    .product-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 10px;
-    }
+        /* ✅ Add to cart + icons in one row */
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
 
-    .btn-add {
-      background: #fff;
-      border: 1px solid #dee2e6;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 12px;
-      display: flex;
-      align-items: center;
-    }
+        .btn-add {
+            background: #fff;
+            border: 1px solid #dee2e6;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
 
-    .btn-add img {
-      width: 12px;
-      height: 12px;
-      gap: 5px;
-    }
+        .btn-add img {
+            width: 12px;
+            height: 12px;
+            gap: 5px;
+        }
 
-    .icons {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      padding-right: 15px;
-      padding-left: 5px;
-    }
+        .icons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding-right: 15px;
+            padding-left: 5px;
+        }
 
-    .icons img {
-      width: 20px;
-      height: 20px;
-     
-    }
-    .bar-1600 {
-  width: 100%; /* keeps it fluid but capped */
-      margin: 0 auto;
-      padding: 0px 20px;
-}
-            /* Mobile responsiveness */
+        .icons img {
+            width: 20px;
+            height: 20px;
+
+        }
+        .bar-1600 {
+            width: 100%; /* keeps it fluid but capped */
+            margin: 0 auto;
+            padding: 0px 20px;
+        }
+        /* Mobile responsiveness */
 @media (max-width: 768px) {
         .btn-add {
-      background: #fff;
-      border: 1px solid #dee2e6;
-      padding: 2px 5px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 10px;
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
+            background: #fff;
+            border: 1px solid #dee2e6;
+            padding: 2px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
 
-     .btn-add img {
-      width: 12px;
-      height: 12px;
-    }
+        .btn-add img {
+            width: 12px;
+            height: 12px;
+        }
 
-  
+
 }
-  </style>
+    </style>
 
     
-
 <style>
     /* Sidebar container */
     .fixed-sidebar {
         position: fixed;
         top: 40px;
         z-index: 1000;
-        width: 150px;        /* let content decide width */
+        width: 150px;      /* let content decide width */
         padding-left: 12px;
     }
 
     /* Input and select consistent styling */
- #searchInput, #productSelect {
+#searchInput, #productSelect {
     display: block;
     width: 50%;
     padding: 10px;
@@ -436,195 +430,194 @@
     box-sizing: border-box;
     background-color: #FAFAFA;
     margin: 0 auto;
-  }
+}
 
-  .input-wrapper {
+.input-wrapper {
     background-color: #FAFAFA;
     padding-top: 10px;
-  }
+}
     /* Dropdown container */
     .dropdowns {
-       display: none; 
+        display: none;
     }
 
     /* Responsive: full width on smaller screens */
     @media (max-width: 768px) {
         .fixed-sidebar {
-         display: none;
+          display: none;
         }
 
         .fixed-sidebar input,
         .fixed-sidebar select {
-            width: 100% !important;   /* Force exact same width */
+            width: 100% !important;    /* Force exact same width */
             max-width: 100% !important;
         }
     }
 
     /* Responsive: full width on smaller screens */
-     @media (max-width: 768px) {
+    @media (max-width: 768px) {
     .input-wrapper {
-     width: 100%; 
+      width: 100%;
     margin: 0;
-    padding: 20px; 
+    padding: 20px;
     background-color: #FAFAFA;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     }
 
     .input-wrapper input {
-  width: 100% !important;   /* override desktop 50% */
-      margin: 0 !important;     /* remove auto-centering */
-      border: none;           /* remove border for clean look */
-      border-bottom: 2px solid #988558; /* subtle underline */
-      border-radius: 0;       /* edge-to-edge */
-      padding: 12px 15px;     /* comfortable touch target */
-      font-size: 16px;
-      background-color: #FAFAFA;
-      direction: ltr;         /* text starts from right */
-      box-sizing: border-box;
+        width: 100% !important;    /* override desktop 50% */
+        margin: 0 !important;      /* remove auto-centering */
+        border: none;              /* remove border for clean look */
+        border-bottom: 2px solid #988558; /* subtle underline */
+        border-radius: 0;          /* edge-to-edge */
+        padding: 12px 15px;        /* comfortable touch target */
+        font-size: 16px;
+        background-color: #FAFAFA;
+        direction: ltr;            /* text starts from right */
+        box-sizing: border-box;
     }
 
     /* Optional: make placeholder text centered */
     .input-wrapper input::placeholder {
-      text-align: center;
-      color: #888;
-      font-size: 14px;
+        text-align: center;
+        color: #888;
+        font-size: 14px;
     }
-  }
+}
 /* Custom width for mobile offcanvas */
 @media (max-width: 768px) {
-  #bdNavbar.offcanvas-end {
-    width: 70% !important;   /* adjust percentage as you like */
-    max-width: 300px;        /* optional: cap width */
-  }
+    #bdNavbar.offcanvas-end {
+        width: 70% !important;    /* adjust percentage as you like */
+        max-width: 300px;        /* optional: cap width */
+    }
 }
 
 
 /* Custom width for mobile offcanvas */
 @media (max-width: 768px) {
-  #bdNavbar.offcanvas-end {
-    width: 70% !important;   /* adjust percentage as you like */
-    max-width: 300px;        /* optional: cap width */
-  }
+    #bdNavbar.offcanvas-end {
+        width: 70% !important;    /* adjust percentage as you like */
+        max-width: 300px;        /* optional: cap width */
+    }
 }
 
 /* Mobile Header Layout */
 @media (max-width: 768px) {
-  .mobile-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    height: 60px;
-    background-color: #FAFAFA;
-  }
-  
-  .mobile-left-icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .mobile-center-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .mobile-right-hamburger {
-    display: flex;
-    align-items: center;
-  }
-  
-  .mobile-icon {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .mobile-logo {
-    width: 100px;
-    height: 50px;
-  }
+    .mobile-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+        height: 60px;
+        background-color: #FAFAFA;
+    }
+    
+    .mobile-left-icons {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .mobile-center-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .mobile-right-hamburger {
+        display: flex;
+        align-items: center;
+    }
+    
+    .mobile-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .mobile-logo {
+        width: 100px;
+        height: 50px;
+    }
 }
 
 /* Desktop Header Layout (keeps existing layout) */
 @media (min-width: 769px) {
-  .mobile-header {
-    display: none;
-  }
+    .mobile-header {
+        display: none;
+    }
 }
 @media (max-width: 768px) {
-  #bdNavbar.offcanvas-end {
-    width: 70% !important;   /* adjust percentage as you like */
-    max-width: 300px;        /* optional: cap width */
-  }
-    #miniCart.offcanvas-end {
-    width: 70% !important;   /* adjust percentage as you like */
-    max-width: 300px;        /* optional: cap width */
-  }
-  
-   #all.section-title1 {
-     padding-top: 120px !important; /* adjust as needed */
+    #bdNavbar.offcanvas-end {
+        width: 70% !important;    /* adjust percentage as you like */
+        max-width: 300px;        /* optional: cap width */
     }
-  }
+    #miniCart.offcanvas-end {
+        width: 70% !important;    /* adjust percentage as you like */
+        max-width: 300px;        /* optional: cap width */
+    }
+    
+    #all.section-title1 {
+        padding-top: 120px !important; /* adjust as needed */
+    }
+    }
 
 </style>
 
 <style>
 .category-bar {
-   margin-top: 0px !important;  /* reduce space */
-  margin-bottom: 0px !important;
-  padding-top: 0 !important;
-  padding-bottom: 20px !important;
-  background-color: #FAFAFA;
+    margin-top: 0px !important;    /* reduce space */
+    margin-bottom: 0px !important;
+    padding-top: 0 !important;
+    padding-bottom: 20px !important;
+    background-color:white;
 }
 
 .category-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding-top: 10px;
-  flex-wrap: nowrap; /* keep in one row */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 10px;
+    flex-wrap: nowrap; /* keep in one row */
 }
 
 .category-links a {
-  color: #000;
-  text-decoration: none;
-  font-size: 20px;
-  white-space: nowrap; /* prevent breaking */
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+    white-space: nowrap; /* prevent breaking */
 }
 
 .category-links a:hover,
 .category-links a.active {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* ✅ Responsive adjustments for small screens */
 @media (max-width: 576px) {
 
-  .category-links {
-    gap: 10px; /* reduce spacing */
-  }
+    .category-links {
+        gap: 10px; /* reduce spacing */
+    }
 
-  .category-links a {
-    font-size: 14px; /* smaller text */
-  }
+    .category-links a {
+        font-size: 14px; /* smaller text */
+    }
 
 }
 </style>
 </head>
 <body>
     
-     
-     
-  <div class="position-fixed top-0 start-0 w-100 z-3  ">
-    <div  style="width: 100%; height: 40px; background-color: black; display: flex; align-items: center; justify-content: center; margin: 0 auto; padding: 0px 20px;">
+    
+    
+<div class="position-fixed top-0 start-0 w-100" style="z-index: 1050; background-color: white;">
+    <div style="width: 100%; height: 40px; background-color: black; display: flex; align-items: center; justify-content: center; margin: 0 auto; padding: 0px 20px;">
         <p style="color: white; margin: 0; font-size: 12px;">
             Highway Heights, Kilimani, Nairobi | ☎ (+254) 0114 012345
         </p>
     </div>
 
 
-    <!-- svg icon -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="arrow-left" viewBox="0 0 256 256">
             <path fill="currentColor"
@@ -675,7 +668,6 @@
 
 
 
-    <!-- Mini Cart Sidebar (slides in from right) -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="miniCart">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">Your Cart</h5>
@@ -687,11 +679,12 @@
                 <h6>Total: <span id="miniCartTotal">Ksh 0.00</span></h6>
                 <div class="d-grid gap-2 mt-3">
                     <a href="cart.html" class="btn btn-outline-dark">View Full Cart</a>
-                     <a href="index.html" class="btn btn-outline-dark">Continue to Shop</a>
+                    <a href="index.html" class="btn btn-outline-dark">Continue to Shop</a>
                     <a href="checkout.html" class="btn btn-dark">Checkout</a>
-                  
-                 
-                         <a href="whatsappmodal.html" class="btn btn-dark">Checkout via whatsapp</a>
+                    
+                    
+                    
+                    <a href="whatsappmodal.html" class="btn btn-dark">Checkout via whatsapp</a>
                     
                 </div>
             </div>
@@ -710,50 +703,44 @@
                 </h4>
                 <ul class="list-group mb-4" id="offcanvasCartItems"></ul>
                 <button class="w-100 btn btn-dark" type="submit">Continue to checkout</button>
-              
+                
             </div>
         </div>
     </div>
 
-    <!-- header section start -->
     <header id="header" style="width: 100;margin-bottom: 50px;" class="bar-1600" >
         
-
-
 
 
         <div class="container-fluid" style="background-color: white;">
             <div class="row">
                 <nav class="navbar navbar-expand-lg">
-                                                <a href="index.html" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
-                            <img style="width: 160px; height: 180px;" src="images/logo1.jpg" alt="logo">
-                        </a>
-                          <!-- Cart Icon (shows on all screens, moves with order classes) -->
- <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
-  
-  <!-- 🛒 Cart -->
-  <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" 
-     class="position-relative d-flex align-items-center" style="margin-right: 10px;">
+                    <a href="index.html" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
+                        <img style="width: 160px; height: 180px;" src="images/logo1.jpg" alt="logo">
+                    </a>
+                    <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
+    
+<a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart" 
+    class="position-relative d-flex align-items-center" style="margin-right: 10px;">
     <svg class="text-black cart" width="28" height="28" style="display:block;">
-      <use xlink:href="#cart"></use>
+        <use xlink:href="#cart"></use>
     </svg>
     <span id="cartCount" 
-          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-      0
+        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        0
     </span>
-  </a>
+</a>
 
-  <!-- ❤️ Wishlist -->
-  <a href="wishlist.html" class="position-relative d-flex align-items-center">
+<a href="wishlist.html" class="position-relative d-flex align-items-center">
     <img id="navbar-heart"
-         src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
-         alt="Wishlist"
-         style="width:28px; height:28px; object-fit:contain; display:block; cursor:pointer; margin:5px;">
+        src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+        alt="Wishlist"
+        style="width:28px; height:28px; object-fit:contain; display:block; cursor:pointer; margin:5px;">
     <span id="wishlistCount" 
-          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-      0
+        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        0
     </span>
-  </a>
+</a>
 
 </div>
 
@@ -764,7 +751,7 @@
                             <use xlink:href="#navbar-icon"></use>
                         </svg>
                     </button>
-                 
+                    
                     <div class="offcanvas offcanvas-end bg-white" tabindex="-1" id="bdNavbar"
                         aria-labelledby="bdNavbarOffcanvasLabel">
                         <div class="offcanvas-body align-items-center">
@@ -786,929 +773,827 @@
                                                 href="index.html">Home</a>
                                         </li>
                                         
-                                         <li class="nav-item me-5">
+                                        <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="about-us.html">
                                                 About 
                                             </a>
                                         </li>
-                                         <li class="nav-item me-5">
+                                        <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="shop.html">
                                                 Shop-Now
                                             </a>
                                         </li>
-                                         <li class="nav-item me-5">
+                                        <li class="nav-item me-5">
                                             <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
                                                 href="blog.html">
                                                 Blogs
                                             </a>
                                         </li>
-                                    
+                                        
 
                                     </ul>
                                 </div>
                             </div>
-                       
+                            
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
-        <!---
-                          <div class="input-wrapper">
-                <input type="text" id="searchInput" placeholder="Search products">
-            </div>
-            <div class="dropdowns">
-                <select id="productSelect">
-                    <option value="">Select product...</option>
-                     Options will be populated dynamically via JS 
-                </select>
-            </div> -->
+        <div class="category-bar d-md-block text-center" data-aos="fade-down" data-aos-delay="200">
 
-<div class="category-bar  d-md-block text-center">
-
-  <div class="category-links">
-    <a href="shop.html#all" class="active">All products</a>
-    <a href="shop.html#men">Men</a>
-    <a href="shop.html#unisex">Unisex</a>
-    <a href="shop.html#women">Women</a>
-  </div>
-</div>
+        <div class="category-links">
+            <a href="shop.html#all" class="active">All products</a>
+            <a href="shop.html#men">Men</a>
+            <a href="shop.html#unisex">Unisex</a>
+            <a href="shop.html#women">Women</a>
+        </div>
+    </div>
     </header>
     
 </div>
 
 
 
-  <div class="container">
-
-
-    <div class="popup" id="popup">
-        <p style="color: #000; font-size: 18px;">Added to Cart!</p>
-        <button style="background-color: #000; color: #fff; padding: 10px 20px; border-radius: 5px; border: none; margin-top: 10px;" onclick="closePopup()">OK</button>
-    </div>
-    
-
-
-  </div>
-
-
-
-  <div class="container">
-  
-
-
-    <h2  id="all" class="section-title1">All Products</h2>
-    
-   
-    <div class="card-container">
-
-      <!-- Product 1 -->
- <!-- Product 1 -->
-  <div class="product-card"
-      data-id="prod1"
-      data-image="images/milima1.JPG"
-      data-name="Mlima Baridi"
-      data-type="Eau De Parfum"
-      data-price="2700"
-      data-size="100ml"
-      data-description="Woody, Herbal Woody">
-
-      <span class="category-label">Men</span>
-      <a href="mlima.html">
-          <img src="images/milima1.JPG" alt="Mlima Baridi">
-
-      </a>
-    
-      <div class="product-name">Mlima Baridi</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Woody, Herbal Woody</div>
-      <div class="price">KES 2,700</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-              <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-
-
-
-
-<!-- Product 2 -->
-  <div class="product-card"
-      data-id="prod2"
-      data-image="images/zawadi.JPG"
-      data-name="Zawadi ya Maua"
-      data-type="Eau De Parfum"
-      data-price="2700"
-      data-size="100ml"
-      data-description="Ambergis, Woody">
-
-      <span class="category-label">Women</span>
-      <a href="zawadi.html">
-          <img src="images/zawadi3.jpeg" alt="Zawadi ya Maua">
-
-      </a>
-    
-      <div class="product-name">Zawadi ya Maua</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Ambergis, Woody</div>
-      <div class="price">KES 2,700</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-     <!-- Product 3 -->
-  <div class="product-card"
-      data-id="prod3"
-      data-image="images/nuit1.JPG"
-      data-name="Nuit Blanche"
-      data-type="Eau De Parfum"
-      data-price="800"
-      data-size="25ml"
-      data-description="Fruity, Gourmand">
-
-
-      <span class="category-label">Women</span>
-        <span class="category-label">Popular</span>
-
-        <a href="nuit.html">
-             <img src="images/nuit3.jpeg" alt="Nuit Blanche">
-
-        </a>
-   
-      <div class="product-name">Nuit Blanche</div>
-      <div class="size-options"><span>25 ml</span></div>
-      <div class="scent-notes">Fruity, Gourmand</div>
-      <div class="price">KES 800</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-            <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-
-      <!-- Product 4 -->
-   
-  <!-- Product 4 -->
- <!-- Product 4 -->
-  <div class="product-card"
-      data-id="prod4"
-      data-image="images/misbah.JPG"
-      data-name="MisbahP"
-      data-type="Eau De Parfum"
-      data-price="1400"
-      data-size="50ml"
-      data-description="Oriental Fougere">
-
-      <span class="category-label">Popular</span>
-        <span class="category-label">Unisex</span>
-
-        <a href="misbah.html">
- <img src="images/misbah3.png" alt="Misbah">
-        </a>
-     
-      <div class="product-name">Misbah</div>
-      <div class="size-options"><span>50 ml</span></div>
-      <div class="scent-notes">Oriental Fougere</div>
-      <div class="price">KES 1,400</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-   
- <div class="product-card"
-      data-id="unisex1"
-      data-image="images/pwani1.JPG"
-      data-name="Pwani Limau"
-      data-type="Eau De Parfum"
-      data-price="2700"
-      data-size="100ml"
-      data-description="Citrus">
-
-      <span class="category-label">Unisex</span>
-
-      <a href="pwani.html">
-          <img src="images/pwani2.jpeg" alt="Pwani Limau">
-
-      </a>
-    
-      <div class="product-name">Pwani Limau</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Citrus</div>
-      <div class="price">KES 2,700</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-              <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-    <div class="product-card"
-      data-id="unisex2"
-      data-image="images/diamond1.JPG"
-      data-name="Al-Diamond"
-      data-type="Eau De Parfum"
-      data-price="680"
-      data-size="25ml"
-      data-description="Oriental, Floral">
-
-      <span class="category-label">Unisex</span>
-      <a href="diamond.html">
-          <img src="images/diamond1.JPG" alt="Al-Diamond">
-
-      </a>
-    
-      <div class="product-name">Al-Diamond</div>
-      <div class="size-options"><span>25 ml</span></div>
-      <div class="scent-notes">Oriental, Floral</div>
-      <div class="price">KES 680</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-         <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-   <div class="product-card"
-      data-id="unisex3"
-      data-image="images/jannat1.JPG"
-      data-name="Jannat"
-      data-type="Eau De Parfum"
-      data-price="680"
-      data-size="25ml"
-      data-description="Floral, Chypre">
-
-      <span class="category-label">Unisex</span>
-
-      <a href="jannat.html">
-  <img src="images/jannat1.JPG" alt="Jannat">
-      </a>
-    
-      <div class="product-name">Jannat </div>
-      <div class="size-options"><span>25 ml</span></div>
-      <div class="scent-notes">Floral, Chypre</div>
-      <div class="price">KES 680</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-
-    <div class="product-card"
-      data-id="unisex4"
-      data-image="images/ghayat1.JPG"
-      data-name="Ghayat"
-      data-type="Eau De Parfum"
-      data-price="680"
-      data-size="30ml"
-      data-description="Floral, Oriental">
-
-      <span class="category-label">Unisex</span>
-      <a href="gyahat.html">
-   <img src="images/ghayat1.JPG" alt="Ghayat">
-      </a>
-   
-      <div class="product-name">Ghayat</div>
-      <div class="size-options"><span>25 ml</span></div>
-      <div class="scent-notes">Floral, Oriental</div>
-      <div class="price">KES 680</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-   <div class="product-card"
-      data-id="men1"
-      data-image="images/wimbo1.JPG"
-      data-name="Wimbo Msafiri"
-      data-type="Eau De Parfum"
-      data-price="1600"
-      data-size="50ml"
-      data-description="Woody Fougere">
-
-      <span class="category-label">Men</span>
-      <img src="images/wimbo5.jpeg" alt="Wimbo Msafiri">
-      <div class="product-name">Wimbo Wa Msafiri</div>
-      <div class="size-options"><span>50 ml</span></div>
-      <div class="scent-notes">Woody Fougere</div>
-      <div class="price">KES 1,600</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-     <div class="product-card"
-      data-id="women1"
-      data-image="images/waridi.JPG"
-      data-name="Waridi wa Nyika"
-      data-type="Eau De Parfum"
-      data-price="2700"
-      data-size="100ml"
-      data-description="Oriental, Spicy">
-
-      <span class="category-label">Women</span>
-      <img src="images/waridi.JPG" alt="Waridi wa Nyika">
-      <div class="product-name">Waridi wa Nyika</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Oriental, Spicy</div>
-      <div class="price">KES 2,700</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-           <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-
-
-
-
-    </div>
-    
-    
-    <h2  id="unisex" class="section-title1">Unisex Best Seller</h2>
-
-    
-    <div class="card-container">
-
-      <!-- Product 1 -->
-  <!-- Product 1 -->
-
- <div class="product-card"
-      data-id="unisex1"
-      data-image="images/pwani1.JPG"
-      data-name="Pwani Limau"
-      data-type="Eau De Parfum"
-      data-price="2700"
-      data-size="100ml"
-      data-description="Citrus">
-
-      <span class="category-label">Unisex</span>
-
-      <a href="pwani.html">
-          <img src="images/pwani2.jpeg" alt="Pwani Limau">
-
-      </a>
-    
-      <div class="product-name">Pwani Limau</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Citrus</div>
-      <div class="price">KES 2,700</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-              <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-
-
-
-      <!-- Product 2 -->
-<!-- Product 2 -->
-  <div class="product-card"
-      data-id="unisex2"
-      data-image="images/diamond1.JPG"
-      data-name="Al-Diamond"
-      data-type="Eau De Parfum"
-      data-price="680"
-      data-size="25ml"
-      data-description="Oriental, Floral">
-
-      <span class="category-label">Unisex</span>
-      <a href="diamond.html">
-          <img src="images/diamond1.JPG" alt="Al-Diamond">
-
-      </a>
-    
-      <div class="product-name">Al-Diamond</div>
-      <div class="size-options"><span>25 ml</span></div>
-      <div class="scent-notes">Oriental, Floral</div>
-      <div class="price">KES 680</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-         <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-      <!-- Product 3 -->
-<!-- Product 3 -->
-  <div class="product-card"
-      data-id="unisex3"
-      data-image="images/jannat1.JPG"
-      data-name="Jannat"
-      data-type="Eau De Parfum"
-      data-price="680"
-      data-size="25ml"
-      data-description="Floral, Chypre">
-
-      <span class="category-label">Unisex</span>
-
-      <a href="jannat.html">
-  <img src="images/jannat1.JPG" alt="Jannat">
-      </a>
-    
-      <div class="product-name">Jannat </div>
-      <div class="size-options"><span>25 ml</span></div>
-      <div class="scent-notes">Floral, Chypre</div>
-      <div class="price">KES 680</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-      <!-- Product 4 -->
-   
-  <!-- Product 4 -->
-  <div class="product-card"
-      data-id="unisex4"
-      data-image="images/ghayat1.JPG"
-      data-name="Ghayat"
-      data-type="Eau De Parfum"
-      data-price="680"
-      data-size="30ml"
-      data-description="Floral, Oriental">
-
-      <span class="category-label">Unisex</span>
-      <a href="gyahat.html">
-   <img src="images/ghayat1.JPG" alt="Ghayat">
-      </a>
-   
-      <div class="product-name">Ghayat</div>
-      <div class="size-options"><span>25 ml</span></div>
-      <div class="scent-notes">Floral, Oriental</div>
-      <div class="price">KES 680</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-    <div class="product-card"
-      data-id="prod4"
-      data-image="images/misbah.JPG"
-      data-name="MisbahP"
-      data-type="Eau De Parfum"
-      data-price="1400"
-      data-size="50ml"
-      data-description="Oriental Fougere">
-
-      <span class="category-label">Popular</span>
-        <span class="category-label">Unisex</span>
-
-        <a href="misbah.html">
-            <img src="images/misbah3.png" alt="Misbah">
-        </a>
-    
-      <div class="product-name">Misbah</div>
-      <div class="size-options"><span>50 ml</span></div>
-      <div class="scent-notes">Oriental Fougere</div>
-      <div class="price">KES 1,400</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                     <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-    </div>
-      <h2  id="men" class="section-title1">Men Best Seller</h2>
-    
- 
-    <div class="card-container">
-
-      <!-- Product 1 -->
-       <!-- Product 1 -->
-          <div class="product-card"
-      data-id="men1"
-      data-image="images/wimbo1.JPG"
-      data-name="Wimbo Msafiri"
-      data-type="Eau De Parfum"
-      data-price="1600"
-      data-size="50ml"
-      data-description="Woody Fougere">
-
-      <span class="category-label">Men</span>
-
-      <a href="wimbo.html">
-  <img src="images/wimbo5.jpeg" alt="Wimbo Msafiri">
-      </a>
-    
-      <div class="product-name">Wimbo Wa Msafiri</div>
-      <div class="size-options"><span>50 ml</span></div>
-      <div class="scent-notes">Woody Fougere</div>
-      <div class="price">KES 1,600</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                  <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-    <div class="product-card"
-      data-id="prod1"
-      data-image="images/milima1.JPG"
-      data-name="Mlima Baridi"
-      data-type="Eau De Parfum"
-      data-price="2700"
-      data-size="100ml"
-      data-description="Woody, Herbal Woody">
-
-      <span class="category-label">Men</span>
-      <a href="mlima.html">
-  <img src="images/milima1.JPG" alt="Mlima Baridi">
-      </a>
-    
-      <div class="product-name">Mlima Baridi</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Woody, Herbal Woody</div>
-      <div class="price">KES 2,700</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                   <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-
-
-
-
-
-
-
-
-  
-    </div>
-     <h2 id="women" class="section-title1">Women Best Seller</h2>
-
-    <div class="card-container">
-
-      <!-- Product 1 -->
- <!-- Product 1 -->
-   <div class="product-card"
-      data-id="women1"
-      data-image="images/waridi.JPG"
-      data-name="Waridi wa Nyika"
-      data-type="Eau De Parfum"
-      data-price="3280"
-      data-size="100ml"
-      data-description="Oriental, Spicy">
-
-      <span class="category-label">Women</span>
-      <a href="waridi.html">
-  <img src="images/waridi4.jpeg" alt="Waridi wa Nyika">
-      </a>
-    
-      <div class="product-name">Waridi wa Nyika</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Oriental, Spicy</div>
-      <div class="price">KES 2,700</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-                 <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-<!-- Product 2 -->
-  <div class="product-card"
-      data-id="prod2"
-      data-image="images/zawadi.JPG"
-      data-name="Zawadi ya Maua"
-      data-type="Eau De Parfum"
-      data-price="3280"
-      data-size="100ml"
-      data-description="Ambergis, Woody">
-
-      <span class="category-label">Women</span>
-
-      <a href="zawadi.html">
- <img src="images/zawadi3.jpeg" alt="Zawadi ya Maua">
-      </a>
-     
-      <div class="product-name">Zawadi ya Maua</div>
-      <div class="size-options"><span>100 ml</span></div>
-      <div class="scent-notes">Ambergis, Woody</div>
-      <div class="price">KES 2,700</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-         <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-
-       <!-- Product 3 -->
-  <div class="product-card"
-      data-id="prod3"
-      data-image="images/nuit1.JPG"
-      data-name="Nuit Blanche"
-      data-type="Eau De Parfum"
-      data-price="800"
-      data-size="25ml"
-      data-description="Fruity, Gourmand">
-
-
-      <span class="category-label">Women</span>
-        <span class="category-label">Popular</span>
-
-        <a href="nuit.html">
-  <img src="images/nuit3.jpeg" alt="Nuit Blanche">
-        </a>
-    
-      <div class="product-name">Nuit Blanche</div>
-      <div class="size-options"><span>25 ml</span></div>
-      <div class="scent-notes">Fruity, Gourmand</div>
-      <div class="price">KES 800</div>
-
-      <div class="product-actions">
-          <button class="btn btn-add" onclick="addToCart(this)">
-              <img src="images/grocery-store.png" alt="Cart"> Add to Cart
-          </button>
-          <div class="icons">
-         <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
-     alt="Heart" onclick="toggleWishlist(this)">
-              <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
-          </div>
-      </div>
-  </div>
-    </div>
-  </div>
-<div class="popup" id="popup" style="
-  display: none; /* hidden by default */
-  position: fixed;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  padding: 24px 32px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  text-align: center;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  z-index: 10000;
-  min-width: 280px;
-">
-  <p style="
-    color: #222;
-    font-size: 18px;
-    font-weight: 500;
-    margin: 0 0 16px 0;
-  ">
-    ✅ Added to Cart
-  </p>
-  <button style="
-    background: #111;
-    color: #fff;
-    padding: 10px 24px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 500;
-    transition: background 0.3s ease;
-  " 
-  onmouseover="this.style.background='#333'"
-  onmouseout="this.style.background='#111'"
-  onclick="closePopup()">
-    OK
-  </button>
-</div>
-
-
-<!-- WhatsApp Modal -->
-<div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 10000;">
-  <div style="background: #fff; border-radius: 12px; padding: 24px; width: 90%; max-width: 500px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-height: 80vh; overflow-y: auto; position: relative; animation: modalSlideIn 0.3s ease-out; display: block;">
-    <h2 id="modalProductName" style="margin: 0 0 12px 0; color: #333; font-size: 24px; text-align: center;">Product Name</h2>
-    <p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 16px;">Quick checkout via WhatsApp</p>
-    <div style="margin-bottom: 8px; color: #555; font-size: 14px;"><b style="color: #333;">Brand:</b> <span id="modalBrand"></span></div>
-    <div style="margin-bottom: 8px; color: #555; font-size: 14px;"><b style="color: #333;">Category:</b> <span id="modalCategory"></span></div>
-    <div style="margin-bottom: 8px; color: #555; font-size: 14px;"><span id="modalSize"></span> — <span id="modalPrice"></span></div>
-    <input id="modalFullName" placeholder="Full Name" style="width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box; transition: border-color 0.2s ease;" onfocus="this.style.borderColor='#25d366'; this.style.boxShadow='0 0 0 2px rgba(37,211,102,0.2)'" onblur="this.style.borderColor='#ddd'; this.style.boxShadow='none'">
-    <input id="modalLocation" placeholder="Delivery Location" style="width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box; transition: border-color 0.2s ease;" onfocus="this.style.borderColor='#25d366'; this.style.boxShadow='0 0 0 2px rgba(37,211,102,0.2)'" onblur="this.style.borderColor='#ddd'; this.style.boxShadow='none'">
-    <div style="display: flex; align-items: center; gap: 8px; margin: 12px 0;">
-      <label for="modalQuantity" style="color: #333; font-size: 14px; font-weight: bold;">Quantity:</label>
-      <button id="minusBtn" style="width: 40px; height: 40px; border: 1px solid #ddd; border-radius: 6px; background: #f5f5f5; color: #333; font-size: 18px; cursor: pointer; transition: background 0.2s ease;" onmouseover="this.style.background='#e0e0e0'" onmouseout="this.style.background='#f5f5f5'">−</button>
-      <input id="modalQuantity" type="number" value="1" min="1" style="width: 60px; text-align: center; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box;" readonly>
-      <button id="plusBtn" style="width: 40px; height: 40px; border: 1px solid #ddd; border-radius: 6px; background: #f5f5f5; color: #333; font-size: 18px; cursor: pointer; transition: background 0.2s ease;" onmouseover="this.style.background='#e0e0e0'" onmouseout="this.style.background='#f5f5f5'">+</button>
-    </div>
-    <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
-      <button id="cancelBtn" style="padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 500; min-width: 120px; background: #95a5a6; color: white;" onmouseover="this.style.background='#7f8c8d'" onmouseout="this.style.background='#95a5a6'">Cancel</button>
-      <button id="placeOrderBtn" style="padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 500; min-width: 120px; background: #25d366; color: white;" onmouseover="this.style.background='#128c7e'" onmouseout="this.style.background='#25d366'">Place WhatsApp Order</button>
-    </div>
-  </div>
-</div>
-
-<style>
-@keyframes modalSlideIn {
-    from { opacity: 0; transform: translateY(-50px) scale(0.95); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-@media (max-width: 768px) {
-    #modalOverlay > div { width: 95%; padding: 20px; margin: 20px; }
-    #modalOverlay > div > div:last-child { flex-direction: column; }
-    #modalOverlay > div > div:last-child > button { width: 100%; }
-}
-</style>
-
-
-
-
-
-  <!-- Footer -->
- <footer style="background-color: black; padding-top: 15px; padding-bottom: 5px;">
     <div class="container">
-        <div class="row row-cols-2 row-cols-md-3 d-none d-md-flex">
-            <div class="col mb-2">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801634920605!2d36.78817777582776!3d-1.2934915356358103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e50d566add%3A0x2d4a4d5689faf57!2sHighway%20Heights!5e0!3m2!1sen!2ske!4v1756724788688!5m2!1sen!2ske"
+
+
+        <div class="popup" id="popup">
+            <p style="color: #000; font-size: 18px;">Added to Cart!</p>
+            <button style="background-color: #000; color: #fff; padding: 10px 20px; border-radius: 5px; border: none; margin-top: 10px;" onclick="closePopup()">OK</button>
+        </div>
+        
+
+
+    </div>
+
+    <div class="container">
+    
+        <h2 id="all" class="section-title1" data-aos="fade-down">All Products</h2>
+        
+        <div class="card-container">
+
+            <div class="product-card"
+                data-id="prod1"
+                data-image="images/milima1.JPG"
+                data-name="Mlima Baridi"
+                data-type="Eau De Parfum"
+                data-price="2700"
+                data-size="100ml"
+                data-description="Woody, Herbal Woody"
+                data-aos="fade-up" data-aos-delay="100">
+
+                <span class="category-label">Men</span>
+                <a href="mlima.html">
+                    <img src="images/milima1.JPG" alt="Mlima Baridi">
+                </a>
+                
+                <div class="product-name">Mlima Baridi</div>
+                <div class="size-options"><span>100 ml</span></div>
+                <div class="scent-notes">Woody, Herbal Woody</div>
+                <div class="price">KES 2,700</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="prod2"
+                data-image="images/zawadi.JPG"
+                data-name="Zawadi ya Maua"
+                data-type="Eau De Parfum"
+                data-price="2700"
+                data-size="100ml"
+                data-description="Ambergis, Woody"
+                data-aos="fade-up" data-aos-delay="300">
+
+                <span class="category-label">Women</span>
+                <a href="zawadi.html">
+                    <img src="images/zawadi3.jpeg" alt="Zawadi ya Maua">
+                </a>
+                
+                <div class="product-name">Zawadi ya Maua</div>
+                <div class="size-options"><span>100 ml</span></div>
+                <div class="scent-notes">Ambergis, Woody</div>
+                <div class="price">KES 2,700</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="prod3"
+                data-image="images/nuit1.JPG"
+                data-name="Nuit Blanche"
+                data-type="Eau De Parfum"
+                data-price="800"
+                data-size="25ml"
+                data-description="Fruity, Gourmand"
+                data-aos="fade-up" data-aos-delay="500">
+
+
+                <span class="category-label">Women</span>
+                <span class="category-label">Popular</span>
+
+                <a href="nuit.html">
+                    <img src="images/nuit3.jpeg" alt="Nuit Blanche">
+                </a>
+                
+                <div class="product-name">Nuit Blanche</div>
+                <div class="size-options"><span>25 ml</span></div>
+                <div class="scent-notes">Fruity, Gourmand</div>
+                <div class="price">KES 800</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="prod4"
+                data-image="images/misbah.JPG"
+                data-name="MisbahP"
+                data-type="Eau De Parfum"
+                data-price="1400"
+                data-size="50ml"
+                data-description="Oriental Fougere"
+                data-aos="fade-up" data-aos-delay="100">
+
+                <span class="category-label">Popular</span>
+                <span class="category-label">Unisex</span>
+
+                <a href="misbah.html">
+                <img src="images/misbah3.png" alt="Misbah">
+                </a>
+                
+                <div class="product-name">Misbah</div>
+                <div class="size-options"><span>50 ml</span></div>
+                <div class="scent-notes">Oriental Fougere</div>
+                <div class="price">KES 1,400</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="product-card"
+                data-id="unisex1"
+                data-image="images/pwani1.JPG"
+                data-name="Pwani Limau"
+                data-type="Eau De Parfum"
+                data-price="2700"
+                data-size="100ml"
+                data-description="Citrus"
+                data-aos="fade-up" data-aos-delay="300">
+
+                <span class="category-label">Unisex</span>
+
+                <a href="pwani.html">
+                    <img src="images/pwani2.jpeg" alt="Pwani Limau">
+                </a>
+                
+                <div class="product-name">Pwani Limau</div>
+                <div class="size-options"><span>100 ml</span></div>
+                <div class="scent-notes">Citrus</div>
+                <div class="price">KES 2,700</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="unisex2"
+                data-image="images/diamond1.JPG"
+                data-name="Al-Diamond"
+                data-type="Eau De Parfum"
+                data-price="680"
+                data-size="25ml"
+                data-description="Oriental, Floral"
+                data-aos="fade-up" data-aos-delay="500">
+
+                <span class="category-label">Unisex</span>
+                <a href="diamond.html">
+                    <img src="images/diamond1.JPG" alt="Al-Diamond">
+                </a>
+                
+                <div class="product-name">Al-Diamond</div>
+                <div class="size-options"><span>25 ml</span></div>
+                <div class="scent-notes">Oriental, Floral</div>
+                <div class="price">KES 680</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="unisex3"
+                data-image="images/jannat1.JPG"
+                data-name="Jannat"
+                data-type="Eau De Parfum"
+                data-price="680"
+                data-size="25ml"
+                data-description="Floral, Chypre"
+                data-aos="fade-up" data-aos-delay="100">
+
+                <span class="category-label">Unisex</span>
+
+                <a href="jannat.html">
+                <img src="images/jannat1.JPG" alt="Jannat">
+                </a>
+                
+                <div class="product-name">Jannat </div>
+                <div class="size-options"><span>25 ml</span></div>
+                <div class="scent-notes">Floral, Chypre</div>
+                <div class="price">KES 680</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="unisex4"
+                data-image="images/ghayat1.JPG"
+                data-name="Ghayat"
+                data-type="Eau De Parfum"
+                data-price="680"
+                data-size="30ml"
+                data-description="Floral, Oriental"
+                data-aos="fade-up" data-aos-delay="300">
+
+                <span class="category-label">Unisex</span>
+                <a href="gyahat.html">
+                <img src="images/ghayat1.JPG" alt="Ghayat">
+                </a>
+                
+                <div class="product-name">Ghayat</div>
+                <div class="size-options"><span>25 ml</span></div>
+                <div class="scent-notes">Floral, Oriental</div>
+                <div class="price">KES 680</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="men1"
+                data-image="images/wimbo1.JPG"
+                data-name="Wimbo Msafiri"
+                data-type="Eau De Parfum"
+                data-price="1600"
+                data-size="50ml"
+                data-description="Woody Fougere"
+                data-aos="fade-up" data-aos-delay="500">
+
+                <span class="category-label">Men</span>
+                <img src="images/wimbo5.jpeg" alt="Wimbo Msafiri">
+                <div class="product-name">Wimbo Wa Msafiri</div>
+                <div class="size-options"><span>50 ml</span></div>
+                <div class="scent-notes">Woody Fougere</div>
+                <div class="price">KES 1,600</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="women1"
+                data-image="images/waridi.JPG"
+                data-name="Waridi wa Nyika"
+                data-type="Eau De Parfum"
+                data-price="2700"
+                data-size="100ml"
+                data-description="Oriental, Spicy"
+                data-aos="fade-up" data-aos-delay="100">
+
+                <span class="category-label">Women</span>
+                <img src="images/waridi.JPG" alt="Waridi wa Nyika">
+                <div class="product-name">Waridi wa Nyika</div>
+                <div class="size-options"><span>100 ml</span></div>
+                <div class="scent-notes">Oriental, Spicy</div>
+                <div class="price">KES 2,700</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr/>
+        
+        <h2 id="unisex" class="section-title1" data-aos="fade-down">Unisex Best Seller</h2>
+
+        <div class="card-container">
+
+            <div class="product-card"
+                data-id="unisex1"
+                data-image="images/pwani1.JPG"
+                data-name="Pwani Limau"
+                data-type="Eau De Parfum"
+                data-price="2700"
+                data-size="100ml"
+                data-description="Citrus"
+                data-aos="fade-up" data-aos-delay="100">
+
+                <span class="category-label">Unisex</span>
+
+                <a href="pwani.html">
+                    <img src="images/pwani2.jpeg" alt="Pwani Limau">
+                </a>
+                
+                <div class="product-name">Pwani Limau</div>
+                <div class="size-options"><span>100 ml</span></div>
+                <div class="scent-notes">Citrus</div>
+                <div class="price">KES 2,700</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-card"
+                data-id="unisex2"
+                data-image="images/diamond1.JPG"
+                data-name="Al-Diamond"
+                data-type="Eau De Parfum"
+                data-price="680"
+                data-size="25ml"
+                data-description="Oriental, Floral"
+                data-aos="fade-up" data-aos-delay="300">
+
+                <span class="category-label">Unisex</span>
+                <a href="diamond.html">
+                    <img src="images/diamond1.JPG" alt="Al-Diamond">
+                </a>
+                
+                <div class="product-name">Al-Diamond</div>
+                <div class="size-options"><span>25 ml</span></div>
+                <div class="scent-notes">Oriental, Floral</div>
+                <div class="price">KES 680</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="unisex3"
+                data-image="images/jannat1.JPG"
+                data-name="Jannat"
+                data-type="Eau De Parfum"
+                data-price="680"
+                data-size="25ml"
+                data-description="Floral, Chypre"
+                data-aos="fade-up" data-aos-delay="500">
+
+                <span class="category-label">Unisex</span>
+
+                <a href="jannat.html">
+                <img src="images/jannat1.JPG" alt="Jannat">
+                </a>
+                
+                <div class="product-name">Jannat </div>
+                <div class="size-options"><span>25 ml</span></div>
+                <div class="scent-notes">Floral, Chypre</div>
+                <div class="price">KES 680</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="unisex4"
+                data-image="images/ghayat1.JPG"
+                data-name="Ghayat"
+                data-type="Eau De Parfum"
+                data-price="680"
+                data-size="30ml"
+                data-description="Floral, Oriental"
+                data-aos="fade-up" data-aos-delay="100">
+
+                <span class="category-label">Unisex</span>
+                <a href="gyahat.html">
+                <img src="images/ghayat1.JPG" alt="Ghayat">
+                </a>
+                
+                <div class="product-name">Ghayat</div>
+                <div class="size-options"><span>25 ml</span></div>
+                <div class="scent-notes">Floral, Oriental</div>
+                <div class="price">KES 680</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="prod4"
+                data-image="images/misbah.JPG"
+                data-name="MisbahP"
+                data-type="Eau De Parfum"
+                data-price="1400"
+                data-size="50ml"
+                data-description="Oriental Fougere"
+                data-aos="fade-up" data-aos-delay="300">
+
+                <span class="category-label">Popular</span>
+                <span class="category-label">Unisex</span>
+
+                <a href="misbah.html">
+                    <img src="images/misbah3.png" alt="Misbah">
+                </a>
+                
+                <div class="product-name">Misbah</div>
+                <div class="size-options"><span>50 ml</span></div>
+                <div class="scent-notes">Oriental Fougere</div>
+                <div class="price">KES 1,400</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr/>
+        
+        <h2 id="men" class="section-title1" data-aos="fade-down">Men Best Seller</h2>
+
+        <div class="card-container">
+
+            <div class="product-card"
+                data-id="men1"
+                data-image="images/wimbo1.JPG"
+                data-name="Wimbo Msafiri"
+                data-type="Eau De Parfum"
+                data-price="1600"
+                data-size="50ml"
+                data-description="Woody Fougere"
+                data-aos="fade-up" data-aos-delay="100">
+
+                <span class="category-label">Men</span>
+
+                <a href="wimbo.html">
+                <img src="images/wimbo5.jpeg" alt="Wimbo Msafiri">
+                </a>
+                
+                <div class="product-name">Wimbo Wa Msafiri</div>
+                <div class="size-options"><span>50 ml</span></div>
+                <div class="scent-notes">Woody Fougere</div>
+                <div class="price">KES 1,600</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="prod1"
+                data-image="images/milima1.JPG"
+                data-name="Mlima Baridi"
+                data-type="Eau De Parfum"
+                data-price="2700"
+                data-size="100ml"
+                data-description="Woody, Herbal Woody"
+                data-aos="fade-up" data-aos-delay="300">
+
+                <span class="category-label">Men</span>
+                <a href="mlima.html">
+                <img src="images/milima1.JPG" alt="Mlima Baridi">
+                </a>
+                
+                <div class="product-name">Mlima Baridi</div>
+                <div class="size-options"><span>100 ml</span></div>
+                <div class="scent-notes">Woody, Herbal Woody</div>
+                <div class="price">KES 2,700</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr/>
+
+        <h2 id="women" class="section-title1" data-aos="fade-down">Women Best Seller</h2>
+
+        <div class="card-container">
+
+            <div class="product-card"
+                data-id="women1"
+                data-image="images/waridi.JPG"
+                data-name="Waridi wa Nyika"
+                data-type="Eau De Parfum"
+                data-price="3280"
+                data-size="100ml"
+                data-description="Oriental, Spicy"
+                data-aos="fade-up" data-aos-delay="100">
+
+                <span class="category-label">Women</span>
+                <a href="waridi.html">
+                <img src="images/waridi4.jpeg" alt="Waridi wa Nyika">
+                </a>
+                
+                <div class="product-name">Waridi wa Nyika</div>
+                <div class="size-options"><span>100 ml</span></div>
+                <div class="scent-notes">Oriental, Spicy</div>
+                <div class="price">KES 2,700</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="prod2"
+                data-image="images/zawadi.JPG"
+                data-name="Zawadi ya Maua"
+                data-type="Eau De Parfum"
+                data-price="3280"
+                data-size="100ml"
+                data-description="Ambergis, Woody"
+                data-aos="fade-up" data-aos-delay="300">
+
+                <span class="category-label">Women</span>
+
+                <a href="zawadi.html">
+                <img src="images/zawadi3.jpeg" alt="Zawadi ya Maua">
+                </a>
+                
+                <div class="product-name">Zawadi ya Maua</div>
+                <div class="size-options"><span>100 ml</span></div>
+                <div class="scent-notes">Ambergis, Woody</div>
+                <div class="price">KES 2,700</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card"
+                data-id="prod3"
+                data-image="images/nuit1.JPG"
+                data-name="Nuit Blanche"
+                data-type="Eau De Parfum"
+                data-price="800"
+                data-size="25ml"
+                data-description="Fruity, Gourmand"
+                data-aos="fade-up" data-aos-delay="500">
+
+
+                <span class="category-label">Women</span>
+                <span class="category-label">Popular</span>
+
+                <a href="nuit.html">
+                <img src="images/nuit3.jpeg" alt="Nuit Blanche">
+                </a>
+                
+                <div class="product-name">Nuit Blanche</div>
+                <div class="size-options"><span>25 ml</span></div>
+                <div class="scent-notes">Fruity, Gourmand</div>
+                <div class="price">KES 800</div>
+
+                <div class="product-actions">
+                    <button class="btn btn-add" onclick="addToCart(this)">
+                        <img src="images/grocery-store.png" alt="Cart"> Add to Cart
+                    </button>
+                    <div class="icons">
+                        <img class="wishlist-icon" src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" 
+                        alt="Heart" onclick="toggleWishlist(this)">
+                        <img src="images/whatsapp.png" alt="WhatsApp" onclick="showPopups(this)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <div id="modalOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 10000;">
+        <div style="background: #fff; border-radius: 12px; padding: 24px; width: 90%; max-width: 500px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); max-height: 80vh; overflow-y: auto; position: relative; animation: modalSlideIn 0.3s ease-out; display: block;">
+            <h2 id="modalProductName" style="margin: 0 0 12px 0; color: #333; font-size: 24px; text-align: center;">Product Name</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 16px;">Quick checkout via WhatsApp</p>
+            <div style="margin-bottom: 8px; color: #555; font-size: 14px;"><b style="color: #333;">Brand:</b> <span id="modalBrand"></span></div>
+            <div style="margin-bottom: 8px; color: #555; font-size: 14px;"><b style="color: #333;">Category:</b> <span id="modalCategory"></span></div>
+            <div style="margin-bottom: 8px; color: #555; font-size: 14px;"><span id="modalSize"></span> — <span id="modalPrice"></span></div>
+            <input id="modalFullName" placeholder="Full Name" style="width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box; transition: border-color 0.2s ease;" onfocus="this.style.borderColor='#25d366'; this.style.boxShadow='0 0 0 2px rgba(37,211,102,0.2)'" onblur="this.style.borderColor='#ddd'; this.style.boxShadow='none'">
+            <input id="modalLocation" placeholder="Delivery Location" style="width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box; transition: border-color 0.2s ease;" onfocus="this.style.borderColor='#25d366'; this.style.boxShadow='0 0 0 2px rgba(37,211,102,0.2)'" onblur="this.style.borderColor='#ddd'; this.style.boxShadow='none'">
+            <div style="display: flex; align-items: center; gap: 8px; margin: 12px 0;">
+                <label for="modalQuantity" style="color: #333; font-size: 14px; font-weight: bold;">Quantity:</label>
+                <button id="minusBtn" style="width: 40px; height: 40px; border: 1px solid #ddd; border-radius: 6px; background: #f5f5f5; color: #333; font-size: 18px; cursor: pointer; transition: background 0.2s ease;" onmouseover="this.style.background='#e0e0e0'" onmouseout="this.style.background='#f5f5f5'">−</button>
+                <input id="modalQuantity" type="number" value="1" min="1" style="width: 60px; text-align: center; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; box-sizing: border-box;" readonly>
+                <button id="plusBtn" style="width: 40px; height: 40px; border: 1px solid #ddd; border-radius: 6px; background: #f5f5f5; color: #333; font-size: 18px; cursor: pointer; transition: background 0.2s ease;" onmouseover="this.style.background='#e0e0e0'" onmouseout="this.style.background='#f5f5f5'">+</button>
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
+                <button id="cancelBtn" style="padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 500; min-width: 120px; background: #95a5a6; color: white;" onmouseover="this.style.background='#7f8c8d'" onmouseout="this.style.background='#95a5a6'">Cancel</button>
+                <button id="placeOrderBtn" style="padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 500; min-width: 120px; background: #25d366; color: white;" onmouseover="this.style.background='#128c7e'" onmouseout="this.style.background='#25d366'">Place WhatsApp Order</button>
+            </div>
+        </div>
+    </div>
+
+
+    <footer style="background-color: black; padding-top: 15px; padding-bottom: 5px;">
+        <div class="container" data-aos="fade-up">
+            <div class="row row-cols-2 row-cols-md-3 d-none d-md-flex">
+                <div class="col mb-2">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801634920605!2d36.78817777582776!3d-1.2934915356358103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e50d566add%3A0x2d4a4d5689faf57!2sHighway%20Heights!5e0!3m2!1sen!2ske!4v1756724788688!5m2!1sen!2ske"
                         class="img-fluid w-100"
                         allowfullscreen
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade" style="height: 150px;"></iframe>
+                </div>
+
+                <div class="col mb-2">
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Quick Links</h5>
+                    <ul class="list-unstyled" style="font-size: 0.85rem; margin-bottom: 1rem;">
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Follow Us</h5>
+                    <a href="https://www.facebook.com/HaorenAf" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@haoren.af" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white" style="font-size: 0.85rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <div class="col mb-2">
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Contact Us</h5>
+                    <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Email: info@haorenaf.com</p>
+                    <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Phone: (+254) 0114012345</p>
+                    <p class="text-white my-0" style="font-size: 0.85rem;">Address: Highway Heights, Kilimani, Nairobi</p>
+                </div>
             </div>
 
-            <div class="col mb-2">
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Quick Links</h5>
-                <ul class="list-unstyled" style="font-size: 0.85rem; margin-bottom: 1rem;">
-                    <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
-                    <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
-                    <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
-                </ul>
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Follow Us</h5>
-                <a href="https://www.facebook.com/HaorenAf" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.tiktok.com/@haoren.af" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white" style="font-size: 0.85rem;"><i class="fab fa-youtube"></i></a>
+            <div class="row row-cols-2 d-flex d-md-none">
+                <div class="col mb-2">
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Quick Links</h5>
+                    <ul class="list-unstyled" style="font-size: 0.85rem; margin-bottom: 1rem;">
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="https://www.google.com/maps/place/Highway+Heights/@-1.2934915,36.7881778,17z/data=!4m14!1m7!3m6!1s0x182f11e50d566add:0x2d4a4d5689faf57!2sHighway+Heights!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk!3m5!1s0x182f11e50d566add:0x2d4a4d5689faf57!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
+                    </ul>
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Follow Us</h5>
+                    <a href="https://www.facebook.com/HaorenAf" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@haoren.af" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white" style="font-size: 0.85rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <div class="col mb-2">
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Contact Us</h5>
+                    <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Email: info@haorenaf.com</p>
+                    <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Phone: (+254) 0114012345</p>
+                    <p class="text-white my-0" style="font-size: 0.85rem;">Address: Highway Heights, Kilimani, Nairobi</p>
+                </div>
             </div>
 
-            <div class="col mb-2">
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Contact Us</h5>
-                <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Email: info@haorenaf.com</p>
-                <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Phone: (+254) 0114012345</p>
-                <p class="text-white my-0" style="font-size: 0.85rem;">Address: Highway Heights, Kilimani, Nairobi</p>
-            </div>
+            <hr class="bg-white my-2">
+            <p class="mb-0 text-center text-white" style="font-size: 0.8rem; padding-bottom: 5px;">© 2025 Haoren. All rights reserved.</p>
         </div>
-
-        <div class="row row-cols-2 d-flex d-md-none">
-            <div class="col mb-2">
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Quick Links</h5>
-                <ul class="list-unstyled" style="font-size: 0.85rem; margin-bottom: 1rem;">
-                    <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
-                    <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
-                    <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
-                    <li><a href="https://www.google.com/maps/place/Highway+Heights/@-1.2934915,36.7881778,17z/data=!4m14!1m7!3m6!1s0x182f11e50d566add:0x2d4a4d5689faf57!2sHighway+Heights!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk!3m5!1s0x182f11e50d566add:0x2d4a4d5689faf57!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
-                </ul>
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Follow Us</h5>
-                <a href="https://www.facebook.com/HaorenAf" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.tiktok.com/@haoren.af" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white" style="font-size: 0.85rem;"><i class="fab fa-youtube"></i></a>
-            </div>
-
-            <div class="col mb-2">
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Contact Us</h5>
-                <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Email: info@haorenaf.com</p>
-                <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Phone: (+254) 0114012345</p>
-                <p class="text-white my-0" style="font-size: 0.85rem;">Address: Highway Heights, Kilimani, Nairobi</p>
-            </div>
-        </div>
-
-        <hr class="bg-white my-2">
-        <p class="mb-0 text-center text-white" style="font-size: 0.8rem; padding-bottom: 5px;">© 2025 Haoren. All rights reserved.</p>
-    </div>
-</footer>
+    </footer>
 </body>
 
 <script>
@@ -1725,25 +1610,29 @@
         });
 
         // Populate dropdown with unique names
-        uniqueProductNames.forEach(name => {
-            const option = document.createElement('option');
-            option.value = name.toLowerCase();
-            option.textContent = name;
-            select.appendChild(option);
-        });
+        if (select) {
+            uniqueProductNames.forEach(name => {
+                const option = document.createElement('option');
+                option.value = name.toLowerCase();
+                option.textContent = name;
+                select.appendChild(option);
+            });
 
-        // Filter products based on select change
-        select.addEventListener('change', function() {
-            const selectedValue = this.value;
-            filterProducts(selectedValue, 'select');
-        });
+            // Filter products based on select change
+            select.addEventListener('change', function() {
+                const selectedValue = this.value;
+                filterProducts(selectedValue, 'select');
+            });
+        }
 
         // Filter products based on search input
         const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', function() {
-            const searchValue = this.value.toLowerCase();
-            filterProducts(searchValue, 'search');
-        });
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchValue = this.value.toLowerCase();
+                filterProducts(searchValue, 'search');
+            });
+        }
     });
 
     // Function to filter and show products
@@ -1759,11 +1648,11 @@
                 }
             } else if (type === 'search') {
                 if (name.includes(value))
-                 { console.log(name.includes(value))
-                    product.style.display = 'block';
-                } else {
-                    product.style.display = 'none';
-                }
+                    { console.log(name.includes(value))
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
             }
         });
     }
@@ -2057,12 +1946,12 @@ function toggleWishlist(el) {
             description: card.dataset.description
         });
         el.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png"; // filled black heart
-    
+        
     } else {
         // Remove from wishlist
         wishlist.splice(index, 1);
         el.src = "https://cdn-icons-png.flaticon.com/512/1077/1077035.png"; // outline heart
-         
+        
     }
 
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
@@ -2073,7 +1962,7 @@ function updateWishlistHearts() {
     document.querySelectorAll(".product-card").forEach(card => {
         const id = card.dataset.id;
         const icon = card.querySelector(".wishlist-icon");
-        if (wishlist.some(item => item.id === id)) {
+        if (icon && wishlist.some(item => item.id === id)) {
             icon.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png";
         }
     });
@@ -2082,11 +1971,11 @@ function updateWishlistHearts() {
 function updateNavbarHeart() {
     const navbarHeart = document.getElementById("navbar-heart");
     if (!navbarHeart) return;
-    navbarHeart.src = wishlist.length > 0 
+    navbarHeart.src = wishlist.length > 0
         ? "https://cdn-icons-png.flaticon.com/512/833/833472.png" // filled
         : "https://cdn-icons-png.flaticon.com/512/1077/1077035.png"; // outline
 }
- 
+    
 
 // Run on load
 document.addEventListener("DOMContentLoaded", () => {
@@ -2114,12 +2003,12 @@ setInterval(updateWishlistCount, 3000);
 </script>
 
 <script>
-  // Highlight active link when clicked
+    // Highlight active link when clicked
 document.querySelectorAll('.category-links a').forEach(link => {
-  link.addEventListener('click', function() {
-    document.querySelectorAll('.category-links a').forEach(a => a.classList.remove('active'));
-    this.classList.add('active');
-  });
+    link.addEventListener('click', function() {
+        document.querySelectorAll('.category-links a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+    });
 });
 
 </script>
@@ -2133,50 +2022,58 @@ const intervalTime = 5000;
 let slideInterval;
 
 function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    if (i === index) {
-      slide.classList.add('active');
-    }
-  });
+    slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+            slide.classList.add('active');
+        }
+    });
 }
 
 function nextSlide() {
-  currentSlide = (currentSlide + 1) % totalSlides;
-  showSlide(currentSlide);
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
 }
 
 function prevSlide() {
-  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-  showSlide(currentSlide);
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
 }
 
 document.querySelector('.next').addEventListener('click', () => {
-  nextSlide();
-  resetInterval();
+    nextSlide();
+    resetInterval();
 });
 
 document.querySelector('.prev').addEventListener('click', () => {
-  prevSlide();
-  resetInterval();
+    prevSlide();
+    resetInterval();
 });
 
 function startSlideShow() {
-  slideInterval = setInterval(nextSlide, intervalTime);
+    slideInterval = setInterval(nextSlide, intervalTime);
 }
 
 function resetInterval() {
-  clearInterval(slideInterval);
-  startSlideShow();
+    clearInterval(slideInterval);
+    startSlideShow();
 }
 
 startSlideShow();
 </script>
 
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGPS73CVV1"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200, // Duration of the animation
+            once: false,      // Animate only once
+            delay: 100       // Default delay
+        });
+    </script>
 </html>
