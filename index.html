@@ -162,56 +162,97 @@
 
 /* Categories */
 .categories {
-    padding: 30px 20px;
+    padding: 40px 20px;
     background-color: white;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 40px 30px;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px 30px;                 /* cleaner spacing than margin */
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .category {
     text-align: center;
-    transition: transform 0.3s ease-out;
-    width: 130px;
+    transition: transform 0.3s ease;
 }
 
 .category:hover {
-    transform: scale(1.08);
+    transform: translateY(-8px);
 }
 
 .category a {
     text-decoration: none;
     color: #333;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: 0.5px;
+    display: block;
 }
 
 .category img {
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #f8f8f8;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease-out;
-    margin-bottom: 12px;
+    border: 4px solid #f5f5f5;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transition: all 0.4s ease;
+    margin-bottom: 14px;
 }
 
 .category:hover img {
-    transform: scale(1.12);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
-    border-color: #ddd;
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.22);
+    border-color: purple;
 }
 
 .category p {
-    margin: 8px 0 0;
-    line-height: 1.3;
+    margin: 0;
+    line-height: 1.4;
+    color: #444;
 }
 
+/* RESPONSIVE BREAKPOINTS */
+@media (min-width: 1200px) {
+    .categories {
+        grid-template-columns: repeat(7, 130px); /* or repeat(6, 1fr) if you prefer */
+    }
+}
+
+@media (max-width: 1023px) {
+    .categories {
+        grid-template-columns: repeat(4, 130px);
+        gap: 35px 25px;
+    }
+}
+
+@media (max-width: 767px) {
+    .categories {
+        grid-template-columns: repeat(3, 1fr); /* EXACTLY 3 per row on mobile */
+        gap: 30px 20px;
+        padding: 30px 15px;
+    }
+    
+    .category img {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .category a {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .category img {
+        width: 80px;
+        height: 80px;
+    }
+    .category a {
+        font-size: 12.5px;
+    }
+}
 
     /* Products section */
     .section-title {
@@ -459,7 +500,7 @@
 <div class="position-fixed top-0 start-0 w-100" style="z-index: 1050; background-color: white;">
         <div style="width: 100%; height: 30px; background-color: black; display: flex; align-items: center; justify-content: center; margin: 0 auto; padding: 0px 20px;">
             <p style="color: white; margin: 0; font-size: 12px;">
-          Holiday Fragrance Sale! Up to 10% OFF on the best gifts all month long.
+          Holiday Fragrance Sale! Up to 10% OFF on all products.
             </p>
         </div>
 
@@ -689,6 +730,7 @@
 
         
    <!-- PROMOTIONAL SLIDER - FIXED & IMPROVED -->
+
 <div class="promo-slider-section" data-aos="fade-up" data-aos-delay="200">
     <div class="promo-slider-container">
         <div class="promo-slider-wrapper" id="sliderWrapper">
@@ -847,7 +889,7 @@
 .promo-slider-wrapper {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    gap: 33px; /* ← This creates the space between images */
+   
 }
 .promo-slide {
     min-width: 100%;
@@ -855,6 +897,7 @@
     position: relative;
     border-radius: 16px;
     overflow: hidden;
+    margin-right: 33px;
    
 }
 .promo-slide img {
@@ -918,6 +961,9 @@
 }
 .slider-prev { left: 15px; }
 .slider-next { right: 15px; }
+.promo-slide:last-child:not(.clone) {
+    margin-right: 0;             /* remove gap after the last real slide */
+}
 
 /* RESPONSIVE - STRICTLY 3 / 2 / 1 */
 @media (min-width: 768px) {
@@ -1954,65 +2000,94 @@ document.addEventListener("DOMContentLoaded", () => {
     updateWishlistHearts();
     updateNavbarHeart();
 });
-</script>
+</script>]
+
 <script>
-// Fixed & seamless slider
 const wrapper = document.getElementById('sliderWrapper');
 const slides = document.querySelectorAll('.promo-slide:not(.clone)');
 const totalSlides = slides.length;
 let index = 0;
 
+// Calculate slide width + margin (gap)
+function getSlideWidth() {
+    if (slides.length === 0) return 0;
+    const firstSlide = slides[0];
+    const style = window.getComputedStyle(firstSlide);
+    const marginRight = parseFloat(style.marginRight) || 0;
+    return firstSlide.offsetWidth + marginRight;
+}
+
 function updateSlider() {
-    const slideWidth = slides[0].getBoundingClientRect().width + 20; // width + gap
+    const slideWidth = getSlideWidth();
     wrapper.style.transform = `translateX(${-index * slideWidth}px)`;
 }
 
-// Next button
+// Next Button
 document.querySelector('.slider-next').addEventListener('click', () => {
     index++;
     updateSlider();
+
     if (index >= totalSlides) {
         setTimeout(() => {
             wrapper.style.transition = 'none';
             index = 0;
             updateSlider();
-            setTimeout(() => wrapper.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)', 50);
+            requestAnimationFrame(() => {
+                wrapper.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
         }, 600);
     }
 });
 
-// Prev button
+// Previous Button
 document.querySelector('.slider-prev').addEventListener('click', () => {
-    if (index === 0) {
+    if (index <= 0) {
         wrapper.style.transition = 'none';
         index = totalSlides;
         updateSlider();
-        setTimeout(() => {
+
+        requestAnimationFrame(() => {
             wrapper.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             index--;
             updateSlider();
-        }, 50);
+        });
     } else {
         index--;
         updateSlider();
     }
 });
 
-// Re-calculate on resize
+// Initialize + Resize
+function initSlider() {
+    updateSlider();
+}
+window.addEventListener('load', initSlider);
 window.addEventListener('resize', () => {
-    setTimeout(updateSlider, 100);
+    setTimeout(initSlider, 100);
 });
 
-// Touch swipe
-let startX = 0;
-wrapper.parentElement.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-wrapper.parentElement.addEventListener('touchend', e => {
-    const diff = startX - e.changedTouches[0].clientX;
+// Touch Swipe
+let touchStartX = 0;
+const container = wrapper.parentElement;
+
+container.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+}, { passive: true });
+
+container.addEventListener('touchend', e => {
+    if (!touchStartX) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+
     if (Math.abs(diff) > 50) {
-        if (diff > 0) document.querySelector('.slider-next').click();
-        else document.querySelector('.slider-prev').click();
+        if (diff > 0) {
+            document.querySelector('.slider-next').click(); // swipe left → next
+        } else {
+            document.querySelector('.slider-prev').click(); // swipe right → prev
+        }
     }
-});
+    touchStartX = 0; // reset
+}, { passive: true });
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGPS73CVV1"></script>
 
