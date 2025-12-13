@@ -1,171 +1,1513 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WhatsApp Checkout Modal</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haoren Perfume | Luxury Fragrances</title>
 
-    /* Dark overlay */
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
+    <meta name="google-site-verification" content="x89MI7mK6MbRNeJmflVbi-Oa8nzjkwIddZc7ywjThQs" />
+    <meta name="description" content="Shop Haoren Perfume in Kenya – premium, long-lasting fragrances for men, women, and unisex. Discover your signature scent today.">
+    <link rel="canonical" href="https://haorenaf.com/">
+    <meta property="og:title" content="Haoren Perfume | Luxury Fragrances in Kenya">
+    <meta property="og:description" content="Discover Haoren Perfume – elegant, long-lasting perfumes for men, women & unisex. Shop our luxury fragrance collection online.">
+    <meta property="og:image" content="https://haorenaf.com/images/haorenlogo.jpeg">
+    <meta property="og:url" content="https://haorenaf.com/">
+    <meta property="og:type" content="website">
 
-    /* Modal box */
-    .modal {
-      background: #f9fcff;
-      border-radius: 8px;
-      padding: 20px;
-      width: 90%;
-      max-width: 700px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      animation: fadeIn 0.3s ease;
-    }
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* NEW HEADER STYLES START */
+        /* ---------------------------------
+            ANIMATION KEYFRAMES (FROM NEW HEADER)
+        ------------------------------------ */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes imageReveal {
+            0% {
+                opacity: 0;
+                filter: blur(5px);
+                transform: scale(0.98);
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0);
+                transform: scale(1);
+            }
+        }
+        @keyframes cartPulse {
+            0% { transform: scale(1) translate(-50%, -50%); opacity: 0.9; }
+            50% { transform: scale(1.4) translate(-50%, -50%); opacity: 1; }
+            100% { transform: scale(1) translate(-50%, -50%); opacity: 1; }
+        }
+        @keyframes quickPress {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); background-color: #ddd; }
+            100% { transform: scale(1); background-color: #f5f5f5; }
+        }
+        .cart-pulsing {
+            animation: cartPulse 0.4s ease-out 1;
+        }
+        #modalOverlay button:active,
+        .quantity-controls button:active {
+            animation: quickPress 0.15s ease-out;
+        }
+        .nav-link-ltr {
+            position: relative;
+            text-decoration: none !important;
+            display: inline-block;
+        }
+        .nav-link-ltr::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: purple;
+            transition: width 0.3s ease-out;
+        }
+        .nav-link-ltr:hover::after {
+            width: 100%;
+        }
+        .offcanvas {
+            transition: transform 0.4s ease-in-out !important;
+        }
 
-    .modal h2 {
-      margin-top: 0;
-      font-size: 1.5em;
-      color: #333;
-    }
+        /* ---------------------------------
+            GENERAL STYLES (FROM NEW HEADER)
+        ------------------------------------ */
+        body {
+            font-family: Arial, sans-serif; /* Overrides original body font */
+            background-color: #f9fbfd;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            text-align: center;
+        }
+        .overlay {
+            display: none;
+        }
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card {
+            background-color: white;
+            border: none;
+            border-radius: 0;
+            margin: 0;
+            padding: 20px 0;
+        }
+        .categories {
+            padding: 40px 20px;
+            background-color: white;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 40px 30px;
+            justify-content: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .category {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .category:hover {
+            transform: translateY(-8px);
+        }
+        .category a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            display: block;
+        }
+        .category img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f5f5f5;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transition: all 0.4s ease;
+            margin-bottom: 14px;
+        }
+        .category:hover img {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.22);
+            border-color: purple;
+        }
+        .category p {
+            margin: 0;
+            line-height: 1.4;
+            color: #444;
+        }
+        @media (min-width: 1200px) {
+            .categories {
+                grid-template-columns: repeat(7, 130px);
+            }
+        }
+        @media (max-width: 1023px) {
+            .categories {
+                grid-template-columns: repeat(4, 130px);
+                gap: 35px 25px;
+            }
+        }
+        @media (max-width: 767px) {
+            .categories {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px 20px;
+                padding: 30px 15px;
+            }
+            .category img {
+                width: 90px;
+                height: 90px;
+            }
+            .category a {
+                font-size: 13px;
+            }
+        }
+        @media (max-width: 480px) {
+            .category img {
+                width: 80px;
+                height: 80px;
+            }
+            .category a {
+                font-size: 12.5px;
+            }
+        }
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            color: black;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        .section-title1 {
+            text-align: center;
+            font-size: 24px;
+            color: #d3a07a;
+            margin-bottom: 20px;
+            font-weight: normal;
+            font-style: italic;
+            font-family: cursive;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 40px;
+            gap: 20px;
+        }
+        .product-card {
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+        .product-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease-out;
+        }
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 5px;
+                gap: 5px;
+            }
+            .category img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .category p {
+                color: black;
+                font-size: 8px;
+                margin-top: 10px;
+            }
+            .section-title {
+                display: none;
+            }
+            .section-title1 {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            .product-card {
+                padding: 10px;
+            }
+            .product-card img {
+                height: 120px;
+            }
+        }
+        .category-label {
+            position: absolute;
+            top: 10px;
+            padding: 3px 8px;
+            font-size: 12px;
+            background-color: purple;
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+            z-index: 2;
+            white-space: nowrap;
+        }
+        .product-card .category-label:first-of-type {
+            right: 10px;
+            width: 30%;
+        }
+        .product-card .category-label:last-of-type {
+            left: 10px;
+            width: 30%;
+        }
+        .product-name {
+            font-size: 14px;
+            color: #333;
+            margin: 5px 0;
+        }
+        .size-options {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: 5px 0;
+            color: #6c757d;
+        }
+        .size-options span {
+            padding: 2px 6px;
+            background: #e9ecef;
+            border-radius: 10px;
+        }
+        .scent-notes {
+            font-size: 12px;
+            color: #6c757d;
+            margin: 5px 0;
+        }
+        .price {
+            font-size: 14px;
+            color: #333;
+            margin: 5px 0;
+        }
+        .price del {
+            color: #6c757d;
+            margin-left: 5px;
+        }
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .btn-add {
+            background: #fff;
+            border: 1px solid #dee2e6;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-add:hover {
+            background: #f1f1f1;
+            border-color: #988558;
+        }
+        .btn-add img {
+            width: 12px;
+            height: 12px;
+            gap: 5px;
+        }
+        .icons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding-right: 15px;
+            padding-left: 5px;
+        }
+        .icons img {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.2s ease-out;
+        }
+        .icons img:hover {
+            transform: scale(1.15);
+        }
+        .bar-1600 {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0px 20px;
+        }
+        @media (max-width: 768px) {
+            .btn-add {
+                padding: 2px 5px;
+                font-size: 10px;
+                gap: 2px;
+            }
+            .btn-add img {
+                width: 12px;
+                height: 12px;
+            }
+        }
+        @media (max-width: 768px) {
+            #bdNavbar.offcanvas-end {
+                width: 70% !important;
+                max-width: 300px;
+            }
+        }
+        @media (max-width: 768px) {
+            #bdNavbar.offcanvas-end {
+                width: 70% !important;
+                max-width: 300px;
+            }
+            #miniCart.offcanvas-end {
+                width: 70% !important;
+                max-width: 300px;
+            }
+        }
+        /* NEW HEADER STYLES END */
 
-    .modal .section {
-      margin: 15px 0;
-    }
+        /* ORIGINAL PAGE STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            /* font-family: 'Inter', sans-serif; - REMOVED, NEW FONT APPLIED ABOVE */
+            background: #fafafa;
+            color: #222;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
 
-    .modal input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-top: 5px;
-    }
+        /* Header (Original - now removed/replaced) */
+        /* The new header is replacing this block */
+        
+        /* Hero */
+        .hero {
+            height: 90vh;
+            background: url('images/heroimage.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+        }
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        .btn {
+            background: #000;
+            color: #fff;
+            padding: 16px 40px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover { background: #333; }
 
-    .modal .actions {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 20px;
-      gap: 10px;
-    }
+        /* Blog Section */
+        .blog-section {
+            padding: 120px 40px;
+            text-align: center;
+            background: #fff;
+        }
+        .blog-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 60px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .blog-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            text-align: left;
+        }
+        .blog-card:hover { transform: translateY(-10px); }
+        .blog-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .blog-card .card-info {
+            padding: 25px;
+        }
+        .blog-card .date {
+            font-size: 13px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .blog-card h3 {
+            font-size: 20px;
+            margin: 10px 0;
+            line-height: 1.3;
+        }
+        .blog-card p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .read-more {
+            color: #000;
+            font-weight: 500;
+            font-size: 14px;
+        }
 
-    .btn {
-      padding: 10px 18px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
-    }
+        /* Brand Teaser */
+        .teaser {
+            padding: 120px 40px;
+            text-align: center;
+            background: #f8f5f2;
+        }
+        .teaser h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        .teaser p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+        }
 
-    .btn-cancel {
-      background: #eee;
-    }
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 40px;
+            background: #fff;
+            text-align: center;
+        }
+        .testimonials h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            margin-bottom: 60px;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .testimonial {
+            font-style: italic;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        .testimonial cite {
+            display: block;
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: 500;
+            opacity: 0.7;
+        }
 
-    .btn-whatsapp {
-      background: #25d366;
-      color: white;
-    }
+        /* Footer (Original - styles are mostly superseded by Bootstrap/New Footer) */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 14px;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 48px; }
+            .hero p { font-size: 18px; }
+        }
+        
+        /* NEW PROMO SLIDER STYLES */
+        .promo-slider-section {
+            padding: 30px 30px;
+            background: white;
+            overflow: hidden;
+        }
+        .promo-slider-container {
+            position: relative;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        .promo-slider-wrapper {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .promo-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-right: 33px;
+        }
+        .promo-slide img {
+            width: 100%;
+            height: 450px;
+            display: block;
+            object-fit: cover;
+        }
+        .promo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            color: #fff;
+            padding: 50px 30px 30px;
+            text-align: left;
+        }
+        .promo-overlay h3 {
+            font-size: 28px;
+            margin: 0 0 8px;
+            font-weight: 700;
+        }
+        .promo-overlay p {
+            font-size: 18px;
+            margin: 0 0 20px;
+        }
+        .promo-btn {
+            background: #fff;
+            color: #000;
+            padding: 10px 26px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+        .promo-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-3px);
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        .slider-btn:hover {
+            background: rgba(0,0,0,0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .slider-prev { left: 15px; }
+        .slider-next { right: 15px; }
+        .promo-slide:last-child:not(.clone) {
+            margin-right: 0;
+        }
+        @media (min-width: 768px) {
+            .promo-slide { min-width: calc(50% - 10px); }
+        }
+        @media (min-width: 1024px) {
+            .promo-slide { min-width: calc(33.333% - 13.33px); }
+        }
+        .btn-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .shop-btn {
+            display: inline-block;
+            background-color: purple;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .shop-btn:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @media (max-width: 768px) {
+            #modalOverlay > div { width: 95%; padding: 20px; margin: 20px; }
+            #modalOverlay > div > div:last-child { flex-direction: column; }
+            #modalOverlay > div > div:last-child > button { width: 100%; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- WhatsApp icon (trigger) -->
-  <button id="whatsappIcon">📲 WhatsApp Checkout</button>
+    <div class="position-fixed top-0 start-0 w-100" style="z-index: 1050; background-color: white;">
+        <div style="width: 100%; height: 30px; background-color: black; display: flex; align-items: center; justify-content: center; margin: 0 auto; padding: 0px 20px;">
+            <p style="color: white; margin: 0; font-size: 12px;">
+            Holiday Fragrance Sale! Up to 10% OFF on all products.
+            </p>
+        </div>
 
-  <!-- Overlay & Modal -->
-<!-- Overlay & Modal -->
-<div class="overlay" id="modalOverlay">
-  <div class="modal">
-    <h2 id="modalProductName">Product Name</h2>
-    <p>Quick checkout via WhatsApp</p>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="arrow-left" viewBox="0 0 256 256">
+                <path fill="currentColor"
+                    d="M220 128a4 4 0 0 1-4 4H49.66l65.17 65.17a4 4 0 0 1-5.66 5.66l-72-72a4 4 0 0 1 0-5.66l72-72a4 4 0 0 1 5.66 5.66L49.66 124H216a4 4 0 0 1 4 4" />
+            </symbol>
+            <symbol id="arrow-right" viewBox="0 0 256 256">
+                <path fill="currentColor"
+                    d="m218.83 130.83l-72 72a4 4 0 0 1-5.66-5.66L206.34 132H40a4 4 0 0 1 0-8h166.34l-65.17-65.17a4 4 0 0 1 5.66-5.66l72 72a4 4 0 0 1 0 5.66" />
+            </symbol>
+            <symbol id="man" viewBox="0 0 512 512">
+                <path fill="currentColor"
+                    d="M332.64 64.58C313.18 43.57 286 32 256 32c-30.16 0-57.43 11.5-76.8 32.38c-19.58 21.11-29.12 49.8-26.88 80.78C156.76 206.28 203.27 256 256 256s99.16-49.71 103.67-110.82c2.27-30.7-7.33-59.33-27.03-80.6M432 480H80a31 31 0 0 1-24.2-11.13c-6.5-7.77-9.12-18.38-7.18-29.11C57.06 392.94 83.4 353.61 124.8 326c36.78-24.51 83.37-38 131.2-38s94.42 13.5 131.2 38c41.4 27.6 67.74 66.93 76.18 113.75c1.94 10.73-.68 21.34-7.18 29.11A31 31 0 0 1 432 480" />
+            </symbol>
+            <symbol id="search" viewBox="0 0 512 512">
+                <path fill="currentColor"
+                    d="M456.69 421.39L362.6 327.3a173.8 173.8 0 0 0 34.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.8 173.8 0 0 0 327.3 362.6l94.09 94.09a25 25 0 0 0 35.3-35.3M97.92 222.72a124.8 124.8 0 1 1 124.8 124.8a124.95 124.95 0 0 1-124.8-124.8" />
+            </symbol>
+            <symbol id="expand" viewBox="0 0 32 32">
+                <path fill="currentColor"
+                    d="m25.545 23.328l-7.627-7.705l7.616-7.616l1.857 1.857l2.26-8.428l-8.428 2.258l1.836 1.836l-7.603 7.604l-7.513-7.59L9.81 3.695L1.392 1.394l2.215 8.44l1.848-1.83l7.524 7.604l-7.515 7.515l-1.856-1.855l-2.26 8.427l8.43-2.257L7.94 25.6l7.503-7.502l7.614 7.693l-1.867 1.848l8.416 2.3l-2.213-8.438z" />
+            </symbol>
+            <symbol id="wishlist" viewBox="0 0 512 512">
+                <path fill="currentColor"
+                    d="M256 448a32 32 0 0 1-18-5.57c-78.59-53.35-112.62-89.93-131.39-112.8c-40-48.75-59.15-98.8-58.61-153C48.63 114.52 98.46 64 159.08 64c44.08 0 74.61 24.83 92.39 45.51a6 6 0 0 0 9.06 0C278.31 88.81 308.84 64 352.92 64c60.62 0 110.45 50.52 111.08 112.64c.54 54.21-18.63 104.26-58.61 153c-18.77 22.87-52.8 59.45-131.39 112.8a32 32 0 0 1-18 5.56" />
+            </symbol>
+            <symbol id="cart" viewBox="0 0 512 512">
+                <circle cx="176" cy="416" r="32" fill="currentColor" />
+                <circle cx="400" cy="416" r="32" fill="currentColor" />
+                <path fill="currentColor"
+                    d="M456.8 120.78a23.92 23.92 0 0 0-18.56-8.78H133.89l-6.13-34.78A16 16 0 0 0 112 64H48a16 16 0 0 0 0 32h50.58l45.66 258.78A16 16 0 0 0 160 368h256a16 16 0 0 0 0-32H173.42l-5.64-32h241.66A24.07 24.07 0 0 0 433 284.71l28.8-144a24 24 0 0 0-5-19.93" />
+            </symbol>
+            <symbol id="play" viewBox="0 0 512 512">
+                <path fill="currentColor" d="m96 448l320-192L96 64z" />
+            </symbol>
+            <symbol id="down" viewBox="0 0 24 24">
+                <g fill="none" fill-rule="evenodd">
+                    <path
+                        d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                    <path fill="currentColor"
+                        d="M13.06 16.06a1.5 1.5 0 0 1-2.12 0l-5.658-5.656a1.5 1.5 0 1 1 2.122-2.121L12 12.879l4.596-4.596a1.5 1.5 0 0 1 2.122 2.12l-5.657 5.658Z" />
+                </g>
+            </symbol>
+            <symbol id="navbar-icon" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 17h18M3 12h18M3 7h18" />
+            </symbol>
+        </svg>
 
-    <div class="section">
-      <label><b>Brand:</b> <span id="modalBrand"></span></label><br>
-      <label><b>Category:</b> <span id="modalCategory"></span></label>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="miniCart">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Your Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div id="miniCart" class="offcanvas-body">
+                <div id="miniCartItems"></div>
+                <div style="border-top: 1px solid #ddd; padding-top: 10px; text-align: right;">
+                    <h6>Total: <span id="miniCartTotal">Ksh 0.00</span></h6>
+                    <div class="d-grid gap-2 mt-3">
+                        <a href="cart.html" class="btn btn-outline-dark">View Full Cart</a>
+                        <a href="index.html" class="btn btn-outline-dark">Continue to Shop</a>
+                        <a href="checkout.html" class="btn btn-dark">Checkout</a>
+                        <a href="whatsappmodal.html" class="btn btn-dark">Checkout via whatsapp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
+            <div class="offcanvas-header justify-content-center">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="order-md-last">
+                    <h4 class="d-flex justify-content-between align-items-center mb-4">
+                        <span class="text-primary">Your cart</span>
+                        <span id="offcanvasCartCount" class="badge bg-primary rounded-circle pt-2">0</span>
+                    </h4>
+                    <ul class="list-group mb-4" id="offcanvasCartItems"></ul>
+                    <button class="w-100 btn btn-dark" type="submit">Continue to checkout</button>
+                </div>
+            </div>
+        </div>
+
+        <header id="header" style="width: 100;" class="bar-1600" >
+            <div class="container-fluid" style="background-color: white;">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg">
+                        <a href="index.html" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
+                            <img style="width: 120px; height: 120px;" src="images/logo1.jpg" alt="logo">
+                        </a>
+                        <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
+                            <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart"
+                                class="position-relative d-flex align-items-center" style="margin-right: 10px;">
+                                <svg class="text-black cart" width="28" height="28" style="display:block;">
+                                    <use xlink:href="#cart"></use>
+                                </svg>
+                                <span id="cartCount"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                </span>
+                            </a>
+
+                            <a href="wishlist.html" class="position-relative d-flex align-items-center">
+                                <img id="navbar-heart"
+                                    src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+                                    alt="Wishlist"
+                                    style="width:28px; height:28px; object-fit:contain; display:block; cursor:pointer; margin:5px;">
+                                <span id="wishlistCount"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                </span>
+                            </a>
+                        </div>
+
+                        <button class="navbar-toggler d-flex d-lg-none order-3 p-0 border-0 shadow-none" type="button"
+                            data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <svg class="navbar-icon text-black" width="30" height="30">
+                                <use xlink:href="#navbar-icon"></use>
+                            </svg>
+                        </button>
+
+                        <div class="offcanvas offcanvas-end bg-white" tabindex="-1" id="bdNavbar"
+                            aria-labelledby="bdNavbarOffcanvasLabel">
+                            <div class="offcanvas-body align-items-center">
+                                <div class="offcanvas-header p-0 py-4 ms-2">
+                                    <button type="button" class="btn-close shadow-none"
+                                        data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
+                                </div>
+                                <div class="col-md-2 d-flex">
+                                    <a href="index.html" class="navbar-brand order-2 order-lg-2 d-none d-lg-flex">
+                                        <img style="width: 150px;height: 150px;" src="images/logo1.jpg" alt="logo">
+                                    </a>
+                                </div>
+
+                                <div class="col-md-5 offset-lg-2">
+                                    <div class="navbar-collapse order-1 order-lg-1 ms-3 ms-lg-0" id="navbarMenu">
+                                        <ul class="navbar-nav d-flex justify-content-center w-100">
+                                            <li class="nav-item me-5">
+                                                <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
+                                                    href="index.html">Home</a>
+                                            </li>
+
+                                            <li class="nav-item me-5">
+                                                <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
+                                                    href="about-us.html">
+                                                    About
+                                                </a>
+                                            </li>
+                                            <li class="nav-item me-5">
+                                                <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
+                                                    href="shop.html">
+                                                    Shop-Now
+                                                </a>
+                                            </li>
+                                            <li class="nav-item me-5">
+                                                <a class="nav-link nav-link-ltr text-black pb-1 pe-0"
+                                                    href="blog.html">
+                                                    Blogs
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
     </div>
+    <section class="hero" style="margin-top: 150px;">
+        <div class="hero-content">
+            <h1>Luxury in Every Breath</h1>
+            <p>Handcrafted fragrances that capture emotion, memory, and desire.</p>
+            <button class="btn" onclick="location.href='shop.html'">Shop Collection</button>
+        </div>
+    </section>
 
-    <div class="section">
-      <span id="modalSize"></span> — 
-      <span id="modalPrice"></span>
-    </div>
+    <section class="blog-section">
+        <h2>From the Journal</h2>
+                    <button style="margin: 20px;" class="btn" onclick="location.href='blog.html'">View  our Blogs</button>
 
-    <div class="section">
-      <input type="text" id="modalFullName" placeholder="Full Name">
-      <input type="text" id="modalLocation" placeholder="Delivery Location">
-    </div>
+        <div class="grid">
+            <div class="blog-card">
+                <img src="images/mountain1.jpg" alt="Highlands">
+                <div class="card-info">
+                    <div class="date">December 10, 2025</div>
+                    <h3>The Cool Whisper of Mlima Baridi</h3>
+                    <p>How Kenya’s misty volcanic peaks inspired our freshest woody creation.</p>
+                    <a href="blogs.html" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="images/beach.jpg" alt="Coast">
+                <div class="card-info">
+                    <div class="date">December 5, 2025</div>
+                    <h3>Pwani Limau – A Love Letter to the Coast</h3>
+                    <p>The citrus notes that capture Swahili mornings and ocean air.</p>
+                    <a href="blogs.html" class="read-more">Read More</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="images/rose.jpg" alt="Wild Rose">
+                <div class="card-info">
+                    <div class="date">November 28, 2025</div>
+                    <h3>Waridi Wa Nyika: The Rose That Defies the Wild</h3>
+                    <p>Exploring the spicy, untamed heart of Kenya’s savanna rose.</p>
+                    <a href="blogs.html" class="read-more">Read More</a>
+                </div>
+            </div>
 
-    <div class="actions">
-      <button class="btn btn-cancel" id="cancelBtn">Cancel</button>
-      <button class="btn btn-whatsapp" id="placeOrderBtn">
-        Place WhatsApp Order
-      </button>
-    </div>
-  </div>
-</div>
-
-<script>
-    function showPopup(icon) {
-  // find the parent product card
-  const productCard = icon.closest(".product-card");
-
-  // get product data from dataset
-  const name = productCard.dataset.name;
-  const price = productCard.dataset.price;
-  const size = productCard.dataset.size;
-  const type = productCard.dataset.type;  // category/type
-  const image = productCard.dataset.image;
-
-  // inject into modal
-  document.getElementById("modalProductName").textContent = name;
-  document.getElementById("modalPrice").textContent = "KES " + price;
-  document.getElementById("modalSize").textContent = size;
-  document.getElementById("modalBrand").textContent = name.split(" ")[0]; // crude brand extraction
-  document.getElementById("modalCategory").textContent = type;
-
-  // show modal
-  document.getElementById("modalOverlay").style.display = "flex";
-
-  // attach WhatsApp order link
-  document.getElementById("placeOrderBtn").onclick = () => {
-    const fullName = document.getElementById("modalFullName").value;
-    const location = document.getElementById("modalLocation").value;
-
-    const message = `Hello, I want to order:\n\n${name}\nSize: ${size}\nPrice: KES ${price}\n\nCustomer: ${fullName}\nLocation: ${location}`;
+        </div>
+        
+    </section>
     
-    const url = "https://wa.me/254700000000?text=" + encodeURIComponent(message);
-    window.open(url, "_blank");
-  };
-}
 
-// close modal
-document.getElementById("cancelBtn").addEventListener("click", () => {
-  document.getElementById("modalOverlay").style.display = "none";
-});
+    <section class="teaser">
+        <h2>Crafted for the Bold</h2>
+        <p>Each Haoren fragrance is a story — inspired by nature, memory, and the art of living beautifully. Discover scents that don’t just smell good, they feel like home.</p>
+        <button class="btn" style="background:#222;" onclick="location.href='about-us.html'">Our Story</button>
+    </section>
 
-document.getElementById("modalOverlay").addEventListener("click", (e) => {
-  if (e.target === document.getElementById("modalOverlay")) {
-    document.getElementById("modalOverlay").style.display = "none";
-  }
-});
+    <section class="testimonials">
+        <h2>Voices of Haoren</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>“The most sophisticated scent I’ve ever worn. Gets compliments every single time.”</p>
+                <cite>— Claire, Nairobi</cite>
+            </div>
+            <div class="testimonial">
+                <p>“Pwani Limau feels like summer in a bottle. Fresh, clean, and addictive.”</p>
+                <cite>— Mike, Mombasa</cite>
+            </div>
+            <div class="testimonial">
+                <p>“Finally a luxury brand that understands African elegance.”</p>
+                <cite>— Amina, Kisumu</cite>
+            </div>
+        </div>
+    </section>
 
-</script>
+    <footer style="background-color: black; padding-top: 15px; padding-bottom: 5px;">
+        <div class="container" data-aos="fade-up">
+            <div class="row row-cols-2 row-cols-md-3 d-none d-md-flex">
+                <div class="col mb-2">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801634920605!2d36.78817777582776!3d-1.2934915356358103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e50d566add%3A0x2d4a4d5689faf57!2sHighway%20Heights!5e0!3m2!1sen!2ske!4v1756724788688!5m2!1sen!2ske"
+                        class="img-fluid w-100"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" style="height: 150px;"></iframe>
+                </div>
+
+                <div class="col mb-2">
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Quick Links</h5>
+                    <ul class="list-unstyled" style="font-size: 0.85rem; margin-bottom: 1rem;">
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Follow Us</h5>
+                    <a href="https://www.facebook.com/HaorenAf" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@haoren.af" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white" style="font-size: 0.85rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <div class="col mb-2">
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Contact Us</h5>
+                    <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Email: info@haorenaf.com</p>
+                    <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Phone: (+254) 0114012345</p>
+                    <p class="text-white my-0" style="font-size: 0.85rem;">Address: Highway Heights, Kilimani, Nairobi</p>
+                </div>
+            </div>
+
+            <div class="row row-cols-2 d-flex d-md-none">
+                <div class="col mb-2">
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Quick Links</h5>
+                    <ul class="list-unstyled" style="font-size: 0.85rem; margin-bottom: 1rem;">
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="https://www.google.com/maps/place/Highway+Heights/@-1.2934915,36.7881778,17z/data=!4m14!1m7!3m6!1s0x182f11e50d566add:0x2d4a4d5689faf57!2sHighway+Heights!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk!3m5!1s0x182f11e50d566add:0x2d4a4d5689faf57!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
+                    </ul>
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Follow Us</h5>
+                    <a href="https://www.facebook.com/HaorenAf" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@haoren.af" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white" style="font-size: 0.85rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <div class="col mb-2">
+                    <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Contact Us</h5>
+                    <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Email: info@haorenaf.com</p>
+                    <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Phone: (+254) 0114012345</p>
+                    <p class="text-white my-0" style="font-size: 0.85rem;">Address: Highway Heights, Kilimani, Nairobi</p>
+                </div>
+            </div>
+
+            <hr class="bg-white my-2">
+            <p class="mb-0 text-center text-white" style="font-size: 0.8rem; padding-bottom: 5px;">© 2025 Haoren. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // GOOGLE ANALYTICS SCRIPT (From new header)
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-SGPS73CVV1');
+    </script>
+    <script>
+        // Placeholder logic from original template - kept for functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const products = document.querySelectorAll('.product-card');
+            const select = document.getElementById('productSelect');
+            const uniqueProductNames = new Set();
+            products.forEach(product => {
+                const name = product.querySelector('.product-name').textContent;
+                uniqueProductNames.add(name);
+            });
+
+            if (select) { // Check if select element exists
+                uniqueProductNames.forEach(name => {
+                    const option = document.createElement('option');
+                    option.value = name.toLowerCase();
+                    option.textContent = name;
+                    select.appendChild(option);
+                });
+                select.addEventListener('change', function() {
+                    filterProducts(this.value, 'select');
+                });
+            }
+
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) { // Check if searchInput element exists
+                searchInput.addEventListener('input', function() {
+                    filterProducts(this.value.toLowerCase(), 'search');
+                });
+            }
+        });
+
+        function filterProducts(value, type) {
+            const products = document.querySelectorAll('.product-card');
+            products.forEach(product => {
+                const name = product.querySelector('.product-name').textContent.toLowerCase();
+                if (type === 'select') {
+                    if (value === '' || name === value) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                } else if (type === 'search') {
+                    if (name.includes(value)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+
+    <script>
+        // WISHLIST COUNT SCRIPT (From new header)
+        function updateWishlistCount() {
+            let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+            const wishlistCount = document.getElementById("wishlistCount");
+
+            if (!wishlistCount) return;
+
+            wishlistCount.textContent = wishlist.length;
+        }
+
+        updateWishlistCount();
+        setInterval(updateWishlistCount, 3000);
+    </script>
+
+    <script>
+        // CART SCRIPTS (From new header)
+        function addToCart(button) {
+            const card = button.closest('.product-card');
+            const price = parseFloat(card.getAttribute('data-price'));
+
+            const product = {
+                id: card.getAttribute('data-id'),
+                image: card.getAttribute('data-image'),
+                name: card.getAttribute('data-name'),
+                type: card.getAttribute('data-type'),
+                price: card.getAttribute('data-price'),
+                size: card.getAttribute('data-size'),
+                description: card.getAttribute('data-description'),
+                quantity: 1,
+                subtotal: price
+            };
+
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            const existingItem = cartData.items.find(item => item.id === product.id);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+                existingItem.subtotal = parseFloat(existingItem.price) * existingItem.quantity;
+            } else {
+                cartData.items.push(product);
+            }
+
+            cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+            localStorage.setItem('cartData', JSON.stringify(cartData));
+
+            const cartCountElement = document.getElementById('cartCount');
+            if (cartCountElement) {
+                cartCountElement.classList.remove('cart-pulsing');
+                void cartCountElement.offsetWidth;
+                cartCountElement.classList.add('cart-pulsing');
+            }
+
+            showPopup();
+            updateCartCount();
+        }
+
+        function updateQuantity(productId, change) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            const item = cartData.items.find(item => item.id === productId);
+
+            if (item) {
+                item.quantity = Math.max(1, item.quantity + change);
+                item.subtotal = parseFloat(item.price) * item.quantity;
+                cartData.total = cartData.items.reduce((sum, i) => sum + i.subtotal, 0);
+                localStorage.setItem('cartData', JSON.stringify(cartData));
+                loadMiniCart();
+                updateCartCount();
+            }
+        }
+
+        function removeFromCart(productId) {
+            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            cartData.items = cartData.items.filter(item => item.id !== productId);
+            cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+            localStorage.setItem('cartData', JSON.stringify(cartData));
+            loadMiniCart();
+            updateCartCount();
+        }
+
+        function showPopup() {
+            const popup = document.getElementById('popup');
+            if (!popup) return;
+            popup.style.display = 'block';
+            setTimeout(closePopup, 3000);
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            if (popup) popup.style.display = 'none';
+        }
+
+        function updateCartCount() {
+            const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [] };
+            const count = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+
+            const cartCount = document.getElementById('cartCount');
+            const offcanvasCartCount = document.getElementById('offcanvasCartCount');
+
+            if (cartCount) cartCount.textContent = count;
+            if (offcanvasCartCount) offcanvasCartCount.textContent = count;
+        }
+
+        function loadMiniCart() {
+            const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+            const miniCartItemsDiv = document.getElementById('miniCartItems');
+            const miniCartTotal = document.getElementById('miniCartTotal');
+            const offcanvasCartItems = document.getElementById('offcanvasCartItems');
+
+            if (!miniCartItemsDiv || !miniCartTotal || !offcanvasCartItems) return;
+
+            miniCartItemsDiv.innerHTML = '';
+            offcanvasCartItems.innerHTML = '';
+
+            if (cartData.items.length === 0) {
+                miniCartItemsDiv.innerHTML = '<p class="text-muted">Your cart is empty.</p>';
+                offcanvasCartItems.innerHTML = '<li class="list-group-item text-muted">Your cart is empty.</li>';
+            } else {
+                cartData.items.forEach(item => {
+                    const miniDiv = document.createElement('div');
+                    miniDiv.className = 'cart-item';
+                    miniDiv.style.cssText = 'padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;';
+                    miniDiv.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto; margin-right: 10px;">
+                        <div style="flex-grow: 1;">
+                            <p style="margin:0;font-weight:bold;">${item.name}</p>
+                            <div class="quantity-controls">
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
+                                <span>Qty: ${item.quantity}</span>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
+                            </div>
+                            <p style="margin:0;">Subtotal: Ksh ${item.subtotal.toFixed(2)}</p>
+                        </div>
+                        <button class="btn btn-danger btn-sm" onclick="removeFromCart('${item.id}')">×</button>
+                    `;
+                    miniCartItemsDiv.appendChild(miniDiv);
+
+                    const offcanvasDiv = document.createElement('li');
+                    offcanvasDiv.className = 'list-group-item d-flex justify-content-between lh-sm';
+                    offcanvasDiv.innerHTML = `
+                        <div>
+                            <h6 class="my-0">${item.name}</h6>
+                            <small class="text-body-secondary">Qty: ${item.quantity}</small>
+                        </div>
+                        <div>
+                            <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
+                            <button class="btn btn-danger btn-sm ms-2" onclick="removeFromCart('${item.id}')">×</button>
+                        </div>
+                    `;
+                    offcanvasCartItems.appendChild(offcanvasDiv);
+                });
+            }
+
+            miniCartTotal.textContent = `Ksh ${cartData.total.toFixed(2)}`;
+            updateCartCount();
+        }
+
+        document.getElementById('miniCart')?.addEventListener('show.bs.offcanvas', loadMiniCart);
+        document.getElementById('offcanvasCart')?.addEventListener('show.bs.offcanvas', loadMiniCart);
+
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCartCount();
+        });
+    </script>
+
+    <script>
+        // WHATSAPP MODAL SCRIPTS (From new header)
+        function showPopups(icon) {
+            console.log("=== showPopups START ===");
+            console.log("Icon clicked:", icon);
+
+            const productCard = icon.closest(".product-card");
+            console.log("Product card:", productCard);
+            if (!productCard) {
+                console.error("ERROR: Product card not found!");
+                return;
+            }
+
+            const name = productCard.dataset.name;
+            const price = productCard.dataset.price;
+            const size = productCard.dataset.size;
+            const type = productCard.dataset.type;
+            console.log("Data extracted - Name:", name, "Price:", price);
+
+            const modalProductName = document.getElementById("modalProductName");
+            const modalPrice = document.getElementById("modalPrice");
+            const modalSize = document.getElementById("modalSize");
+            const modalBrand = document.getElementById("modalBrand");
+            const modalCategory = document.getElementById("modalCategory");
+            const modalQuantity = document.getElementById("modalQuantity");
+
+            if (!modalProductName || !modalPrice || !modalSize || !modalBrand || !modalCategory || !modalQuantity) {
+                console.error("ERROR: Modal elements not found!");
+                return;
+            }
+
+            modalProductName.textContent = name;
+            modalPrice.textContent = "KES " + price;
+            modalSize.textContent = size;
+            modalBrand.textContent = name.split(" ")[0];
+            modalCategory.textContent = type;
+            modalQuantity.value = 1;
+
+            const modalOverlay = document.getElementById("modalOverlay");
+            if (!modalOverlay) {
+                console.error("ERROR: Modal overlay not found!");
+                return;
+            }
+
+            modalOverlay.style.display = "flex";
+
+            const orderBtn = document.getElementById("placeOrderBtn");
+            const plusBtn = document.getElementById("plusBtn");
+            const minusBtn = document.getElementById("minusBtn");
+            if (orderBtn && plusBtn && minusBtn) {
+                orderBtn.textContent = "Place WhatsApp Order • KES " + price;
+                orderBtn.onclick = function() {
+                    const fullName = document.getElementById("modalFullName").value || "Not provided";
+                    const location = document.getElementById("modalLocation").value || "Not provided";
+                    const quantity = document.getElementById("modalQuantity").value;
+                    const totalPrice = parseInt(price) * parseInt(quantity);
+                    const message = `Hello, I want to order:\n\n${name}\nSize: ${size}\nQuantity: ${quantity}\nPrice: KES ${price} x ${quantity} = KES ${totalPrice}\n\nCustomer: ${fullName}\nLocation: ${location}`;
+                    const phoneNumber = "254114012345"; // Replace with real number
+                    const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+                    window.open(url, "_blank");
+                };
+
+                plusBtn.onclick = function() {
+                    modalQuantity.value = parseInt(modalQuantity.value) + 1;
+                    orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
+                };
+
+                minusBtn.onclick = function() {
+                    if (parseInt(modalQuantity.value) > 1) {
+                        modalQuantity.value = parseInt(modalQuantity.value) - 1;
+                        orderBtn.textContent = "Place WhatsApp Order • KES " + (parseInt(price) * parseInt(modalQuantity.value));
+                    }
+                };
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const cancelBtn = document.getElementById("cancelBtn");
+            const modalOverlay = document.getElementById("modalOverlay");
+
+            if (cancelBtn && modalOverlay) {
+                cancelBtn.addEventListener("click", function() {
+                    modalOverlay.style.display = "none";
+                    document.getElementById("modalFullName").value = "";
+                    document.getElementById("modalLocation").value = "";
+                    document.getElementById("modalQuantity").value = 1;
+                });
+
+                modalOverlay.addEventListener("click", function(e) {
+                    if (e.target === modalOverlay) {
+                        modalOverlay.style.display = "none";
+                        document.getElementById("modalFullName").value = "";
+                        document.getElementById("modalLocation").value = "";
+                        document.getElementById("modalQuantity").value = 1;
+                    }
+                });
+            }
+        });
+
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") {
+                const modalOverlay = document.getElementById("modalOverlay");
+                if (modalOverlay && modalOverlay.style.display === "flex") {
+                    modalOverlay.style.display = "none";
+                    document.getElementById("modalFullName").value = "";
+                    document.getElementById("modalLocation").value = "";
+                    document.getElementById("modalQuantity").value = 1;
+                }
+            }
+        });
+    </script>
+
+    <script>
+        // WISHLIST TOGGLE SCRIPTS (From new header)
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        function toggleWishlist(el) {
+            const card = el.closest(".product-card");
+            const id = card.dataset.id;
+
+            const index = wishlist.findIndex(item => item.id === id);
+
+            if (index === -1) {
+                wishlist.push({
+                    id: id,
+                    image: card.dataset.image,
+                    name: card.dataset.name,
+                    type: card.dataset.type,
+                    price: card.dataset.price,
+                    size: card.dataset.size,
+                    description: card.dataset.description
+                });
+                el.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png"; // filled black heart
+            } else {
+                wishlist.splice(index, 1);
+                el.src = "https://cdn-icons-png.flaticon.com/512/1077/1077035.png"; // outline heart
+            }
+
+            localStorage.setItem("wishlist", JSON.stringify(wishlist));
+            updateNavbarHeart();
+        }
+
+        function updateWishlistHearts() {
+            document.querySelectorAll(".product-card").forEach(card => {
+                const id = card.dataset.id;
+                const icon = card.querySelector(".wishlist-icon");
+                if (icon && wishlist.some(item => item.id === id)) {
+                    icon.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png";
+                }
+            });
+        }
+
+        function updateNavbarHeart() {
+            const navbarHeart = document.getElementById("navbar-heart");
+            if (!navbarHeart) return;
+            navbarHeart.src = wishlist.length > 0
+                ? "https://cdn-icons-png.flaticon.com/512/833/833472.png" // filled
+                : "https://cdn-icons-png.flaticon.com/512/1077/1077035.png"; // outline
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateWishlistHearts();
+            updateNavbarHeart();
+        });
+    </script>
+
+    <script>
+        // SLIDER SCRIPTS (From new header)
+        const wrapper = document.getElementById('sliderWrapper');
+        const slides = document.querySelectorAll('.promo-slide:not(.clone)');
+        const totalSlides = slides.length;
+        let index = 0;
+
+        function getSlideWidth() {
+            if (slides.length === 0) return 0;
+            const firstSlide = slides[0];
+            const style = window.getComputedStyle(firstSlide);
+            const marginRight = parseFloat(style.marginRight) || 0;
+            return firstSlide.offsetWidth + marginRight;
+        }
+
+        function updateSlider() {
+            const slideWidth = getSlideWidth();
+            wrapper.style.transform = `translateX(${-index * slideWidth}px)`;
+        }
+
+        document.querySelector('.slider-next').addEventListener('click', () => {
+            index++;
+            updateSlider();
+
+            if (index >= totalSlides) {
+                setTimeout(() => {
+                    wrapper.style.transition = 'none';
+                    index = 0;
+                    updateSlider();
+                    requestAnimationFrame(() => {
+                        wrapper.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    });
+                }, 600);
+            }
+        });
+
+        document.querySelector('.slider-prev').addEventListener('click', () => {
+            if (index <= 0) {
+                wrapper.style.transition = 'none';
+                index = totalSlides;
+                updateSlider();
+
+                requestAnimationFrame(() => {
+                    wrapper.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    index--;
+                    updateSlider();
+                });
+            } else {
+                index--;
+                updateSlider();
+            }
+        });
+
+        function initSlider() {
+            updateSlider();
+        }
+        window.addEventListener('load', initSlider);
+        window.addEventListener('resize', () => {
+            setTimeout(initSlider, 100);
+        });
+
+        let touchStartX = 0;
+        const container = wrapper.parentElement;
+
+        container.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        container.addEventListener('touchend', e => {
+            if (!touchStartX) return;
+            const touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    document.querySelector('.slider-next').click();
+                } else {
+                    document.querySelector('.slider-prev').click();
+                }
+            }
+            touchStartX = 0;
+        }, { passive: true });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGPS73CVV1"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: false,
+            delay: 100
+        });
+    </script>
 </body>
 </html>
-
