@@ -713,12 +713,14 @@
 </head>
 <body>
 
-    <div class="position-fixed top-0 start-0 w-100" style="z-index: 1050; background-color: white;">
+   
+<div class="position-fixed top-0 start-0 w-100" style="z-index: 1050; background-color: white;">
         <div style="width: 100%; height: 30px; background-color: black; display: flex; align-items: center; justify-content: center; margin: 0 auto; padding: 0px 20px;">
             <p style="color: white; margin: 0; font-size: 12px;">
-            Holiday Fragrance Sale! Up to 10% OFF on all products.
+                     Holiday Fragrance Sale! Up to 10% OFF on all products.
             </p>
         </div>
+
 
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <symbol id="arrow-left" viewBox="0 0 256 256">
@@ -767,6 +769,8 @@
                     d="M3 17h18M3 12h18M3 7h18" />
             </symbol>
         </svg>
+
+
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="miniCart">
             <div class="offcanvas-header">
@@ -881,16 +885,21 @@
                                                     Blogs
                                                 </a>
                                             </li>
+
+
                                         </ul>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </nav>
                 </div>
             </div>
         </header>
+
     </div>
+
     <section class="hero" style="margin-top: 150px;">
         <div class="hero-content">
             <h1>Luxury in Every Breath</h1>
@@ -1096,155 +1105,161 @@
         setInterval(updateWishlistCount, 3000);
     </script>
 
-    <script>
-        // CART SCRIPTS (From new header)
-        function addToCart(button) {
-            const card = button.closest('.product-card');
-            const price = parseFloat(card.getAttribute('data-price'));
+ <script>
+    // CART SCRIPTS (From new header)
 
-            const product = {
-                id: card.getAttribute('data-id'),
-                image: card.getAttribute('data-image'),
-                name: card.getAttribute('data-name'),
-                type: card.getAttribute('data-type'),
-                price: card.getAttribute('data-price'),
-                size: card.getAttribute('data-size'),
-                description: card.getAttribute('data-description'),
-                quantity: 1,
-                subtotal: price
-            };
+    function addToCart(button) {
+        const card = button.closest('.product-card');
+        const price = parseFloat(card.getAttribute('data-price'));
 
-            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-            const existingItem = cartData.items.find(item => item.id === product.id);
+        const product = {
+            id: card.getAttribute('data-id'),
+            image: card.getAttribute('data-image'),
+            name: card.getAttribute('data-name'),
+            type: card.getAttribute('data-type'),
+            price: card.getAttribute('data-price'),
+            size: card.getAttribute('data-size'),
+            description: card.getAttribute('data-description'),
+            quantity: 1,
+            subtotal: price
+        };
 
-            if (existingItem) {
-                existingItem.quantity += 1;
-                existingItem.subtotal = parseFloat(existingItem.price) * existingItem.quantity;
-            } else {
-                cartData.items.push(product);
-            }
+        let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+        const existingItem = cartData.items.find(item => item.id === product.id);
 
-            cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
-            localStorage.setItem('cartData', JSON.stringify(cartData));
-
-            const cartCountElement = document.getElementById('cartCount');
-            if (cartCountElement) {
-                cartCountElement.classList.remove('cart-pulsing');
-                void cartCountElement.offsetWidth;
-                cartCountElement.classList.add('cart-pulsing');
-            }
-
-            showPopup();
-            updateCartCount();
+        if (existingItem) {
+            existingItem.quantity += 1;
+            existingItem.subtotal = parseFloat(existingItem.price) * existingItem.quantity;
+        } else {
+            cartData.items.push(product);
         }
 
-        function updateQuantity(productId, change) {
-            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-            const item = cartData.items.find(item => item.id === productId);
+        cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+        localStorage.setItem('cartData', JSON.stringify(cartData));
 
-            if (item) {
-                item.quantity = Math.max(1, item.quantity + change);
-                item.subtotal = parseFloat(item.price) * item.quantity;
-                cartData.total = cartData.items.reduce((sum, i) => sum + i.subtotal, 0);
-                localStorage.setItem('cartData', JSON.stringify(cartData));
-                loadMiniCart();
-                updateCartCount();
-            }
+        const cartCountElement = document.getElementById('cartCount');
+        if (cartCountElement) {
+            cartCountElement.classList.remove('cart-pulsing');
+            void cartCountElement.offsetWidth;
+            cartCountElement.classList.add('cart-pulsing');
         }
 
-        function removeFromCart(productId) {
-            let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-            cartData.items = cartData.items.filter(item => item.id !== productId);
-            cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+        showPopup();
+        updateCartCount();
+    }
+
+    function updateQuantity(productId, change) {
+        let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+        const item = cartData.items.find(item => item.id === productId);
+
+        if (item) {
+            item.quantity = Math.max(1, item.quantity + change);
+            item.subtotal = parseFloat(item.price) * item.quantity;
+            cartData.total = cartData.items.reduce((sum, i) => sum + i.subtotal, 0);
             localStorage.setItem('cartData', JSON.stringify(cartData));
             loadMiniCart();
             updateCartCount();
         }
+    }
 
-        function showPopup() {
-            const popup = document.getElementById('popup');
-            if (!popup) return;
-            popup.style.display = 'block';
-            setTimeout(closePopup, 3000);
-        }
+    function removeFromCart(productId) {
+        let cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+        cartData.items = cartData.items.filter(item => item.id !== productId);
+        cartData.total = cartData.items.reduce((sum, item) => sum + item.subtotal, 0);
+        localStorage.setItem('cartData', JSON.stringify(cartData));
+        loadMiniCart();
+        updateCartCount();
+    }
 
-        function closePopup() {
-            const popup = document.getElementById('popup');
-            if (popup) popup.style.display = 'none';
-        }
+    function showPopup() {
+        const popup = document.getElementById('popup');
+        if (!popup) return;
+        popup.style.display = 'block';
+        setTimeout(closePopup, 3000);
+    }
 
-        function updateCartCount() {
-            const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [] };
-            const count = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
+    function closePopup() {
+        const popup = document.getElementById('popup');
+        if (popup) popup.style.display = 'none';
+    }
 
-            const cartCount = document.getElementById('cartCount');
-            const offcanvasCartCount = document.getElementById('offcanvasCartCount');
+    function updateCartCount() {
+        const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [] };
+        const count = cartData.items.reduce((sum, item) => sum + item.quantity, 0);
 
-            if (cartCount) cartCount.textContent = count;
-            if (offcanvasCartCount) offcanvasCartCount.textContent = count;
-        }
+        const cartCount = document.getElementById('cartCount');
+        const offcanvasCartCount = document.getElementById('offcanvasCartCount');
 
-        function loadMiniCart() {
-            const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
-            const miniCartItemsDiv = document.getElementById('miniCartItems');
-            const miniCartTotal = document.getElementById('miniCartTotal');
-            const offcanvasCartItems = document.getElementById('offcanvasCartItems');
+        if (cartCount) cartCount.textContent = count;
+        if (offcanvasCartCount) offcanvasCartCount.textContent = count;
+    }
 
-            if (!miniCartItemsDiv || !miniCartTotal || !offcanvasCartItems) return;
+    function loadMiniCart() {
+        const cartData = JSON.parse(localStorage.getItem('cartData')) || { items: [], total: 0 };
+        const miniCartItemsDiv = document.getElementById('miniCartItems');
+        const miniCartTotal = document.getElementById('miniCartTotal');
+        const offcanvasCartItems = document.getElementById('offcanvasCartItems');
 
-            miniCartItemsDiv.innerHTML = '';
-            offcanvasCartItems.innerHTML = '';
+        if (!miniCartItemsDiv || !miniCartTotal || !offcanvasCartItems) return;
 
-            if (cartData.items.length === 0) {
-                miniCartItemsDiv.innerHTML = '<p class="text-muted">Your cart is empty.</p>';
-                offcanvasCartItems.innerHTML = '<li class="list-group-item text-muted">Your cart is empty.</li>';
-            } else {
-                cartData.items.forEach(item => {
-                    const miniDiv = document.createElement('div');
-                    miniDiv.className = 'cart-item';
-                    miniDiv.style.cssText = 'padding: 10px; border-bottom: 1px solid #eee; display: flex; align-items: center;';
-                    miniDiv.innerHTML = `
-                        <img src="${item.image}" alt="${item.name}" style="width: 50px; height: auto; margin-right: 10px;">
-                        <div style="flex-grow: 1;">
-                            <p style="margin:0;font-weight:bold;">${item.name}</p>
-                            <div class="quantity-controls">
-                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', -1)">-</button>
-                                <span>Qty: ${item.quantity}</span>
-                                <button class="btn btn-outline-secondary btn-sm" onclick="updateQuantity('${item.id}', 1)">+</button>
-                            </div>
-                            <p style="margin:0;">Subtotal: Ksh ${item.subtotal.toFixed(2)}</p>
+        miniCartItemsDiv.innerHTML = '';
+        offcanvasCartItems.innerHTML = '';
+
+        if (cartData.items.length === 0) {
+            miniCartItemsDiv.innerHTML = '<p class="text-muted">Your cart is empty.</p>';
+            offcanvasCartItems.innerHTML = '<li class="list-group-item text-muted">Your cart is empty.</li>';
+        } else {
+            cartData.items.forEach(item => {
+                // --- MINI CART ITEM (IMPROVED) ---
+                const miniDiv = document.createElement('div');
+                miniDiv.className = 'd-flex align-items-center py-2 border-bottom';
+                miniDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; margin-right: 15px; border-radius: 4px;">
+                    <div class="flex-grow-1">
+                        <p class="mb-0 fw-bold text-dark">${item.name}</p>
+                        <p class="mb-1 text-muted small">${item.size} @ Ksh ${parseFloat(item.price).toFixed(2)}</p>
+                        <div class="d-flex align-items-center gap-2 mt-1">
+                            <button class="btn btn-outline-secondary btn-sm p-0 px-2" style="width: 25px; height: 25px; line-height: 1;" onclick="updateQuantity('${item.id}', -1)">-</button>
+                            <span class="small fw-bold">${item.quantity}</span>
+                            <button class="btn btn-outline-secondary btn-sm p-0 px-2" style="width: 25px; height: 25px; line-height: 1;" onclick="updateQuantity('${item.id}', 1)">+</button>
+                            <span class="ms-auto fw-bold text-end">Ksh ${item.subtotal.toFixed(2)}</span>
                         </div>
-                        <button class="btn btn-danger btn-sm" onclick="removeFromCart('${item.id}')">×</button>
-                    `;
-                    miniCartItemsDiv.appendChild(miniDiv);
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm ms-2 p-0" style="width: 20px; height: 20px; font-size: 1rem;" onclick="removeFromCart('${item.id}')">
+                        &times;
+                    </button>
+                `;
+                miniCartItemsDiv.appendChild(miniDiv);
 
-                    const offcanvasDiv = document.createElement('li');
-                    offcanvasDiv.className = 'list-group-item d-flex justify-content-between lh-sm';
-                    offcanvasDiv.innerHTML = `
-                        <div>
-                            <h6 class="my-0">${item.name}</h6>
-                            <small class="text-body-secondary">Qty: ${item.quantity}</small>
-                        </div>
-                        <div>
-                            <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
-                            <button class="btn btn-danger btn-sm ms-2" onclick="removeFromCart('${item.id}')">×</button>
-                        </div>
-                    `;
-                    offcanvasCartItems.appendChild(offcanvasDiv);
-                });
-            }
-
-            miniCartTotal.textContent = `Ksh ${cartData.total.toFixed(2)}`;
-            updateCartCount();
+                // --- FULL CART ITEM (Keeping existing structure for consistency) ---
+                const offcanvasDiv = document.createElement('li');
+                offcanvasDiv.className = 'list-group-item d-flex justify-content-between lh-sm';
+                offcanvasDiv.innerHTML = `
+                    <div>
+                        <h6 class="my-0">${item.name}</h6>
+                        <small class="text-body-secondary">Qty: ${item.quantity}</small>
+                    </div>
+                    <div>
+                        <span class="text-body-secondary">Ksh ${item.subtotal.toFixed(2)}</span>
+                        <button class="btn btn-danger btn-sm ms-2" onclick="removeFromCart('${item.id}')">×</button>
+                    </div>
+                `;
+                offcanvasCartItems.appendChild(offcanvasDiv);
+            });
         }
 
-        document.getElementById('miniCart')?.addEventListener('show.bs.offcanvas', loadMiniCart);
-        document.getElementById('offcanvasCart')?.addEventListener('show.bs.offcanvas', loadMiniCart);
+        miniCartTotal.textContent = `Ksh ${cartData.total.toFixed(2)}`;
+        updateCartCount();
+    }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            updateCartCount();
-        });
-    </script>
+    document.getElementById('miniCart')?.addEventListener('show.bs.offcanvas', loadMiniCart);
+    document.getElementById('offcanvasCart')?.addEventListener('show.bs.offcanvas', loadMiniCart);
+
+    window.addEventListener('DOMContentLoaded', () => {
+        updateCartCount();
+        // Since loadMiniCart is triggered on show.bs.offcanvas, no need to call it here unless it's the main cart page
+    });
+</script>
 
     <script>
         // WHATSAPP MODAL SCRIPTS (From new header)
