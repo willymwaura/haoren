@@ -41,6 +41,9 @@ rel="stylesheet">
  padding: 0;
  line-height: 1;
  }
+         .navbar .nav-link {
+    font-size: 14px;
+}
 
         /* CORRECTED STYLES FOR BLOG IMAGES (UNIFORMITY) */
         .image-container img {
@@ -57,10 +60,11 @@ rel="stylesheet">
 </head>
 <body>
 
-<div class="position-fixed top-0 start-0 w-100" style="z-index: 1050; background-color: white;">
-        <div style="width: 100%; height: 30px; background-color: black; display: flex; align-items: center; justify-content: center; margin: 0 auto; padding: 0px 20px;">
+   
+<div class="position-fixed top-0 start-0 w-100" style="z-index: 1050; background-color: #F7F7F7;">
+        <div style="width: 100%; height: 40px; background-color: black; display: flex; align-items: center; justify-content: center; margin: 0 auto; padding: 0px 20px;">
             <p style="color: white; margin: 0; font-size: 12px;">
-                      Whatsapp or call 0114012345 | info@haorenaf.net | Highway Heights -Kilimani 
+                    Whatsapp 0114012345 | info@haorenaf.net | Highway Heights 11 th Floor -Kilimani 
             </p>
         </div>
 
@@ -151,11 +155,11 @@ rel="stylesheet">
         </div>
 
         <header id="header" style="width: 100;" class="bar-1600" >
-            <div class="container-fluid" style="background-color: white;">
+            <div class="container-fluid" style="background-color: #F7F7F7;;">
                 <div class="row">
                     <nav class="navbar navbar-expand-lg">
                         <a href="index.html" class="navbar-brand order-2 order-lg-2 d-flex d-lg-none">
-                            <img style="width: 120px; height: 120px;" src="images/logo1.jpg" alt="logo">
+                            <img style="width: 55px; height: 55px;" src="images/logo1.jpeg" alt="logo">
                         </a>
                         <div class="cart-wrapper d-flex align-items-center order-2 order-lg-3 ms-auto me-2" style="padding-right: 10px;">
                             <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#miniCart"
@@ -198,7 +202,7 @@ rel="stylesheet">
                                 </div>
                                 <div class="col-md-2 d-flex">
                                     <a href="index.html" class="navbar-brand order-2 order-lg-2 d-none d-lg-flex">
-                                        <img style="width: 150px;height: 150px;" src="images/logo1.jpg" alt="logo">
+                                        <img style="width: 70px;height: 70px;" src="images/logo1.jpeg" alt="logo">
                                     </a>
                                 </div>
 
@@ -405,65 +409,77 @@ rel="stylesheet">
 </div>
 </div>
 
-<footer style="background-color: black; padding-top: 15px; padding-bottom: 5px;">
+<footer style="background-color: black; padding: 15px 0;">
     <div class="container" data-aos="fade-up">
-        <div class="row row-cols-2 row-cols-md-3 d-none d-md-flex">
-            <div class="col mb-2">
+
+        <!-- DESKTOP -->
+        <div class="row row-cols-3 d-none d-md-flex g-2">
+
+            <!-- Map -->
+            <div class="col">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801634920605!2d36.78817777582776!3d-1.2934915356358103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11e50d566add%3A0x2d4a4d5689faf57!2sHighway%20Heights!5e0!3m2!1sen!2ske!4v1756724788688!5m2!1sen!2ske"
-                        class="img-fluid w-100"
-                        allowfullscreen
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade" style="height: 150px;"></iframe>
+                    class="img-fluid w-100"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    style="height: 110px; display:block;"></iframe>
             </div>
 
-            <div class="col mb-2">
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Quick Links</h5>
-                <ul class="list-unstyled" style="font-size: 0.85rem; margin-bottom: 1rem;">
+            <!-- Quick Links + Social -->
+            <div class="col">
+                <h5 style="color:white; font-size:0.9rem; margin:0 0 4px;">Quick Links</h5>
+                <ul class="list-unstyled" style="font-size:0.78rem; margin:0 0 6px; line-height:1.4;">
                     <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
                     <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
                     <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
                 </ul>
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Follow Us</h5>
-                <a href="https://www.facebook.com/HaorenAf" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.tiktok.com/@haoren.af" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white" style="font-size: 0.85rem;"><i class="fab fa-youtube"></i></a>
+                <h5 style="color:white; font-size:0.9rem; margin:0 0 4px;">Follow Us</h5>
+                <div style="font-size:0.8rem; line-height:1;">
+                    <a href="https://www.facebook.com/HaorenAf" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@haoren.af" class="text-white me-2"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
 
-            <div class="col mb-2">
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Contact Us</h5>
-                <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Email: info@haorenaf.net</p>
-                <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Phone: (+254) 0114012345</p>
-                <p class="text-white my-0" style="font-size: 0.85rem;">Address: Highway Heights, Kilimani, Nairobi</p>
+            <!-- Contact -->
+            <div class="col">
+                <h5 style="color:white; font-size:0.9rem; margin:0 0 4px;">Contact Us</h5>
+                <p class="text-white" style="font-size:0.78rem; margin:0; line-height:1.4;">Email: info@haorenaf.net</p>
+                <p class="text-white" style="font-size:0.78rem; margin:0; line-height:1.4;">Phone: (+254) 0114012345</p>
+                <p class="text-white" style="font-size:0.78rem; margin:0; line-height:1.4;">Address: Highway Heights, Kilimani, Nairobi</p>
             </div>
         </div>
 
-        <div class="row row-cols-2 d-flex d-md-none">
-            <div class="col mb-2">
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Quick Links</h5>
-                <ul class="list-unstyled" style="font-size: 0.85rem; margin-bottom: 1rem;">
+        <!-- MOBILE -->
+        <div class="row row-cols-2 d-flex d-md-none g-2">
+            <div class="col">
+                <h5 style="color:white; font-size:0.9rem; margin:0 0 4px;">Quick Links</h5>
+                <ul class="list-unstyled" style="font-size:0.78rem; margin:0 0 6px; line-height:1.4;">
                     <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
                     <li><a href="shop.html" class="text-white text-decoration-none">Shop</a></li>
                     <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
-                    <li><a href="https://www.google.com/maps/place/Highway+Heights/@-1.2934915,36.7881778,17z/data=!4m14!1m7!3m6!1s0x182f11e50d566add:0x2d4a4d5689faf57!2sHighway+Heights!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk!3m5!1s0x182f11e50d566add:0x2d4a4d5689faf57!8m2!3d-1.2934969!4d36.7907527!16s%2Fg%2F11q1vsrbwk?authuser=0&entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
+                    <li><a href="https://www.google.com/maps/place/Highway+Heights/@-1.2934915,36.7881778,17z" target="_blank" class="text-white text-decoration-none">Find Us on Map</a></li>
                 </ul>
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Follow Us</h5>
-                <a href="https://www.facebook.com/HaorenAf" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.tiktok.com/@haoren.af" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-2" style="font-size: 0.85rem;"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white" style="font-size: 0.85rem;"><i class="fab fa-youtube"></i></a>
+                <h5 style="color:white; font-size:0.9rem; margin:0 0 4px;">Follow Us</h5>
+                <div style="font-size:0.8rem; line-height:1;">
+                    <a href="https://www.facebook.com/HaorenAf" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@haoren.af" class="text-white me-2"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/haoren_fragrance/" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@HaorenPerfumes" class="text-white"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
 
-            <div class="col mb-2">
-                <h5 style="color: white; font-size: 1.15rem; margin-bottom: 0.5rem;">Contact Us</h5>
-                <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Email: info@haorenaf.net</p>
-                <p class="mb-1 text-white my-0" style="font-size: 0.85rem;">Phone: (+254) 0114012345</p>
-                <p class="text-white my-0" style="font-size: 0.85rem;">Address: Highway Heights, Kilimani, Nairobi</p>
+            <div class="col">
+                <h5 style="color:white; font-size:0.9rem; margin:0 0 4px;">Contact Us</h5>
+                <p class="text-white" style="font-size:0.78rem; margin:0; line-height:1.4;">Email: info@haorenaf.net</p>
+                <p class="text-white" style="font-size:0.78rem; margin:0; line-height:1.4;">Phone: (+254) 0114012345</p>
+                <p class="text-white" style="font-size:0.78rem; margin:0; line-height:1.4;">Address: Highway Heights, Kilimani, Nairobi</p>
             </div>
         </div>
 
         <hr class="bg-white my-2">
-        <p class="mb-0 text-center text-white" style="font-size: 0.8rem; padding-bottom: 5px;">© 2025 Haoren. All rights reserved.</p>
+        <p class="mb-0 text-center text-white" style="font-size:0.75rem;">© 2026 Haoren. All rights reserved.</p>
     </div>
 </footer>
 
