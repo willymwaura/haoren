@@ -356,7 +356,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ duration: 1000, once: true, delay: 80 });</script>
-
 <script>
 /* ═══════════ 1. LOAD & RENDER ═══════════ */
 let ALL_PRODUCTS = [];
@@ -414,7 +413,27 @@ function renderCategoryTiles() {
   }).join('');
 }
 
-/* ───── Product grid ───── */
+/* ───── Safe notes helper — NEVER shows description, always short ───── */
+function renderNotes(p) {
+  let text = (p.notes || '').trim();
+
+  // If notes looks like a spec sheet (tabs, newlines, or too long)
+  // fall back to the type instead
+  if (text.length > 55 || text.includes('\n') || text.includes('\t')) {
+    text = (p.type || '').trim();
+  }
+
+  // If still too long, truncate
+  if (text.length > 60) {
+    text = text.slice(0, 57).trim() + '…';
+  }
+
+  // If nothing remains, hide the div entirely
+  if (!text) return '';
+
+  return `<div class="scent-notes">${text}</div>`;
+}
+
 function renderGrid() {
   const grid = document.getElementById('productGrid');
   const title = document.getElementById('gridTitle');
@@ -440,12 +459,21 @@ function renderGrid() {
     const priceHTML = p.price
       ? `KES ${Number(p.price).toLocaleString()}`
       : `<span class="ask">Ask for price</span>`;
-    const badge = p.type.includes('Duo') || p.type.includes('Trio')
+
+    const isCombo = p.type.includes('Duo') || p.type.includes('Trio');
+    const badge = isCombo
       ? '<span class="category-label sale">COMBO</span>'
       : `<span class="category-label">${p.category}</span>`;
 
-    // fallback chain: image -> gallery[0] -> next gallery item -> placeholder
     const fallbackImg = (p.gallery && p.gallery[0]) ? p.gallery[0] : 'image.url';
+
+    // Short notes only — never long text, never HTML
+    let noteLine = (p.notes || '').trim();
+    if (noteLine.length > 40 || noteLine.includes('\n') || noteLine.includes('\t') || noteLine.includes('<')) {
+      noteLine = (p.type || '').trim();
+    }
+    if (noteLine.length > 40) noteLine = '';
+    const notesHTML = noteLine ? `<div class="scent-notes">${noteLine}</div>` : '';
 
     return `
       <div class="product-card"
@@ -455,7 +483,6 @@ function renderGrid() {
            data-type="${p.type}"
            data-price="${p.price ?? ''}"
            data-size="${p.size}"
-           data-description="${p.description}"
            data-aos="fade-up">
         ${badge}
         <a href="product.html?id=${p.id}">
@@ -464,7 +491,7 @@ function renderGrid() {
         </a>
         <div class="product-name">${p.name}</div>
         <div class="size-options"><span>${p.size}</span></div>
-        <div class="scent-notes">${p.notes || p.type}</div>
+        ${notesHTML}
         <div class="price">${priceHTML}</div>
         <div class="product-actions">
           <button class="btn-add" onclick="addToCart(this)">
