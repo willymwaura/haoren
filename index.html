@@ -425,17 +425,25 @@
         /* The new header is replacing this block */
         
         /* Hero */
-        .hero {
-            height: 90vh;
-            background: url('images/heroimage.jpeg') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
-        }
+        /* Base (desktop first) */
+.hero {
+  height: 120vh;
+  background: url('images/heroimage.jpeg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+/* Mobile: 90vh */
+@media (max-width: 768px) {
+  .hero {
+    height: 90vh;
+  }
+}
         .hero::before {
             content: '';
             position: absolute;
@@ -1035,8 +1043,9 @@
 
     </div>
 
-    <section class="hero" style="margin-top: 100px;">
+    <section class="hero" style="margin-top: 150px;">
         <div class="hero-content">
+             <h1>HAOREN Perfumes</h1>
             <h1>Luxury in Every Breath</h1>
             <p>Handcrafted fragrances that capture emotion, memory, and desire.</p>
             <button class="btn" onclick="location.href='shop.html'">Shop Collection</button>
@@ -1110,6 +1119,7 @@
     
 
     <section class="teaser">
+        <h2>HAOREN Perfumes</h2>
         <h2>Crafted for the Bold</h2>
         <p>Each Haoren fragrance is a story — inspired by nature, memory, and the art of living beautifully. Discover scents that don’t just smell good, they feel like home.</p>
         <button class="btn" style="background:#222;" onclick="location.href='about-us.html'">Our Story</button>
@@ -1672,9 +1682,9 @@
   <script>
 /* ═══════════ BEST SELLERS (links only) ═══════════ */
 const BEST_SELLER_IDS = [
-  'mlima-baridi',   // Men
+  'mau-mau-dawn',   // Men
   'nuit-blanche',   // Women
-  'pwani-limau'     // Unisex
+  'mlima-baridi'     // Unisex
 ];
 
 fetch('data/products.json')
