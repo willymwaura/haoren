@@ -713,6 +713,25 @@
             #modalOverlay > div > div:last-child { flex-direction: column; }
             #modalOverlay > div > div:last-child > button { width: 100%; }
         }
+        .insta-wrap {
+  max-width: 340px;      /* narrower = shorter */
+  height: 420px;         /* hard cap — adjust to taste */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.insta-wrap .instagram-media {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 768px) {
+  .insta-wrap {
+    max-width: 100%;
+    height: 360px;       /* slightly shorter on mobile */
+  }
+}
     </style>
 </head>
 <body>
@@ -981,24 +1000,62 @@
             </div>
         </div>
 
-        <div class="container mt-4" style="max-width: 1600px;">
-            <h1 class="text-center" data-aos="flip-down"> Highlights</h1>
+<div class="container mt-4" style="max-width: 1600px;">
+  <h1 class="text-center" data-aos="flip-down">Highlights</h1>
 
-            <div class="row mb-3">
-                <div class="col-12 col-md-6 p-2" data-aos="fade-left">
-                    <iframe src="https://www.youtube.com/embed/nQdXy8MIJp8" class="w-100 " style="height: 300px;"
-                        frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="col-12 col-md-6 p-2" data-aos="fade-left" data-aos-delay="200">
-                    <iframe src="https://www.youtube.com/embed/GgErpHQSDHc" class="w-100" style="height: 300px;"
-                        frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="col-12 col-md-6 p-2" data-aos="fade-left" data-aos-delay="400">
-                    <iframe src="https://www.youtube.com/embed/Vf2uFScVbvs" class="w-100" style="height: 300px;"
-                        frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
+  <div class="row mb-3">
+    <div class="col-12 col-md-6 p-2" data-aos="fade-left">
+      <div class="insta-wrap">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcWFXeWtHBB/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/reel/DcWFXeWtHBB/" target="_blank">View this post on Instagram</a>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 p-2" data-aos="fade-left" data-aos-delay="200">
+      <div class="insta-wrap">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcTG057NOIF/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/reel/DcTG057NOIF/" target="_blank">View this post on Instagram</a>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 p-2" data-aos="fade-left" data-aos-delay="400">
+      <div class="insta-wrap">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcYlBw6N6JK/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/reel/DcYlBw6N6JK/" target="_blank">View this post on Instagram</a>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 p-2" data-aos="fade-left" data-aos-delay="600">
+      <div class="insta-wrap">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DcS-ZddtMOA/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/reel/DcS-ZddtMOA/" target="_blank">View this post on Instagram</a>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 p-2" data-aos="fade-left" data-aos-delay="800">
+      <div class="insta-wrap">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DbfpipxI-lj/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/reel/DbfpipxI-lj/" target="_blank">View this post on Instagram</a>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 p-2" data-aos="fade-left" data-aos-delay="1000">
+      <div class="insta-wrap">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Daa1NHhNmhT/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/reel/Daa1NHhNmhT/" target="_blank">View this post on Instagram</a>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Instagram embed script — needed ONCE -->
+<script async src="//www.instagram.com/embed.js"></script>
 
 
         <div class="container mt-4">
@@ -1116,6 +1173,7 @@
 </footer>
 
     <script src="js/jquery-1.11.0.min.js"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
